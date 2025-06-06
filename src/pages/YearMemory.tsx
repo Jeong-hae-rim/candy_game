@@ -7,12 +7,7 @@ import Footer from "../components/Footer";
 import TIMETABLE from "../assets/images/timetable.jpeg";
 import RABBITMITO from "../assets/images/rabbit_mito.gif";
 import CooperModal from "../components/CooperModal";
-
-interface CooperationType {
-  id: number;
-  nickname: string;
-  x_id: string;
-}
+import { CooperationType } from "../types/type";
 
 function YearMemory() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);

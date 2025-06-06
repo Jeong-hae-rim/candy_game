@@ -73,3 +73,18 @@ export const mbtiData: Record<string, { name: string; image: string }> = {
   ESTP: { name: "연예인", image: ESTP_IMG },
   ESFP: { name: "양키", image: ESFP_IMG },
 };
+
+export interface CooperationItem {
+  id: number;
+  title: string;
+  goods: string;
+  category: string;
+  src: string;
+}
+
+export interface CooperationType {
+  id: number;
+  nickname: string;
+  x_id: string;
+  cooperation_list: CooperationItem[];
+}
