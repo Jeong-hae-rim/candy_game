@@ -20,7 +20,6 @@ function YearMemory() {
   const [selectedButton, setSelectedButton] = useState<CooperationType | null>(
     null
   );
-  const navigate = useNavigate();
 
   const handleOnClick = (el: CooperationType) => {
     setSelectedButton(el);
