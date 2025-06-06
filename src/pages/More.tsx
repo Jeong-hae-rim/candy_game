@@ -16,10 +16,10 @@ function More() {
     currentPage * itemsPerPage
   );
 
-  const getTweetId = (url: string): string | null => {
-    const match = url.match(/status\/(\d+)/);
-    return match ? match[1] : null;
-  };
+  // const getTweetId = (url: string): string | null => {
+  //   const match = url.match(/status\/(\d+)/);
+  //   return match ? match[1] : null;
+  // };
 
   return (
     <div className="more__container">
