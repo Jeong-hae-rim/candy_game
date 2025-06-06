@@ -28,7 +28,9 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <span> M</span>ORE_
+          <Link to={"/more"}>
+            <span> M</span>ORE_
+          </Link>
         </li>
       </div>
     </div>
