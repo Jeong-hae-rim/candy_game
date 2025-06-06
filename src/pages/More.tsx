@@ -1,12 +1,12 @@
 import "./More.css";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { TwitterTweetEmbed } from "react-twitter-embed";
+// import { TwitterTweetEmbed } from "react-twitter-embed";
 import { externalReviews } from "../data/data";
 import { useState } from "react";
 
 function More() {
-  const [selectedTweetId, setSelectedTweetId] = useState<string | null>(null);
+  // const [selectedTweetId, setSelectedTweetId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const itemsPerPage = 15;
@@ -37,7 +37,7 @@ function More() {
             {currentItems.map((review, index) => (
               <tr
                 key={review.id}
-                onClick={() => setSelectedTweetId(getTweetId(review.url))}
+                onClick={() => window.open(review.url, "_blank")}
                 className="review__row"
               >
                 <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
@@ -58,7 +58,7 @@ function More() {
           ))}
         </div>
 
-        {selectedTweetId && (
+        {/* {selectedTweetId && (
           <div
             className="tweet__modal"
             onClick={() => setSelectedTweetId(null)}
@@ -71,7 +71,7 @@ function More() {
               <TwitterTweetEmbed tweetId={selectedTweetId} />
             </div>
           </div>
-        )}
+        )} */}
       </div>
       <Footer />
     </div>
