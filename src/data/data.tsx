@@ -1,4 +1,5 @@
 import infoCard from "../assets/infocard.png";
+import { ExternalReview } from "../types/type";
 
 export const data = [
   {
@@ -919,5 +920,200 @@ export const cooperation = [
         src: "https://file.notion.so/f/f/fcf9a862-df71-49c1-b113-9a1026fd98a1/44f2dbfd-f4ed-4c03-a8c6-70e0f3912628/%EB%88%88_%EB%82%B4%EB%A6%AC%EB%8A%94_%EA%B1%B0%EB%A6%AC_%ED%98%B8%EB%8C%90.gif?table=block&id=18df5465-ec9c-8060-b3bc-dca3c1ab3746&spaceId=fcf9a862-df71-49c1-b113-9a1026fd98a1&expirationTimestamp=1749254400000&signature=9bHe4wwAI7X9uTC2_Tw9XdPWeQ9NXjwtYK0yOMDUUro",
       },
     ],
+  },
+];
+
+export const externalReviews: ExternalReview[] = [
+  {
+    id: "1",
+    platform: "x",
+    title: "来な와 今は好きさ는 전설입니다.",
+    url: "https://x.com/reicy04/status/1927054229765558378",
+  },
+  {
+    id: "2",
+    platform: "x",
+    title: "대박 늦은 호댐온 럽앤볼 후기🌊❤️‍🔥",
+    url: "https://x.com/Daemana_014/status/1929864120633000101",
+  },
+  {
+    id: "3",
+    platform: "x",
+    title: "2025 호열대만 온리전 love&ball 후기",
+    url: "https://x.com/carrotsuki0214/status/1930617076970053706",
+  },
+  {
+    id: "4",
+    platform: "x",
+    title: "호댐온 후기입니다^/////^",
+    url: "https://x.com/shuuuunkiii/status/1927240196870820023",
+  },
+  {
+    id: "5",
+    platform: "x",
+    title: "호댐에 대한 사랑이 깊어지는 행사였습니다",
+    url: "https://x.com/yomitsagain/status/1927397481379213819",
+  },
+  {
+    id: "6",
+    platform: "x",
+    title: "호댐온 후기를..썻습니다^-^",
+    url: "https://x.com/nomoreinsane/status/1929566010383728732",
+  },
+  {
+    id: "7",
+    platform: "x",
+    title: "2025년에도 호댐온이 열리다니..!",
+    url: "https://x.com/2023_potato14/status/1927043371643678989",
+  },
+  {
+    id: "8",
+    platform: "x",
+    title: "제가 또 증명해버렸음",
+    url: "https://x.com/baecho0522/status/1926972471640519079",
+  },
+  {
+    id: "9",
+    platform: "x",
+    title: "올해 호댐온도 재밌었다 그치?☺☺💕",
+    url: "https://x.com/SAEM_0t0/status/1929796435132010895",
+  },
+  {
+    id: "10",
+    platform: "x",
+    title: "럽앤볼을 다녀왔습니다",
+    url: "https://x.com/t0kss0m/status/1928817800681775201",
+  },
+  {
+    id: "11",
+    platform: "x",
+    title: "적어보았습니다 😹 ͙ ᐟᐟ ",
+    url: "https://x.com/mitonokoimitsui/status/1928312703321317572",
+  },
+  {
+    id: "12",
+    platform: "x",
+    title: "기록용 후기와 겸사겸사 원고 이야기도 해보았습니다^///^",
+    url: "https://x.com/aotlf14/status/1929564685952541018",
+  },
+  {
+    id: "13",
+    platform: "x",
+    title: "⚠️데이터 주의/두서없음주의⚠️",
+    url: "https://x.com/maerc_ma/status/1927020310085173703",
+  },
+  {
+    id: "14",
+    platform: "x",
+    title: "늦잠 자고 돈 두고 오고 난리도 아니었는데 그래도 재밌었어요.",
+    url: "https://x.com/soso_hobby/status/1927018675183267989",
+  },
+  {
+    id: "15",
+    platform: "x",
+    title: "25' 호댐온 후기랄까 그냥 준비하는 이야기",
+    url: "https://x.com/ra0nade1/status/1928404344602345525",
+  },
+  {
+    id: "16",
+    platform: "x",
+    title: "호댐온 후기입니다",
+    url: "https://x.com/jagijudocat/status/1929165292971729270",
+  },
+  {
+    id: "17",
+    platform: "x",
+    title: "호댐온 후기",
+    url: "https://x.com/ul_meog/status/1928059875885498613",
+  },
+  {
+    id: "18",
+    platform: "x",
+    title: "CP온리전은 존재만으로도 사랑입니다❤️",
+    url: "https://x.com/serapis_ss/status/1926876294463062498",
+  },
+  {
+    id: "19",
+    platform: "x",
+    title: "장소도 쾌적하고 다들 질서도 잘 지키셔서 좋은...",
+    url: "https://x.com/daem0712/status/1927693836668612932",
+  },
+  {
+    id: "20",
+    platform: "x",
+    title: "후기를 낋여봤습니다.",
+    url: "https://x.com/kyonomitchi/status/1928921724923335118",
+  },
+  {
+    id: "21",
+    platform: "x",
+    title: "호댐온 열어주시고 준비 많이 해주시고 고생 많이하신...",
+    url: "https://x.com/duckhu00/status/1928357775475605663",
+  },
+  {
+    id: "22",
+    platform: "x",
+    title: "행사 후기 모음글을 갱신하여서 같이 달아둡니다 ^.^",
+    url: "https://x.com/dolmengeeda/status/1928578228639129949",
+  },
+  {
+    id: "23",
+    platform: "x",
+    title: "호댐온 다녀왔어요",
+    url: "https://x.com/mangmeoyo/status/1927000716545061178",
+  },
+  {
+    id: "24",
+    platform: "x",
+    title: "호댐카페에 이어 호댐온이라니...",
+    url: "https://x.com/GOVisREAL/status/1926655911533175200",
+  },
+  {
+    id: "25",
+    platform: "x",
+    title: "호댐온 후기를 낋여왔습니다",
+    url: "https://x.com/daepaen/status/1928210805851389969",
+  },
+  {
+    id: "26",
+    platform: "x",
+    title: "호댐온 얼만큼 재밋엇냐면",
+    url: "https://x.com/gonbelazy/status/1929519301901308379",
+  },
+  {
+    id: "27",
+    platform: "x",
+    title: "너무 좋았다 그치",
+    url: "https://x.com/esellone/status/1926847221099552956",
+  },
+  {
+    id: "28",
+    platform: "x",
+    title: "호댐온 2 후기 썻어요",
+    url: "https://x.com/mitsuisocute/status/1929823943072141547",
+  },
+  {
+    id: "29",
+    platform: "x",
+    title: "25년의 잊을 수 없는 추억이자 행복이 될 것 같아요...🩷",
+    url: "https://x.com/im_tofu_seller/status/1926998693527330872",
+  },
+  {
+    id: "30",
+    platform: "x",
+    title: "저....정말 호댐이 좋은만큼 호댐러분들을 사랑해요....",
+    url: "https://x.com/mongmun_S2/status/1926755960900497862",
+  },
+  {
+    id: "31",
+    platform: "x",
+    title: "2025년에도 쵱컾 행사가 있어서 행복했습니다 🩵🩷",
+    url: "https://x.com/setsansam/status/1926580087459098852",
+  },
+  {
+    id: "32",
+    platform: "x",
+    title: "호댐온!!! 정말 재밌었습니다.",
+    url: "https://x.com/sd_jerrymon/status/1926844586413961328",
   },
 ];

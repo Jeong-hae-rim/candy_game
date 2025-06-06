@@ -88,3 +88,10 @@ export interface CooperationType {
   x_id: string;
   cooperation_list: CooperationItem[];
 }
+
+export interface ExternalReview {
+  id: string;
+  platform: "x";
+  url: string;
+  title?: string;
+}
