@@ -1,4 +1,5 @@
 import infoCard from "../assets/infocard.png";
+import SNOWHODAM from "../assets/images/date_logs/눈_내리는_거리_호댐.gif";
 import { ExternalReview } from "../types/type";
 
 export const data = [
@@ -917,7 +918,7 @@ export const cooperation = [
         title: "숨은 일꾼",
         goods: "웹앱 제작 / 게임 제작 / 애니메이션 제작 / ETC.",
         category: "개발 및 용역",
-        src: "https://file.notion.so/f/f/fcf9a862-df71-49c1-b113-9a1026fd98a1/44f2dbfd-f4ed-4c03-a8c6-70e0f3912628/%EB%88%88_%EB%82%B4%EB%A6%AC%EB%8A%94_%EA%B1%B0%EB%A6%AC_%ED%98%B8%EB%8C%90.gif?table=block&id=18df5465-ec9c-8060-b3bc-dca3c1ab3746&spaceId=fcf9a862-df71-49c1-b113-9a1026fd98a1&expirationTimestamp=1749254400000&signature=9bHe4wwAI7X9uTC2_Tw9XdPWeQ9NXjwtYK0yOMDUUro",
+        src: SNOWHODAM,
       },
     ],
   },

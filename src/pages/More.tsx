@@ -1,12 +1,10 @@
 import "./More.css";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-// import { TwitterTweetEmbed } from "react-twitter-embed";
 import { externalReviews } from "../data/data";
 import { useState } from "react";
 
 function More() {
-  // const [selectedTweetId, setSelectedTweetId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const itemsPerPage = 15;
@@ -15,11 +13,6 @@ function More() {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
-
-  // const getTweetId = (url: string): string | null => {
-  //   const match = url.match(/status\/(\d+)/);
-  //   return match ? match[1] : null;
-  // };
 
   return (
     <div className="more__container">
