@@ -69,7 +69,6 @@
 }
 
 .nav__active span {
-  text-decoration: underline;
   font-weight: bold !important;
   color: rgb(95, 167, 255) !important;
   text-shadow: none;
@@ -85,12 +84,11 @@
   align-items: center;
   list-style: none;
   color: white;
-  text-shadow: 0px 1px 1px #faacd0;
+  text-shadow: 0px 1px 1px #ff90c2;
 }
 
 .navigate span {
-  text-decoration: underline;
-  color: #ffb8d8;
+  color: #ff90c2;
   text-shadow: none;
 }
 
