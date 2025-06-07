@@ -1,5 +1,5 @@
 import infoCard from "../assets/infocard.png";
-import SNOWHODAM from "../assets/images/date_logs/눈_내리는_거리_호댐.gif";
+import SNOWHODAM from "../assets/images/date_logs/snow_hodam.gif";
 import { ExternalReview } from "../types/type";
 
 export const data = [
