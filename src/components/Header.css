@@ -63,6 +63,18 @@
   font-size: small;
 }
 
+.nav__active {
+  font-weight: bold;
+  text-shadow: 0px 1px 2px rgb(95, 167, 255);
+}
+
+.nav__active span {
+  text-decoration: underline;
+  font-weight: bold !important;
+  color: rgb(95, 167, 255) !important;
+  text-shadow: none;
+}
+
 .navigate {
   width: 90%;
   height: 40px;

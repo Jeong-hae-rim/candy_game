@@ -17,41 +17,44 @@ function More() {
   return (
     <div className="more__container">
       <Header />
-      <div className="external__review__board">
-        <h1>온리전 후기 모음</h1>
-        <table className="review__table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>제목</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems.map((review, index) => (
-              <tr
-                key={review.id}
-                onClick={() => window.open(review.url, "_blank")}
-                className="review__row"
-              >
-                <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                <td>{review.title}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="pagination">
-          {Array.from({ length: totalPages }, (_, i) => (
-            <button
-              key={i + 1}
-              onClick={() => setCurrentPage(i + 1)}
-              className={currentPage === i + 1 ? "active" : ""}
-            >
-              {i + 1}
-            </button>
-          ))}
-        </div>
+      <div className="more__wrapper">
+        <div className="more__wrap">
+          <div className="external__review__board">
+            <h1>온리전 후기 모음</h1>
+            <h3>#호댐온_럽앤볼_후기</h3>
+            <table className="review__table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>제목</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.map((review, index) => (
+                  <tr
+                    key={review.id}
+                    onClick={() => window.open(review.url, "_blank")}
+                    className="review__row"
+                  >
+                    <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
+                    <td>{review.title}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="pagination">
+              {Array.from({ length: totalPages }, (_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => setCurrentPage(i + 1)}
+                  className={currentPage === i + 1 ? "active" : ""}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
 
-        {/* {selectedTweetId && (
+            {/* {selectedTweetId && (
           <div
             className="tweet__modal"
             onClick={() => setSelectedTweetId(null)}
@@ -65,6 +68,8 @@ function More() {
             </div>
           </div>
         )} */}
+          </div>
+        </div>
       </div>
       <Footer />
     </div>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -13,24 +13,36 @@ const Header = () => {
       </div>
       <div className="navigate">
         <li>
-          <Link to={"/love-and-ball"}>
+          <NavLink
+            to={"/love-and-ball"}
+            className={({ isActive }) => (isActive ? "nav__active" : "")}
+          >
             <span>H</span>OME_
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={"/year-memory"}>
+          <NavLink
+            to={"/year-memory"}
+            className={({ isActive }) => (isActive ? "nav__active" : "")}
+          >
             <span> Y</span>EAR MEMORY_
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={"/date-log"}>
+          <NavLink
+            to={"/date-log"}
+            className={({ isActive }) => (isActive ? "nav__active" : "")}
+          >
             <span> D</span>ATE LOG_
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={"/more"}>
+          <NavLink
+            to={"/more"}
+            className={({ isActive }) => (isActive ? "nav__active" : "")}
+          >
             <span> M</span>ORE_
-          </Link>
+          </NavLink>
         </li>
       </div>
     </div>
