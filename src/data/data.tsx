@@ -926,6 +926,12 @@ export const cooperation = [
 
 export const externalReviews: ExternalReview[] = [
   {
+    id: "33",
+    platform: "x",
+    title: "합법적으로 호댐을 뜯고다녓습니다",
+    url: "https://x.com/f1avor_0range/status/1931168400375751119",
+  },
+  {
     id: "1",
     platform: "x",
     title: "来な와 今は好きさ는 전설입니다.",
