@@ -13,8 +13,8 @@ export default defineConfig({
         skipWaiting: true,
       },
       manifest: {
-        name: "hoyeol x daeman only festival LOVE&BALL",
-        short_name: "LOVE&BALL",
+        name: "hoyeol x daeman only festival SecretClub432",
+        short_name: "SecretClub432",
         theme_color: "#ffffff",
         icons: [
           {
