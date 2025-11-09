@@ -5,7 +5,7 @@ export default function GallerySection() {
       <div className="grid gallery">
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="item">
-            호열대만 이미지 {i + 1}
+            이미지 {i + 1}
           </div>
         ))}
       </div>

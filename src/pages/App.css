@@ -1,3 +1,4 @@
+/* ===== 기본(PC 기준) ===== */
 @font-face {
   font-family: "Ramche";
   src: url(/src/assets/fonts/Ramche.ttf);
@@ -10,88 +11,164 @@
   font-display: swap;
 }
 
-html,
 body {
   margin: 0;
-  padding: 0;
-  max-width: 1024px;
-  height: 100%;
-  background-color: #e1f1ff;
+  background: #0e0f12;
+  color: #e9eaee;
   font-family: "Ramche", "zpix";
 }
 
-.main__container {
-  border: 4px solid #e1f1ff;
-  padding: 10px;
-  height: 100vh;
-  box-sizing: border-box;
-  background: e1f1ff;
+/* 전체 컨테이너: 중앙 정렬 */
+.container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.logo {
-  height: 12em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #ff84f9aa);
-}
-
-.main__container > .game-box-wrapper {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  min-height: 100vh;
+  background: #0e0f12;
+  padding: 40px;
 }
 
-.label-wrapper {
+/* 카드 */
+.card {
+  background: #111218;
+  border-radius: 16px;
+  padding: 40px 48px;
+  max-width: 420px;
   width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid #1a1c22;
+}
+
+.card h1 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #fff;
+  text-align: center;
+}
+
+.desc {
+  font-size: 15px;
+  color: #aaa;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* 입력 영역 */
+.input-wrap {
   display: flex;
-  justify-content: space-evenly;
-  gap: 15px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
-.main__container > .nes-container {
-  border-color: #79a1c3;
+.input-wrap input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #2a2f3a;
+  background: #151924;
+  color: #e9eaee;
+  font-size: 15px;
 }
 
-.title {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  color: #656565;
-  text-align: center;
-  font-style: italic;
+.input-wrap input::placeholder {
+  color: #6b7280;
 }
 
-.title2 {
-  font-style: italic;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  color: #2765d8;
-  text-align: center;
+.toggle {
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #2a2f3a;
+  background: #1a1d25;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
-.title3 {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  color: #888;
-  text-align: center;
+.toggle:hover {
+  background: #2a2f3a;
+  color: #fff;
 }
 
-.read-the-docs {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #888;
-  font-size: x-small;
+/* 체크박스 */
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.remember input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2a3a52;
+}
+
+/* 버튼 */
+.submit {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1b2534, #162030);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid #2a3a52;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.submit:hover {
+  background: #24344d;
+  transform: translateY(-1px);
+}
+
+.message {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #fca5a5;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+/* ===== 반응형: 모바일 (<=768px) ===== */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .card {
+    padding: 28px 24px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .card h1 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .desc {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
+
+  .input-wrap input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .toggle {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .submit {
+    font-size: 15px;
+    padding: 10px;
+  }
 }

@@ -37,10 +37,8 @@ export default function App() {
   return (
     <div className="container">
       <div className="card">
-        <h1>비밀 페이지</h1>
-        <p className="desc">
-          비밀번호를 입력해야 접근할 수 있습니다. (데모용이므로 서버 검증 없음)
-        </p>
+        <h1>비밀결사대클럽432</h1>
+        <p className="desc">비밀번호를 입력해줘!</p>
 
         <div className="input-wrap">
           <input
@@ -65,7 +63,7 @@ export default function App() {
             checked={remember}
             onChange={(e) => setRemember(e.target.checked)}
           />
-          다음에 다시 묻지 않음 (세션)
+          다음에는 비밀번호 없이 들어오기
         </label>
 
         <button className="submit" onClick={handleSubmit}>

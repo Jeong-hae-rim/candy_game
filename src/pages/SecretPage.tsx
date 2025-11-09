@@ -6,6 +6,7 @@ import SectionRenderer from "../components/SectionRenderer";
 import Sidebar from "../components/Sidebar";
 import type { MenuItem, MenuKey } from "../types/type";
 
+import MobileNav from "../components/MobileNav";
 export default function SecretPage() {
   const navigate = useNavigate();
   const [active, setActive] = useState<MenuKey>("home");
@@ -44,6 +45,12 @@ export default function SecretPage() {
   return (
     <div className="pc-layout">
       <Sidebar
+        menu={menu}
+        active={active}
+        onChange={setActive}
+        onLogout={handleLogout}
+      />
+      <MobileNav
         menu={menu}
         active={active}
         onChange={setActive}
