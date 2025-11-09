@@ -172,24 +172,3 @@ body {
     padding: 10px;
   }
 }
-
-/* ✅ 380px 이하: input을 더 줄이고 버튼 고정폭 유지 */
-@media (max-width: 380px) {
-  .input-wrap {
-    display: grid; /* flex → grid 전환 */
-    grid-template-columns: minmax(0, 1fr) 50px; /* input | button 폭 */
-    gap: 6px;
-  }
-
-  .input-wrap input {
-    min-width: 0; /* ✅ 줄어들 수 있게 */
-    padding: 10px 12px;
-    font-size: 14px;
-  }
-
-  .toggle {
-    width: 50px; /* 버튼 고정폭 */
-    padding: 10px 0;
-    font-size: 13px;
-  }
-}
