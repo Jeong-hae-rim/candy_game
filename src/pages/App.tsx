@@ -1,45 +1,79 @@
 import "./App.css";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import reactLogo from "../assets/loveandball.png";
+import { SESSION_KEY, PASSWORD } from "../func/constants";
 
-function App() {
+export default function App() {
   const navigate = useNavigate();
+  const [input, setInput] = useState("");
+  const [message, setMessage] = useState("");
+  const [remember, setRemember] = useState(false);
+  const [showPw, setShowPw] = useState(false);
 
-  const handleOnClick = () => {
-    navigate("/love-and-ball");
+  // 이미 인증된 세션이면 바로 시크릿 페이지로
+  useEffect(() => {
+    const saved = sessionStorage.getItem(SESSION_KEY);
+    if (saved === "1") navigate("/secretclub432", { replace: true });
+  }, [navigate]);
+
+  const handleSubmit = () => {
+    if (!input.trim()) {
+      setMessage("비밀번호를 입력하세요.");
+      return;
+    }
+    if (input === PASSWORD) {
+      // ✅ 현재 탭 세션에서는 항상 통과되도록 세션키 저장
+      sessionStorage.setItem(SESSION_KEY, "1");
+      // ✅ 체크한 경우에만 '지속 저장'
+      if (remember) localStorage.setItem(SESSION_KEY, "1");
+      setMessage("인증 성공! 내부로 이동합니다.");
+      setInput("");
+      navigate("/secretclub432");
+    } else {
+      setMessage("비밀번호가 일치하지 않습니다. 다시 시도하세요.");
+    }
   };
 
   return (
-    <div className="main__container">
-      <div>
-        <img src={reactLogo} className="logo" alt="React logo" />
-      </div>
-      <div className="nes-container with-title game-box-wrapper">
-        <p className="title">HOYEOL X DAEMAN ONLY</p>
-        <h3 className="title2"> ツッパリ </h3>
-        <h3 className="title2"> HIGH SCHOOL </h3>
-        <h2 className="title2">⊹⁺ LOVE & BALL ⊹⁺</h2>
-        <div className="label-wrapper">
-          <label>
-            <input
-              type="radio"
-              className="nes-radio"
-              name="answer"
-              onClick={handleOnClick}
-              checked
-            />
-            <span>Yes</span>
-          </label>
-          <label>
-            <input type="radio" className="nes-radio" name="answer" />
-            <span>No</span>
-          </label>
+    <div className="container">
+      <div className="card">
+        <h1>비밀 페이지</h1>
+        <p className="desc">
+          비밀번호를 입력해야 접근할 수 있습니다. (데모용이므로 서버 검증 없음)
+        </p>
+
+        <div className="input-wrap">
+          <input
+            type={showPw ? "text" : "password"}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="비밀번호를 입력하세요"
+            onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+          />
+          <button
+            className="toggle"
+            type="button"
+            onClick={() => setShowPw((s) => !s)}
+          >
+            {showPw ? "숨기기" : "표시"}
+          </button>
         </div>
-        <p className="read-the-docs">2025. 05. 24</p>
-        <p className="read-the-docs">SLAM DUNK NON-OFFICIAL FESTIVAL</p>
+
+        <label className="remember">
+          <input
+            type="checkbox"
+            checked={remember}
+            onChange={(e) => setRemember(e.target.checked)}
+          />
+          다음에 다시 묻지 않음 (세션)
+        </label>
+
+        <button className="submit" onClick={handleSubmit}>
+          입장
+        </button>
+
+        {message && <div className="message">{message}</div>}
       </div>
     </div>
   );
 }
-
-export default App;

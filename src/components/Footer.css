@@ -1,7 +1,0 @@
-.footer-container {
-  flex-shrink: 0;
-  height: 75px;
-  width: 100%;
-  background-image: url(/src/assets/footer.jpeg);
-  background-repeat: no-repeat;
-}

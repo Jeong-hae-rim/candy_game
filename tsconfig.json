@@ -12,6 +12,8 @@
     },
   ],
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["ES2020", "DOM"],
     "types": [
       "vite-plugin-pwa/client",
       "vite-plugin-pwa/info.d.ts",
