@@ -1,6 +1,24 @@
 export const SESSION_KEY = "pw_unlocked_v1";
-export const PASSWORD = "35716824";
-export const PASSWORD2 = "지금은좋아해";
-export const PASSWORD3 = "지금은 좋아해";
-export const PASSWORD4 = "지금은 좋아해!";
-export const PASSWORD5 = "지금은좋아해!";
+export const PASSWORDS = [
+  "35716824",
+  "지금은좋아해",
+  "지금은좋아해!",
+  "지금은 좋아해",
+  "지금은 좋아해!",
+  "wlrmadmswhgdkgo!",
+  "wlrmadmswhgdkgo",
+  "wlrmadms whgdkgo!",
+  "wlrmadms whgdkgo",
+  "imawasukisa!",
+  "imawa sukisa!",
+  "imawa sukisa",
+  "imawasukisa",
+  "IMAWASUKISA",
+  "IMAWA SUKISA",
+  "IMAWASUKISA!",
+  "IMAWA SUKISA!",
+  "이마와스키사",
+  "이마와 스키사",
+  "이마와 스키사!",
+  "이마와스키사!",
+];

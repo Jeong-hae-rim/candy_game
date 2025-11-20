@@ -1,14 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  SESSION_KEY,
-  PASSWORD,
-  PASSWORD2,
-  PASSWORD3,
-  PASSWORD4,
-  PASSWORD5,
-} from "../func/constants";
+import { SESSION_KEY, PASSWORDS } from "../func/constants";
 
 export default function App() {
   const navigate = useNavigate();
@@ -28,9 +21,7 @@ export default function App() {
       setMessage("비밀번호를 입력하세요.");
       return;
     }
-    if (
-      [PASSWORD, PASSWORD2, PASSWORD3, PASSWORD4, PASSWORD5].includes(input)
-    ) {
+    if (PASSWORDS.includes(input)) {
       // ✅ 현재 탭 세션에서는 항상 통과되도록 세션키 저장
       sessionStorage.setItem(SESSION_KEY, "1");
       // ✅ 체크한 경우에만 '지속 저장'
