@@ -12,7 +12,7 @@ export default function App() {
   // 이미 인증된 세션이면 바로 시크릿 페이지로
   useEffect(() => {
     const saved = sessionStorage.getItem(SESSION_KEY);
-    if (saved === "1") navigate("/secretclub432", { replace: true });
+    if (saved === "1") navigate("/home", { replace: true });
   }, [navigate]);
 
   const handleSubmit = () => {
@@ -27,7 +27,7 @@ export default function App() {
       if (remember) localStorage.setItem(SESSION_KEY, "1");
       setMessage("인증 성공! 내부로 이동합니다.");
       setInput("");
-      navigate("/secretclub432");
+      navigate("/home");
     } else {
       setMessage("비밀번호가 일치하지 않습니다. 다시 시도하세요.");
     }

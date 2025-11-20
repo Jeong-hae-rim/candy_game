@@ -1,6 +1,6 @@
 import "./SecretPage.css";
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { SESSION_KEY } from "../func/constants";
 import SectionRenderer from "../components/SectionRenderer";
 import Sidebar from "../components/Sidebar";
@@ -9,7 +9,7 @@ import type { MenuItem, MenuKey } from "../types/type";
 import MobileNav from "../components/MobileNav";
 export default function SecretPage() {
   const navigate = useNavigate();
-  const [active, setActive] = useState<MenuKey>("home");
+  const { tab } = useParams<{ tab?: string }>();
 
   // 인증 가드
   useEffect(() => {
@@ -42,18 +42,27 @@ export default function SecretPage() {
     []
   );
 
+  const [active, setActive] = useState<MenuKey>(
+    (menu.find((m) => m.key === tab)?.key as MenuKey) || "home"
+  );
+
+  const handleTabChange = (key: MenuKey) => {
+    setActive(key);
+    navigate(`/${key}`, { replace: true });
+  };
+
   return (
     <div className="pc-layout">
       <Sidebar
         menu={menu}
         active={active}
-        onChange={setActive}
+        onChange={handleTabChange}
         onLogout={handleLogout}
       />
       <MobileNav
         menu={menu}
         active={active}
-        onChange={setActive}
+        onChange={handleTabChange}
         onLogout={handleLogout}
       />
       <main className="pc-main" role="region" aria-live="polite">

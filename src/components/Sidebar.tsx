@@ -1,5 +1,6 @@
 import { useMemo, useRef } from "react";
 import type { MenuItem, MenuKey } from "../types/type";
+import { useNavigate } from "react-router-dom";
 
 interface SidebarProps {
   menu: MenuItem[];
@@ -10,6 +11,7 @@ interface SidebarProps {
 
 function Sidebar({ menu, active, onChange, onLogout }: SidebarProps) {
   const listRef = useRef<HTMLDivElement | null>(null);
+  const navigate = useNavigate();
 
   const activeIndex = useMemo(
     () => menu.findIndex((m) => m.key === active),
@@ -41,7 +43,7 @@ function Sidebar({ menu, active, onChange, onLogout }: SidebarProps) {
 
   return (
     <aside className="pc-sidebar" aria-label="사이드 메뉴">
-      <div className="brand">
+      <div className="brand" onClick={() => navigate("/")}>
         <span className="logo">🔒</span>
         <div className="logo-box">
           <strong>:: 비밀결사대 주머니통신 ::</strong>

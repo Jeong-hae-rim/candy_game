@@ -9,7 +9,7 @@ const Router = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/secretclub432" element={<Secretpage />} />
+          <Route path="/:tab?" element={<Secretpage />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

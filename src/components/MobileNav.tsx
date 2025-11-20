@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import type { MenuItem, MenuKey } from "../types/type";
 
 interface MobileNavProps {
@@ -13,9 +14,11 @@ export default function MobileNav({
   onChange,
   onLogout,
 }: MobileNavProps) {
+  const navigate = useNavigate();
+
   return (
     <nav className="mobile-nav" aria-label="모바일 네비게이션">
-      <div className="mobile-nav__brand">
+      <div className="mobile-nav__brand" onClick={() => navigate("/")}>
         <span className="logo">🔒</span>
         <strong>:: The After-Class Secret Club ::</strong>
         {onLogout && (
