@@ -43,7 +43,10 @@ function Sidebar({ menu, active, onChange, onLogout }: SidebarProps) {
     <aside className="pc-sidebar" aria-label="사이드 메뉴">
       <div className="brand">
         <span className="logo">🔒</span>
-        <strong>Secret Club</strong>
+        <div className="logo-box">
+          <strong>:: 비밀결사대 주머니통신 ::</strong>
+          <p className="muted">The After-Class Secret Club</p>
+        </div>
       </div>
 
       <div

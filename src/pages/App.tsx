@@ -8,7 +8,6 @@ export default function App() {
   const [input, setInput] = useState("");
   const [message, setMessage] = useState("");
   const [remember, setRemember] = useState(false);
-  // const [showPw, setShowPw] = useState(false);
 
   // 이미 인증된 세션이면 바로 시크릿 페이지로
   useEffect(() => {
@@ -37,24 +36,16 @@ export default function App() {
   return (
     <div className="container">
       <div className="card">
-        <h1>비밀결사대클럽432</h1>
-        <p>secretclub432</p>
+        <h1>비밀결사대 주머니통신</h1>
+        <p>The After-Class Secret Club</p>
 
         <div className="input-wrap">
           <input
-            //type={showPw ? "text" : "password"}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="비밀번호를 입력해줘!"
             onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           />
-          {/* <button
-            className="toggle"
-            type="button"
-            onClick={() => setShowPw((s) => !s)}
-          >
-            {showPw ? "숨기기" : "표시"}
-          </button> */}
         </div>
 
         <label className="remember">
