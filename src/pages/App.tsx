@@ -8,7 +8,7 @@ export default function App() {
   const [input, setInput] = useState("");
   const [message, setMessage] = useState("");
   const [remember, setRemember] = useState(false);
-  const [showPw, setShowPw] = useState(false);
+  // const [showPw, setShowPw] = useState(false);
 
   // 이미 인증된 세션이면 바로 시크릿 페이지로
   useEffect(() => {
