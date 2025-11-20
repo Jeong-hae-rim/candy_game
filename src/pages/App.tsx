@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SESSION_KEY, PASSWORD } from "../func/constants";
+import { SESSION_KEY, PASSWORD, PASSWORD2 } from "../func/constants";
 
 export default function App() {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ export default function App() {
       setMessage("비밀번호를 입력하세요.");
       return;
     }
-    if (input === PASSWORD) {
+    if (input === PASSWORD || input === PASSWORD2) {
       // ✅ 현재 탭 세션에서는 항상 통과되도록 세션키 저장
       sessionStorage.setItem(SESSION_KEY, "1");
       // ✅ 체크한 경우에만 '지속 저장'
@@ -38,23 +38,22 @@ export default function App() {
     <div className="container">
       <div className="card">
         <h1>비밀결사대클럽432</h1>
-        <p className="desc">비밀번호를 입력해줘!</p>
 
         <div className="input-wrap">
           <input
-            type={showPw ? "text" : "password"}
+            //type={showPw ? "text" : "password"}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="비밀번호를 입력하세요"
+            placeholder="비밀번호를 입력해줘!"
             onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           />
-          <button
+          {/* <button
             className="toggle"
             type="button"
             onClick={() => setShowPw((s) => !s)}
           >
             {showPw ? "숨기기" : "표시"}
-          </button>
+          </button> */}
         </div>
 
         <label className="remember">

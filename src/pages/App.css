@@ -71,6 +71,7 @@ body {
   background: #151924;
   color: #e9eaee;
   font-size: 15px;
+  text-align: center;
 }
 
 .input-wrap input::placeholder {
