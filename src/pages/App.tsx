@@ -36,7 +36,7 @@ export default function App() {
   return (
     <div className="container">
       <div className="card">
-        <h1>비밀결사대 주머니통신</h1>
+        <h1>:: 비밀결사대 주머니통신 ::</h1>
         <p>The After-Class Secret Club</p>
 
         <div className="input-wrap">

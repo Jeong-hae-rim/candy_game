@@ -17,7 +17,7 @@ export default function MobileNav({
     <nav className="mobile-nav" aria-label="모바일 네비게이션">
       <div className="mobile-nav__brand">
         <span className="logo">🔒</span>
-        <strong>The After-Class Secret Club</strong>
+        <strong>:: The After-Class Secret Club ::</strong>
         {onLogout && (
           <button
             className="mobile-nav__logout"

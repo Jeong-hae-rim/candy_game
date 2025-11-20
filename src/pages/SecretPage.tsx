@@ -35,7 +35,7 @@ export default function SecretPage() {
     () => [
       { key: "home", label: "홈", icon: "🏠" },
       { key: "notice", label: "공지", icon: "📣" },
-      { key: "about", label: "천사목록", icon: "ℹ️" },
+      { key: "about", label: "천사목록", icon: "👼🏻" },
       { key: "gallery", label: "디스패치", icon: "🖼️" },
       { key: "download", label: "자료실", icon: "📦" },
     ],
