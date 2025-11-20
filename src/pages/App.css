@@ -1,7 +1,7 @@
 /* ===== 기본(PC 기준) ===== */
 @font-face {
-  font-family: "Ramche";
-  src: url(/src/assets/fonts/Ramche.ttf);
+  font-family: "Galmuri14";
+  src: url(/src/assets/fonts/Galmuri14.ttf);
   font-display: swap;
 }
 
@@ -15,7 +15,7 @@ body {
   margin: 0;
   background: #0e0f12;
   color: #e9eaee;
-  font-family: "Ramche", "zpix";
+  font-family: "Galmuri14", "zpix";
 }
 
 /* 전체 컨테이너: 중앙 정렬 */
@@ -37,12 +37,13 @@ body {
   width: 100%;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
   border: 1px solid #1a1c22;
+  text-align: center;
 }
 
 .card h1 {
   font-size: 26px;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   color: #fff;
   text-align: center;
 }
