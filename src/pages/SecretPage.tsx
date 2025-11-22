@@ -1,6 +1,6 @@
 import "./SecretPage.css";
-import BASKET from "../assets/images/눈알괴물2.png";
-import EYE from "../assets/images/눈알괴물1.png";
+import BASKET from "../assets/images/eye2.png";
+import EYE from "../assets/images/eye1.png";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SESSION_KEY } from "../func/constants";
