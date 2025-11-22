@@ -13,27 +13,27 @@ export default defineConfig({
         skipWaiting: true,
       },
       manifest: {
-        name: "hoyeol x daeman only festival SecretClub432",
-        short_name: "SecretClub432",
+        name: "hoyeol x daeman only festival The After-Class Secret Club",
+        short_name: "The After-Class Secret Club",
         theme_color: "#ffffff",
-        // icons: [
-        //   {
-        //     src: "/maskable_icon_x192.png",
-        //     type: "image/png",
-        //     sizes: "192x192",
-        //   },
-        //   {
-        //     src: "/maskable_icon_x512.png",
-        //     type: "image/png",
-        //     sizes: "512x512",
-        //   },
-        //   {
-        //     src: "/maskable_icon_x512.png",
-        //     type: "image/png",
-        //     sizes: "512x512",
-        //     purpose: "maskable",
-        //   },
-        // ],
+        icons: [
+          {
+            src: "/maskable_icon_x192.png",
+            type: "image/png",
+            sizes: "192x192",
+          },
+          {
+            src: "/maskable_icon_x512.png",
+            type: "image/png",
+            sizes: "512x512",
+          },
+          {
+            src: "/maskable_icon_x512.png",
+            type: "image/png",
+            sizes: "512x512",
+            purpose: "maskable",
+          },
+        ],
       },
     }),
   ],

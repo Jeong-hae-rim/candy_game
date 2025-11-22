@@ -1,4 +1,5 @@
 import "./App.css";
+import LOGO from "../assets/images/logo3.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SESSION_KEY, PASSWORDS } from "../func/constants";
@@ -36,6 +37,7 @@ export default function App() {
   return (
     <div className="container">
       <div className="card">
+        <img src={LOGO} alt="비밀결사대 로고" className="login-logo" />
         <h1>:: 비밀결사대 주머니통신 ::</h1>
         <p>The After-Class Secret Club</p>
 

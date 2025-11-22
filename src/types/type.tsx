@@ -1,7 +1,9 @@
+import { ReactNode } from "react";
+
 export type MenuKey = "home" | "notice" | "gallery" | "download" | "about";
 
 export interface MenuItem {
   key: MenuKey;
   label: string;
-  icon: string; // emoji or text icon
+  icon: ReactNode; // emoji or text icon
 }

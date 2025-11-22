@@ -1,4 +1,6 @@
 import "./SecretPage.css";
+import BASKET from "../assets/images/눈알괴물2.png";
+import EYE from "../assets/images/눈알괴물1.png";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SESSION_KEY } from "../func/constants";
@@ -34,9 +36,17 @@ export default function SecretPage() {
   const menu: MenuItem[] = useMemo(
     () => [
       { key: "home", label: "홈", icon: "🏠" },
-      { key: "notice", label: "공지", icon: "📣" },
+      {
+        key: "notice",
+        label: "공지",
+        icon: <img src={EYE} alt="" className="eye-logo" />,
+      },
       { key: "about", label: "천사목록", icon: "👼🏻" },
-      { key: "gallery", label: "디스패치", icon: "🖼️" },
+      {
+        key: "gallery",
+        label: "디스패치",
+        icon: <img src={BASKET} alt="" className="basket-logo" />,
+      },
       { key: "download", label: "자료실", icon: "📦" },
     ],
     []

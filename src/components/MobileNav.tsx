@@ -1,3 +1,4 @@
+import LOGO from "../assets/images/logo3.png";
 import { useNavigate } from "react-router-dom";
 import type { MenuItem, MenuKey } from "../types/type";
 
@@ -19,7 +20,7 @@ export default function MobileNav({
   return (
     <nav className="mobile-nav" aria-label="모바일 네비게이션">
       <div className="mobile-nav__brand" onClick={() => navigate("/")}>
-        <span className="logo">🔒</span>
+        <img src={LOGO} alt="비밀결사대 로고" className="login-logo" />
         <strong>:: The After-Class Secret Club ::</strong>
         {onLogout && (
           <button

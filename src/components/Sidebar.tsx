@@ -1,3 +1,4 @@
+import LOGO from "../assets/images/logo3.png";
 import { useMemo, useRef } from "react";
 import type { MenuItem, MenuKey } from "../types/type";
 import { useNavigate } from "react-router-dom";
@@ -44,7 +45,7 @@ function Sidebar({ menu, active, onChange, onLogout }: SidebarProps) {
   return (
     <aside className="pc-sidebar" aria-label="사이드 메뉴">
       <div className="brand" onClick={() => navigate("/")}>
-        <span className="logo">🔒</span>
+        <img src={LOGO} alt="비밀결사대 로고" className="login-logo" />
         <div className="logo-box">
           <strong>:: 비밀결사대 주머니통신 ::</strong>
           <p className="muted">The After-Class Secret Club</p>
