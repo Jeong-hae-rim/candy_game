@@ -86,8 +86,8 @@ export default function App() {
 
         {message && <div className="message">{message}</div>}
 
-        <div className="hint-row">
-          <button type="button" className="hint-link" onClick={openHint2}>
+        <div className="hint-row2">
+          <button type="button" className="hint-link2" onClick={openHint2}>
             Access Code for International Members
           </button>
         </div>
