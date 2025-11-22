@@ -1,6 +1,7 @@
 import "./SecretPage.css";
 import BASKET from "../assets/images/eye2.png";
 import EYE from "../assets/images/eye1.png";
+import EYE2 from "../assets/images/eye3.png";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SESSION_KEY } from "../func/constants";
@@ -35,7 +36,11 @@ export default function SecretPage() {
 
   const menu: MenuItem[] = useMemo(
     () => [
-      { key: "home", label: "홈", icon: "🏠" },
+      {
+        key: "home",
+        label: "일정",
+        icon: <img src={EYE2} alt="" className="eye-logo" />,
+      },
       {
         key: "notice",
         label: "공지",

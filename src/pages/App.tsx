@@ -1,6 +1,7 @@
 import "./App.css";
 import LOGO from "../assets/images/logo3.png";
 import CODE from "../assets/images/code_sc.png";
+import HINT from "../assets/images/hint.jpg";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SESSION_KEY, PASSWORDS } from "../func/constants";
@@ -11,6 +12,7 @@ export default function App() {
   const [message, setMessage] = useState("");
   const [remember, setRemember] = useState(false);
   const [showHint, setShowHint] = useState(false); // ✅ 힌트 모달 상태
+  const [showHint2, setShowHint2] = useState(false);
 
   // 이미 인증된 세션이면 바로 시크릿 페이지로
   useEffect(() => {
@@ -38,6 +40,8 @@ export default function App() {
 
   const openHint = () => setShowHint(true);
   const closeHint = () => setShowHint(false);
+  const openHint2 = () => setShowHint2(true);
+  const closeHint2 = () => setShowHint2(false);
 
   return (
     <div className="container">
@@ -81,6 +85,12 @@ export default function App() {
         </button>
 
         {message && <div className="message">{message}</div>}
+
+        <div className="hint-row">
+          <button type="button" className="hint-link" onClick={openHint2}>
+            Access Code for International Members
+          </button>
+        </div>
       </div>
 
       {/* ✅ 힌트 모달 */}
@@ -105,7 +115,47 @@ export default function App() {
             <h2>비밀번호 힌트</h2>
             <img src={CODE} className="code-img" />
             <p>초대장에 숨겨져 있던 코드, 다들 발견했을까?</p>
-            <h3>'○○○○○○' 클럽</h3>
+            <h3>
+              '<span className="hint-ment2">○○○○○○</span>' 클럽
+            </h3>
+          </div>
+        </div>
+      )}
+
+      {showHint2 && (
+        <div className="modal-backdrop" onClick={closeHint2}>
+          <div
+            className="modal hint-modal"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Access Code Hint"
+          >
+            <button
+              className="modal-close"
+              type="button"
+              onClick={closeHint2}
+              aria-label="Close international hint"
+            >
+              ✕
+            </button>
+
+            <h2>Access Code 🌍</h2>
+            <p>
+              To gain access, enter the code hidden below. <br />
+              Only true members of the After-Class Secret Club may pass.
+            </p>
+            <p>**************************************</p>
+            <img src={HINT} className="code-img" />
+
+            <h4>
+              Think back to Ho-yeol’s confession. <br />
+              Can you uncover it?
+            </h4>
+            <h2>
+              {" "}
+              '<span className="hint-ment2">○○○○○○○○○○○</span>' club
+            </h2>
           </div>
         </div>
       )}
