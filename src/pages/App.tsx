@@ -1,5 +1,6 @@
 import "./App.css";
 import LOGO from "../assets/images/logo3.png";
+import CODE from "../assets/images/code_sc.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SESSION_KEY, PASSWORDS } from "../func/constants";
@@ -9,6 +10,7 @@ export default function App() {
   const [input, setInput] = useState("");
   const [message, setMessage] = useState("");
   const [remember, setRemember] = useState(false);
+  const [showHint, setShowHint] = useState(false); // ✅ 힌트 모달 상태
 
   // 이미 인증된 세션이면 바로 시크릿 페이지로
   useEffect(() => {
@@ -34,12 +36,27 @@ export default function App() {
     }
   };
 
+  const openHint = () => setShowHint(true);
+  const closeHint = () => setShowHint(false);
+
   return (
     <div className="container">
       <div className="card">
         <img src={LOGO} alt="비밀결사대 로고" className="login-logo" />
         <h1>:: 비밀결사대 주머니통신 ::</h1>
         <p>The After-Class Secret Club</p>
+
+        <p className="hint-ment">
+          홈페이지에 입장하기 위해서는 <br /> 초대장에 남겨둔 코드를 치고
+          들어와야 해. <br /> 비밀 결사대 대원이라면, 답은 당연히 알겠지?
+        </p>
+
+        {/* ✅ 힌트 텍스트 (input 바로 아래) */}
+        <div className="hint-row">
+          <button type="button" className="hint-link" onClick={openHint}>
+            힌트
+          </button>
+        </div>
 
         <div className="input-wrap">
           <input
@@ -65,6 +82,33 @@ export default function App() {
 
         {message && <div className="message">{message}</div>}
       </div>
+
+      {/* ✅ 힌트 모달 */}
+      {showHint && (
+        <div className="modal-backdrop" onClick={closeHint}>
+          <div
+            className="modal hint-modal"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="비밀번호 힌트"
+          >
+            <button
+              className="modal-close"
+              type="button"
+              onClick={closeHint}
+              aria-label="힌트 닫기"
+            >
+              ✕
+            </button>
+
+            <h2>비밀번호 힌트</h2>
+            <img src={CODE} className="code-img" />
+            <p>초대장에 숨겨져 있던 코드, 다들 발견했을까?</p>
+            <h3>'○○○○○○' 클럽</h3>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
