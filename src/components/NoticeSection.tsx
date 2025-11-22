@@ -81,7 +81,7 @@ const notices: Notice[] = [
   {
     id: 3,
     title: "온리전 개괄",
-    date: "2025-11-09",
+    date: "2025-11-14",
     summary: "우리 비밀결사대의 입장 및 장내 관련이야!",
     body: [
       <>
@@ -145,7 +145,7 @@ const notices: Notice[] = [
   {
     id: 4,
     title: "부스 입장 안내",
-    date: "2025-11-10",
+    date: "2025-11-15",
     summary: "우리 동아리의 비밀 수칙을 꼭 읽어줘.",
     body: [
       <>
@@ -237,7 +237,7 @@ const notices: Notice[] = [
   {
     id: 5,
     title: "일반 입장 안내",
-    date: "2025-11-10",
+    date: "2025-11-16",
     summary: "우리 온리전에 입장할 때 안내문이야!",
     body: [
       <ul>
