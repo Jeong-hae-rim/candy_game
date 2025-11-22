@@ -13,7 +13,11 @@
 
 body {
   margin: 0;
-  background: #0e0f12;
+  background-image: url("/src/assets/images/bg_pc_02.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #e9eaee;
   font-family: "Galmuri14", "zpix";
 }
@@ -24,24 +28,24 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #0e0f12;
+  /* background: #0e0f12; */
   padding: 40px;
 }
 
 /* 카드 */
 .card {
-  background: #111218;
+  /* background: #111218; */
   border-radius: 16px;
   padding: 40px 48px;
   max-width: 420px;
   width: 100%;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-  border: 1px solid #1a1c22;
+  border: 1px solid #ff61f453;
   text-align: center;
 }
 
 .card h1 {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
   margin-bottom: 5px;
   color: #fff;
@@ -68,15 +72,15 @@ body {
   flex: 1;
   padding: 12px 14px;
   border-radius: 10px;
-  border: 1px solid #2a2f3a;
-  background: #151924;
-  color: #e9eaee;
+  border: 1px solid #ff61f453;
+  background: #9446a3;
+  color: #ffffff;
   font-size: 15px;
   text-align: center;
 }
 
 .input-wrap input::placeholder {
-  color: #6b7280;
+  color: #dadada;
 }
 
 .toggle {
@@ -100,7 +104,7 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #aaa;
+  color: #d4d4d4;
   margin-bottom: 16px;
 }
 
@@ -115,11 +119,12 @@ body {
   width: 100%;
   padding: 12px;
   border-radius: 10px;
-  background: linear-gradient(180deg, #1b2534, #162030);
+  /* background: linear-gradient(180deg, #1b2534, #162030); */
   color: #fff;
   font-size: 16px;
   font-weight: 600;
-  border: 1px solid #2a3a52;
+  border: 1px solid #411a3e;
+  background: #783c84;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.15s ease;
 }
