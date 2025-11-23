@@ -25,8 +25,8 @@ const albums: Album[] = [
     images: [cartoon1, cartoon2],
     tags: [
       "들킨_쪽지",
-      "이상한_인테리어와_수상한_책이_가득한_컬트_모임",
       "들키기_전에_암구호_변경을?",
+      "이상한_인테리어와_수상한_책이_가득한_컬트_모임",
     ],
     comments: [
       {
@@ -173,11 +173,16 @@ export default function GallerySection() {
                 <div className="caption-date muted">{album.date}</div>
                 <div className="caption-comment muted">💬 {firstComment}</div>
                 <div className="caption-tags">
-                  {album.tags.map((tag) => (
+                  {album.tags.slice(0, 2).map((tag) => (
                     <span key={tag} className="tag-pill">
                       #{tag}
                     </span>
                   ))}
+
+                  {/* 태그가 3개 이상이면 +N 표시 */}
+                  {album.tags.length > 2 && (
+                    <span className="tag-more">+{album.tags.length - 2}</span>
+                  )}
                 </div>
               </div>
             </button>
