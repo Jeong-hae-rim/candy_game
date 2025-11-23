@@ -104,14 +104,16 @@ export default function App() {
             aria-modal="true"
             aria-label="비밀번호 힌트"
           >
-            <button
-              className="modal-close"
-              type="button"
-              onClick={closeHint}
-              aria-label="힌트 닫기"
-            >
-              ✕
-            </button>
+            <div className="gallery-modal__header">
+              <button
+                className="modal-close"
+                type="button"
+                onClick={closeHint}
+                aria-label="닫기"
+              >
+                ✕
+              </button>
+            </div>
 
             <h2>비밀번호 힌트</h2>
             <img src={CODE} className="code-img" />
@@ -132,14 +134,16 @@ export default function App() {
             aria-modal="true"
             aria-label="Access Code Hint"
           >
-            <button
-              className="modal-close"
-              type="button"
-              onClick={closeHint2}
-              aria-label="Close international hint"
-            >
-              ✕
-            </button>
+            <div className="gallery-modal__header">
+              <button
+                className="modal-close"
+                type="button"
+                onClick={closeHint2}
+                aria-label="닫기"
+              >
+                ✕
+              </button>
+            </div>
 
             <h2>Access Code 🌍</h2>
             <p>
