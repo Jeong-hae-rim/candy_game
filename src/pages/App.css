@@ -19,7 +19,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
-  font-family: "Galmuri14", "zpix";
+  font-family: "zpix", "Galmuri14";
 }
 
 /* 전체 컨테이너: 중앙 정렬 */

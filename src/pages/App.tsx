@@ -116,7 +116,13 @@ export default function App() {
             </div>
 
             <h2>비밀번호 힌트</h2>
-            <img src={CODE} className="code-img" />
+            <a
+              href="https://x.com/secretclub432/status/1983386793665012205"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={CODE} className="code-img" alt="code" />
+            </a>
             <p>초대장에 숨겨져 있던 코드, 다들 발견했을까?</p>
             <h3>
               '<span className="hint-ment2">○○○○○○</span>' 클럽
