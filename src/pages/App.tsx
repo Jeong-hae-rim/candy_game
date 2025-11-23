@@ -88,7 +88,8 @@ export default function App() {
 
         <div className="hint-row2">
           <button type="button" className="hint-link2" onClick={openHint2}>
-            Access Code for International Members
+            Access Code for International Members <br />{" "}
+            海外の方向けアクセスコード
           </button>
         </div>
       </div>
