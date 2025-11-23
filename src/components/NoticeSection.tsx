@@ -43,13 +43,13 @@ const notices: Notice[] = [
     bodyEn: [
       <ol>
         <li>&nbsp;DO NOT get caught by Mito or Mitsui. Serious.</li>
-        <li>&nbsp;Entry code phrase: “The day Mito confessed to Mitsui“</li>
+        <li>&nbsp;Entry code phrase: “The day Mito confessed to Mitsui”</li>
         <li>
           &nbsp;All Pocket-Comm reports are anonymous, but toxic ones will be
           deleted! 😇
         </li>
         <li>
-          &nbsp;When sending event notes, ALWAYS write “Spoiler Alert,” then
+          &nbsp;When sending event notes, ALWAYS write “Spoiler Alert”, then
           fold it before you pass it on!
         </li>
         <li>
