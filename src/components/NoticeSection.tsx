@@ -155,7 +155,7 @@ const notices: Notice[] = [
         <br />
         &nbsp;&nbsp;※ This event assumes that the world of Slam Dunk exists in
         modern-day reality, and that Shohoku High students who adore
-        “Yamichuuuu” (one of their coded names) are secretly planning a
+        “Yummy-chu♡” (one of their coded names) are secretly planning a
         celebration.
         <br />
         <br />
@@ -277,8 +277,8 @@ const notices: Notice[] = [
           <li>
             &nbsp;Pre–registration pack(official event goods package): All
             attendees are required to purchase the mandatory pre–registration
-            pack (전프레) included in the participation fee. Proxy pickup is not
-            allowed.
+            pack(전프레/official event goods package) included in the
+            participation fee. Proxy pickup is not allowed.
           </li>
         </ol>
         <h3>[ In-Venue Regulations ]</h3>
