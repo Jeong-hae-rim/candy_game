@@ -1,10 +1,14 @@
-import LIST from "../assets/images/calendar.png";
+import TOP from "../assets/images/calendar/top.png";
+import BOTTOM from "../assets/images/calendar/bottom.png";
 
 export default function HomeSection() {
   return (
     <>
       <h2>비밀결사클럽 일정</h2>
-      <img src={LIST} alt="비밀결사대 일정" className="list-img" />
+      <div className="img-stack">
+        <img src={BOTTOM} className="img-bottom" />
+        <img src={TOP} className="img-top" />
+      </div>
     </>
   );
 }
