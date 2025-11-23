@@ -152,7 +152,7 @@ export default function App() {
               Think back to Ho-yeol’s confession. <br />
               Can you uncover it?
             </h4>
-            <h2>
+            <h2 className="hint-ment-global">
               {" "}
               '<span className="hint-ment2">○○○○○○○○○○○</span>' club
             </h2>

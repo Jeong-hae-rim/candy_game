@@ -181,6 +181,18 @@ body {
   margin-bottom: 1rem;
 }
 
+.hint-modal p {
+  font-size: 14px;
+}
+
+.hint-modal h4 {
+  font-size: 16px;
+}
+
+.hint-ment-global {
+  font-style: italic;
+}
+
 .hint-modal .muted {
   margin-bottom: 6px;
 }
