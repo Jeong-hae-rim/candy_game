@@ -36,6 +36,8 @@ const notices: Notice[] = [
           &nbsp;우리 써방명은 [모열디만], [묘멸먜먄], [모딤], [호댐],
           [ㅎㅇㄷㅁ]이다.
         </li>
+        <br />
+        <br />
       </ol>,
     ],
     bodyEn: [
@@ -54,6 +56,8 @@ const notices: Notice[] = [
           &nbsp; Our search blocking words would be : Yhooomisss, Yamichuuuu,
           Yachtmissyou, MM, HYDM, YMT.
         </li>
+        <br />
+        <br />
       </ol>,
     ],
   },
@@ -101,6 +105,8 @@ const notices: Notice[] = [
         피해 행사를 기획한다는 스토리라인을 가지고 있으며, 부스 참가자 및
         참관객들이 직접 북산고 비밀결사대의 일원이 되어 행사에 참여하는
         인터랙티브한 참여형•체험형 이벤트를 지향하고 있습니다!
+        <br />
+        <br />
       </p>,
     ],
     bodyEn: [
@@ -224,6 +230,8 @@ const notices: Notice[] = [
             주최 측이 책임지지 않으므로 공지사항을 꼭 숙지해 주세요.
           </li>
         </ol>
+        <br />
+        <br />
       </>,
     ],
     bodyEn: [
@@ -305,6 +313,8 @@ const notices: Notice[] = [
             encouraged to familiarize themselves with all official notices.
           </li>
         </ol>
+        <br />
+        <br />
       </>,
     ],
   },
@@ -399,6 +409,8 @@ const notices: Notice[] = [
             이루어져야 합니다.
           </li>
         </ol>
+        <br />
+        <br />
       </>,
     ],
     bodyEn: [
@@ -476,65 +488,108 @@ const notices: Notice[] = [
             cutting/scratching surfaces.
           </li>
         </ol>
-        <h3>[ 성인 부스 & 성인본 판매 ]</h3>
+        <h3>[ Adult Booth & Adult Content Regulations ]</h3>
         <ol>
           <li>
-            &nbsp;성인 부스의 경우 모든 인원 (부스 참가자, 유/무료 입장객)이
-            법적 성인이어야 합니다. 미성년자의 상주 및 입장이 확인되는 경우 즉각
-            퇴장 조치됩니다.
+            &nbsp;All individuals involved with an adult booth, booth staff and
+            all visiting attendees, must be legal adults. Minors found entering
+            or staying within an adult booth will be immediately sent off from
+            the venue.
           </li>
           <li>
-            &nbsp;부스 참가자 전원의 연령보다 높은 수위의 창작물을 판매하거나
-            배포할 수 없습니다.
+            &nbsp;Booths may not sell or distribute adult material of a rating
+            higher than the age of any participating booth member.
           </li>
           <li>
-            &nbsp;성인본 디스플레이 및 판매 시 opp 포장으로 밀봉된 상태여야
-            합니다.
+            &nbsp;All displayed or sold adult publications must be sealed in OPP
+            packaging.
           </li>
           <li>
-            &nbsp;디스플레이 및 판매되는 성인본에는 반드시 19세 미만 관람불가
-            표기 또는 스티커를 부착하여야 합니다.
+            &nbsp;All adult publications must display a clear “19+ / Adults
+            Only” label or sticker.
           </li>
           <li>
-            &nbsp;성인본 판매 시 반드시 신분증과 팔찌를 확인한 후 판매가
-            이루어져야 합니다.
+            &nbsp;Sales of adult content require strict ID and event wristband
+            verification for every transaction.
           </li>
         </ol>
+        <br />
+        <br />
       </>,
     ],
   },
   {
     id: 5,
     title: "일반 입장 안내",
+    titleEn: "General Admission Guidelines",
     date: "2025-11-16",
     summary: "우리 온리전에 입장할 때 안내문이야!",
     body: [
-      <ol>
-        <li>입장권은 1인 1매 구매 가능합니다.</li>
-        <li>
-          구매 후 양도/취소/환불 모두 불가하므로 신중한 구매 부탁드립니다.
-        </li>
-        <li>개인 사정이나 단순 변심으로 인한 환불은 불가합니다.</li>
-        <li>
-          주문자 임의로 폼 거래 종료 시 혹은 제출된 폼의 정보를 변경하여 주문자
-          정보 불일치 등의 문제로 확인이 어려울 경우 입장 및 환불이 불가합니다.
-        </li>
-        <li>
-          입장 특전의 누락 및 파본 교환은 행사 당일 현장에서만 가능하며 행사
-          종료 후에는 교환이 불가합니다. 배송 및 포장 과정에서 발생할 수 있는
-          미세한 긁힘 혹은 찍힘은 파본으로 인정되지 않으니 양해 부탁드립니다.
-        </li>
-        <li>
-          행사 미참석 시 입장권 환불은 불가하며, 전프레의 경우 배송료를 별도
-          결제 후 배송받을 수 있습니다.
-        </li>
-        <li>신청 시 받은 개인정보는 행사 종료 이후 파기됩니다.</li>
-      </ol>,
+      <>
+        <ol>
+          <li>&nbsp;입장권은 1인 1매 구매 가능합니다.</li>
+          <li>
+            &nbsp;구매 후 양도/취소/환불 모두 불가하므로 신중한 구매
+            부탁드립니다.
+          </li>
+          <li>&nbsp;개인 사정이나 단순 변심으로 인한 환불은 불가합니다.</li>
+          <li>
+            &nbsp;주문자 임의로 폼 거래 종료 시 혹은 제출된 폼의 정보를 변경하여
+            주문자 정보 불일치 등의 문제로 확인이 어려울 경우 입장 및 환불이
+            불가합니다.
+          </li>
+          <li>
+            &nbsp;입장 특전의 누락 및 파본 교환은 행사 당일 현장에서만 가능하며
+            행사 종료 후에는 교환이 불가합니다. 배송 및 포장 과정에서 발생할 수
+            있는 미세한 긁힘 혹은 찍힘은 파본으로 인정되지 않으니 양해
+            부탁드립니다.
+          </li>
+          <li>
+            &nbsp;행사 미참석 시 입장권 환불은 불가하며, 전프레의 경우 배송료를
+            별도 결제 후 배송받을 수 있습니다.
+          </li>
+          <li>&nbsp;신청 시 받은 개인정보는 행사 종료 이후 파기됩니다.</li>
+        </ol>
+        <br />
+        <br />
+      </>,
     ],
     bodyEn: [
-      <ol>
-        <li></li>
-      </ol>,
+      <>
+        <ol>
+          <li>&nbsp;Each individual may purchase only one admission ticket.</li>
+          <li>
+            &nbsp;Please review your purchase carefully, as no transfers,
+            cancellations, or refunds will be provided under any circumstances.
+          </li>
+          <li>
+            &nbsp;Refunds are not available for personal reasons or change of
+            mind.
+          </li>
+          <li>
+            &nbsp;If the purchaser alters or closes the form on their own, or if
+            the submitted information is changed in a way that prevents proper
+            verification, both admission and refunds will be denied.
+          </li>
+          <li>
+            &nbsp;Missing or damaged admission benefits can only be exchanged on
+            the day of the event at the venue. No exchanges will be processed
+            after the event. Minor marks or dents that may occur during shipping
+            or packaging are not considered as defects.
+          </li>
+          <li>
+            &nbsp; &nbsp;If you do not attend the event, your admission ticket
+            cannot be refunded. Pre-registration benefits may still be shipped
+            upon additional payment of the delivery fee.
+          </li>
+          <li>
+            &nbsp;All personal information collected during registration will be
+            securely deleted after the event concludes.
+          </li>
+        </ol>
+        <br />
+        <br />
+      </>,
     ],
   },
 ];
