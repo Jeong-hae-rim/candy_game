@@ -42,7 +42,7 @@ const notices: Notice[] = [
     ],
     bodyEn: [
       <ol>
-        <li>&nbsp;DO NOT get caught by Mito or Mitsui. Serious.</li>
+        <li>&nbsp;DO NOT get caught by Mito or Mitsui. SERIOUS.</li>
         <li>&nbsp;Entry code phrase: “The day Mito confessed to Mitsui”</li>
         <li>
           &nbsp;All Pocket-Comm reports are anonymous, but toxic ones will be

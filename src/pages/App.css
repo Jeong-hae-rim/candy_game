@@ -9,6 +9,7 @@
   font-family: "zpix";
   src: url(/src/assets/fonts/zpix.ttf);
   font-display: swap;
+  unicode-range: U+0041-005A, /* A-Z */ U+0061-007A; /* a-z */
 }
 
 body {
@@ -19,7 +20,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
-  font-family: "zpix", "Galmuri14";
+  font-family: "zpix", "Galmuri14", sans-serif;
 }
 
 /* 전체 컨테이너: 중앙 정렬 */
