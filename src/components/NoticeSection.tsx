@@ -240,10 +240,11 @@ const notices: Notice[] = [
         <p>
           &nbsp;&nbsp;This event is dedicated solely to the Mito Yohei (Yang
           Ho-yeol) × Mitsui Hisashi (Jung Dae-man) pairing. <br />
-          &nbsp;&nbsp;All works involving other characters, other pairings,
-          reverse/reversible variations of this CP, or any triangular
-          relationships involving these characters are strictly prohibited :
-          including bringing in, selling, distributing, or sharing such content.
+          &nbsp;&nbsp;All works featuring other characters or other pairings as
+          the main focus, reverse or reversible variations of this CP, or any
+          triangular relationships involving these characters are strictly
+          prohibited : including bringing in, selling, distributing, or sharing
+          such content.
         </p>
         <h3>[ Admission Guidelines ]</h3>
         <ol>
