@@ -28,7 +28,7 @@ const albums: Album[] = [
       {
         id: 1,
         author: "비밀결사대",
-        text: "저거 흘린 사람 손 들어봐…",
+        text: "저거 써방명도 안 쓴 쪽지 흘린 사람 손 들어봐…",
       },
       {
         id: 2,
@@ -191,14 +191,17 @@ export default function GallerySection() {
             aria-modal="true"
             aria-label="Gallery viewer"
           >
-            <button
-              className="modal-close"
-              type="button"
-              onClick={closeViewer}
-              aria-label="닫기"
-            >
-              ✕
-            </button>
+            {/* 🔹 맨 위 헤더 - X 버튼만 */}
+            <div className="gallery-modal__header">
+              <button
+                className="modal-close"
+                type="button"
+                onClick={closeViewer}
+                aria-label="닫기"
+              >
+                ✕
+              </button>
+            </div>
 
             <div className="gallery-modal__body">
               {currentAlbum.images.length > 1 && (
