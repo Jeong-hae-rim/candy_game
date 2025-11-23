@@ -34,7 +34,7 @@ const notices: Notice[] = [
         </li>
         <li>
           &nbsp;우리 써방명은 [모열디만], [묘멸먜먄], [모딤], [호댐],
-          [ㅎㅇㄷㅁ]이다.
+          [ㅎㅇㄷㅁ], [요미츄♡]이다.
         </li>
         <br />
         <br />
@@ -53,8 +53,8 @@ const notices: Notice[] = [
           fold it before you pass it on!
         </li>
         <li>
-          &nbsp; Our search blocking words would be : Yhooomisss, Yamichuuuu,
-          Yachtmissyou, MM, HYDM, YMT.
+          &nbsp; Our search blocking words would be : Mhooomisss, Yummy-chu♡,
+          Yamichuuuu, Yachtmissyou, MM, HYDM, YMT.
         </li>
         <br />
         <br />
@@ -705,8 +705,6 @@ export default function NoticeSection() {
               {displayedTitle}
             </h2>
 
-            <p className="muted">{activeNotice.date}</p>
-
             <div className="notice-detail__body">
               {displayedBody?.map((para, idx) => (
                 <div key={idx} className="notice-block">
@@ -714,6 +712,7 @@ export default function NoticeSection() {
                 </div>
               ))}
             </div>
+            <p className="muted">{activeNotice.date}</p>
           </div>
         </div>
       )}
