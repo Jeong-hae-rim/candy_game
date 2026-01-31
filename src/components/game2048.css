@@ -4,8 +4,6 @@
   margin: 0 auto;
   display: grid;
   gap: 12px; */
-  display: grid;
-  justify-content: center;
 }
 
 /* 상단: 모바일에선 세로, 데스크탑에선 가로 */
