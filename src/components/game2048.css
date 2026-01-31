@@ -1,0 +1,195 @@
+/* 전체 래퍼: 가운데 정렬 + 폭 자동 */
+.g2048 {
+  /* width: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px; */
+  display: grid;
+  justify-content: center;
+}
+
+/* 상단: 모바일에선 세로, 데스크탑에선 가로 */
+.g2048-head {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 480px) {
+  .g2048-head {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+}
+
+.g2048-title strong {
+  display: block;
+  font-size: 20px;
+}
+
+@media (max-width: 360px) {
+  .g2048-title strong {
+    font-size: 18px;
+  }
+}
+
+.g2048-stats {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap; /* 좁은 화면에서 줄바꿈 */
+}
+
+.g2048-pill {
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  min-width: 86px; /* 모바일에서 카드 폭 일정 */
+}
+
+.g2048-num {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.g2048-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 보드: 화면에 맞게 자동 크기 + 타일 크기 계산 */
+.g2048-board {
+  position: relative;
+  width: 100%;
+  /* 보드가 너무 커지지 않게, 화면폭에 맞게 */
+  max-width: 420px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 2.6vw, 10px);
+  padding: clamp(10px, 3vw, 12px);
+
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.18);
+
+  /* 모바일 스와이프용 */
+  touch-action: none;
+}
+
+/* 타일: 크기 자동 + 폰트도 화면에 맞게 */
+.g2048-cell {
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+
+  /* 폰트가 화면폭 따라 자동으로 */
+  font-size: clamp(16px, 5.2vw, 22px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  user-select: none;
+}
+
+/* 큰 숫자는 글자 크기 조금 더 줄이기(깨짐 방지) */
+.g2048-cell.v128,
+.g2048-cell.v256,
+.g2048-cell.v512,
+.g2048-cell.v1024,
+.g2048-cell.v2048 {
+  font-size: clamp(14px, 4.4vw, 18px);
+}
+
+/* 숫자별 배경(기존 유지 가능) */
+.g2048-cell.v2 {
+  background: rgba(255, 255, 255, 0.1);
+}
+.g2048-cell.v4 {
+  background: rgba(255, 255, 255, 0.14);
+}
+.g2048-cell.v8 {
+  background: rgba(255, 255, 255, 0.18);
+}
+.g2048-cell.v16 {
+  background: rgba(255, 255, 255, 0.22);
+}
+.g2048-cell.v32 {
+  background: rgba(255, 255, 255, 0.26);
+}
+.g2048-cell.v64 {
+  background: rgba(255, 255, 255, 0.3);
+}
+.g2048-cell.v128,
+.g2048-cell.v256,
+.g2048-cell.v512,
+.g2048-cell.v1024,
+.g2048-cell.v2048 {
+  background: rgba(255, 255, 255, 0.34);
+}
+
+/* 오버레이도 화면 맞춤 */
+.g2048-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.g2048-overcard {
+  width: min(280px, 92%);
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+/* 모바일 조작 버튼: 좁으면 더 작게 */
+.g2048-controls {
+  margin-top: 20px;
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  justify-content: center;
+}
+
+.g2048-controls button {
+  width: clamp(42px, 14vw, 48px);
+  height: clamp(36px, 12vw, 40px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+}
+
+.g2048-controls > div {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.muted {
+  opacity: 0.75;
+  font-size: 12px;
+}
+
+@media (max-width: 360px) {
+  .muted {
+    font-size: 11px;
+  }
+}
+
+.g2048-board {
+  touch-action: none;
+}
