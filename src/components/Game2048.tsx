@@ -183,7 +183,7 @@ export default function Game2048() {
       <div className="g2048-head">
         <div className="g2048-title">
           <strong>2048</strong>
-          <span className="muted">방향키로 조작</span>
+          <span className="muted">방향키로 조작해줘!</span>
         </div>
         <div className="g2048-stats">
           <div className="g2048-pill">
