@@ -1,10 +1,35 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import "./game2048.css";
+import T2 from "../assets/images/ballantine/tile_2.png";
+import T4 from "../assets/images/ballantine/tile_4.png";
+import T8 from "../assets/images/ballantine/tile_8.png";
+import T16 from "../assets/images/ballantine/tile_16.png";
+import T32 from "../assets/images/ballantine/tile_32.png";
+import T64 from "../assets/images/ballantine/tile_64.png";
+import T128 from "../assets/images/ballantine/tile_128.png";
+import T256 from "../assets/images/ballantine/tile_256.png";
+import T512 from "../assets/images/ballantine/tile_512.png";
+import T1024 from "../assets/images/ballantine/tile_1024.png";
+import T2048 from "../assets/images/ballantine/tile_2048.png";
 
 type Dir = "left" | "right" | "up" | "down";
 type Grid = number[][];
 
 const SIZE = 4;
+
+const TILE_IMG: Record<number, string> = {
+  2: T2,
+  4: T4,
+  8: T8,
+  16: T16,
+  32: T32,
+  64: T64,
+  128: T128,
+  256: T256,
+  512: T512,
+  1024: T1024,
+  2048: T2048,
+};
 
 function emptyGrid(): Grid {
   return Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
@@ -183,7 +208,7 @@ export default function Game2048() {
       <div className="g2048-head">
         <div className="g2048-title">
           <strong>2048</strong>
-          <span className="muted">방향키로 조작해줘!</span>
+          <span className="muted-game">방향키로 조작해줘!</span>
         </div>
         <div className="g2048-stats">
           <div className="g2048-pill">
@@ -208,7 +233,19 @@ export default function Game2048() {
         {grid.flatMap((row, r) =>
           row.map((v, c) => (
             <div key={`${r}-${c}`} className={`g2048-cell v${v || 0}`}>
-              {v !== 0 ? v : ""}
+              {v !== 0 && TILE_IMG[v] ? (
+                <>
+                  <img
+                    className="g2048-tileimg"
+                    src={TILE_IMG[v]}
+                    alt={`${v}`}
+                  />
+                </>
+              ) : v !== 0 ? (
+                v
+              ) : (
+                ""
+              )}
             </div>
           ))
         )}
