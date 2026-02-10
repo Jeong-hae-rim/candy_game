@@ -249,6 +249,20 @@
    ========================= */
 
 @media (max-width: 768px) {
+  .pc-main {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+
+    /* ✅ 하단 잘림 방지 */
+    padding-bottom: calc(30px + env(safe-area-inset-bottom));
+
+    /* iOS 스크롤 부드럽게 */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 768px) {
   .pc-layout {
     display: flex;
     flex-direction: column;
