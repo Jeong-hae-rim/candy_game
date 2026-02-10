@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "./game2048.css";
+
+import FIGHITNG from "../assets/images/ballantine/fighting.gif";
 import T2 from "../assets/images/ballantine/tile_2.png";
 import T4 from "../assets/images/ballantine/tile_4.png";
 import T8 from "../assets/images/ballantine/tile_8.png";
@@ -17,7 +19,7 @@ type Grid = number[][];
 
 const SIZE = 4;
 
-const TILE_IMG: Record<number, string> = {
+const tileImgMap: Record<number, string> = {
   2: T2,
   4: T4,
   8: T8,
@@ -29,6 +31,20 @@ const TILE_IMG: Record<number, string> = {
   512: T512,
   1024: T1024,
   2048: T2048,
+};
+
+const MAX_LINES: Record<number, string> = {
+  2: "시작해 볼까! 🔥",
+  4: "우유 그냥 넣는 거 맞나?",
+  8: "버터도 넣는 거겠지?",
+  16: "이제 섞어볼까?",
+  32: "좀 꾸리꾸리한데….",
+  64: "동그랗게는 좀 어려운 걸….",
+  128: "딸기 초코 괜찮지 않나?",
+  256: "여자애들이 도와줬어! 이 몸의 인기란.",
+  512: "왜 삐뚤빼뚤 그려지는 거지?",
+  1024: "솔직히 좀 귀엽지 않나?",
+  2048: "좋아해줬으면 좋겠는데.",
 };
 
 function emptyGrid(): Grid {
@@ -188,6 +204,17 @@ export default function Game2048() {
   );
 
   useEffect(() => {
+    const urls = Object.values(tileImgMap); // {2: img, 4: img ...}의 value들
+    urls.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      // 지원 브라우저에서 디코딩을 미리 끝내기
+      // (실패해도 문제 없음)
+      (img as any).decode?.().catch(() => {});
+    });
+  }, []);
+
+  useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       const key = e.key;
       if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(key))
@@ -203,6 +230,48 @@ export default function Game2048() {
     return () => window.removeEventListener("keydown", onKeyDown as any);
   }, [doMove]);
 
+  const Cell = React.memo(function Cell({
+    v,
+    tileImgMap,
+  }: {
+    v: number;
+    tileImgMap: Record<number, string>;
+  }) {
+    if (!v) return <div className="g2048-cell v0" />;
+
+    const src = tileImgMap[v];
+
+    return (
+      <div className={`g2048-cell v${v}`}>
+        {src ? (
+          <img
+            className="g2048-tileimg"
+            src={src}
+            alt=""
+            draggable={false}
+            loading="eager"
+            decoding="async"
+          />
+        ) : (
+          v
+        )}
+      </div>
+    );
+  });
+
+  const mascotLine = useMemo(() => {
+    // maxTile 이하 중 가장 큰 키 찾기
+    const keys = Object.keys(MAX_LINES)
+      .map(Number)
+      .sort((a, b) => a - b);
+
+    let current = keys[0];
+    for (const k of keys) {
+      if (maxTile >= k) current = k;
+    }
+    return MAX_LINES[current];
+  }, [maxTile]);
+
   return (
     <div className="g2048">
       <div className="g2048-head">
@@ -210,6 +279,14 @@ export default function Game2048() {
           <strong>2048</strong>
           <span className="muted-game">방향키로 조작해줘!</span>
         </div>
+
+        <div className="g2048-mascot">
+          <div className="g2048-mascot-bubble">
+            <strong className="g2048-mascot-line">{mascotLine}</strong>
+          </div>
+          <img className="g2048-mascot-gif" src={FIGHITNG} alt="" />
+        </div>
+
         <div className="g2048-stats">
           <div className="g2048-pill">
             <div className="muted">SCORE</div>
@@ -230,23 +307,9 @@ export default function Game2048() {
         role="application"
         aria-label="2048 game board"
       >
-        {grid.flatMap((row, r) =>
+        {grid.map((row, r) =>
           row.map((v, c) => (
-            <div key={`${r}-${c}`} className={`g2048-cell v${v || 0}`}>
-              {v !== 0 && TILE_IMG[v] ? (
-                <>
-                  <img
-                    className="g2048-tileimg"
-                    src={TILE_IMG[v]}
-                    alt={`${v}`}
-                  />
-                </>
-              ) : v !== 0 ? (
-                v
-              ) : (
-                ""
-              )}
-            </div>
+            <Cell key={`${r}-${c}`} v={v} tileImgMap={tileImgMap} />
           ))
         )}
 

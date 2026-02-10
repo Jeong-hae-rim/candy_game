@@ -195,6 +195,55 @@
   touch-action: none;
 }
 
+/* ===== GIF + 말풍선 ===== */
+.g2048-mascot {
+  position: relative;
+  margin-top: 10px;
+  display: grid;
+  align-items: flex-end; /* 말풍선이 자연스럽게 옆에 */
+  gap: 10px;
+}
+
+/* 🔒 GIF는 절대 건드리지 않는다 */
+.g2048-mascot-gif {
+  display: block;
+  flex-shrink: 0;
+  width: 100%;
+  /* ❌ width/height 없음 */
+  /* ❌ image-rendering 없음 */
+}
+
+/* 말풍선만 UI */
+.g2048-mascot-bubble {
+  position: relative;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 158, 158, 0.9);
+  background: rgba(255, 97, 244, 0.18);
+  line-height: 1.2;
+}
+
+/* 꼬리 */
+.g2048-mascot-bubble::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 32px;
+  bottom: 10px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(316deg);
+  background: rgba(255, 97, 244, 0.18);
+  border-left: 1px solid rgba(255, 158, 158, 0.9);
+  border-bottom: 1px solid rgba(255, 158, 158, 0.9);
+}
+
+.g2048-mascot-line {
+  font-size: 13px;
+  color: #fff;
+}
+
 /* =========================
    모바일 퍼포먼스 최적화
    ========================= */
