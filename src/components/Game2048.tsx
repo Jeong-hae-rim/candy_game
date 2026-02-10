@@ -243,18 +243,7 @@ export default function Game2048() {
 
     return (
       <div className={`g2048-cell v${v}`}>
-        {src ? (
-          <img
-            className="g2048-tileimg"
-            src={src}
-            alt=""
-            draggable={false}
-            loading="eager"
-            decoding="async"
-          />
-        ) : (
-          v
-        )}
+        {src ? <img className="g2048-tileimg" src={src} alt="" /> : v}
       </div>
     );
   });
