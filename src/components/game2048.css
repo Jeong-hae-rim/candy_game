@@ -200,6 +200,7 @@
   position: relative;
   margin-top: 10px;
   display: grid;
+  justify-content: center;
   align-items: flex-end; /* 말풍선이 자연스럽게 옆에 */
   gap: 10px;
 }
@@ -208,7 +209,6 @@
 .g2048-mascot-gif {
   display: block;
   flex-shrink: 0;
-  width: 100%;
   /* ❌ width/height 없음 */
   /* ❌ image-rendering 없음 */
 }
