@@ -209,6 +209,7 @@
 .g2048-mascot-gif {
   display: block;
   flex-shrink: 0;
+  width: 400px;
   /* ❌ width/height 없음 */
   /* ❌ image-rendering 없음 */
 }
@@ -259,6 +260,14 @@
 
     /* iOS 스크롤 부드럽게 */
     -webkit-overflow-scrolling: touch;
+  }
+
+  .g2048-mascot-gif {
+    display: block;
+    flex-shrink: 0;
+    width: 100%;
+    /* ❌ width/height 없음 */
+    /* ❌ image-rendering 없음 */
   }
 }
 

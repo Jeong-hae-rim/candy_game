@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "./game2048.css";
 
-import FIGHITNG from "../assets/images/ballantine/sample.png";
+import FIGHITNG from "../assets/images/ballantine/fighting.gif";
 import T2 from "../assets/images/ballantine/tile_2.png";
 import T4 from "../assets/images/ballantine/tile_4.png";
 import T8 from "../assets/images/ballantine/tile_8.png";
