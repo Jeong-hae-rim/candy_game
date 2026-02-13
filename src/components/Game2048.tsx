@@ -67,12 +67,12 @@ const MASCOT_STAGE = [
   },
   {
     min: 32,
-    line: "좀 꾸리꾸리한데….",
+    line: "음, 생각했던 건 이런 게 아니야….",
     gif: GIF32,
   },
   {
     min: 64,
-    line: "동그랗게는 좀 어려운 걸….",
+    line: "동그랗게는 좀 어려운 걸?",
     gif: GIF64,
   },
   {
@@ -82,7 +82,7 @@ const MASCOT_STAGE = [
   },
   {
     min: 256,
-    line: "여자애들이 도와줬어! 날 알고있대. 이 몸의 인기란.",
+    line: "이름 모를 여자애들이 도와줬어. \n 나를 아나? 역시 슈퍼스타 정대만!",
     gif: GIF256,
   },
   {
@@ -239,7 +239,8 @@ export default function Game2048() {
   const [winShown, setWinShown] = useState(false);
 
   const gameOver = useMemo(() => !canMove(grid), [grid]);
-  const maxTile = useMemo(() => getMaxTile(grid), [grid]);
+  const maxTile = 256;
+  // const maxTile = useMemo(() => getMaxTile(grid), [grid]);
 
   useEffect(() => {
     // 2048을 "최초로" 만들었을 때만 팝업

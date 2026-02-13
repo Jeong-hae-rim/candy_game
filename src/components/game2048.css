@@ -250,6 +250,8 @@
 .g2048-mascot-line {
   font-size: 13px;
   color: #fff;
+  white-space: pre-line; /* \n을 실제 개행으로 */
+  word-break: keep-all; /* 한글 단어 보기 좋게 */
 }
 
 /* =========================
