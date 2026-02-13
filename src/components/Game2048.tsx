@@ -332,7 +332,7 @@ export default function Game2048() {
     <div className="g2048">
       <div className="g2048-head">
         <div className="g2048-title">
-          <strong>💥호댐 두근두근 2048 게임🐰💥</strong>
+          <strong>💥호댐 2048 초콜릿 머지🐰💥</strong>
           <br />
           <span className="muted-game">
             가사실에서 정대만이 양호열을 위해 <br />
