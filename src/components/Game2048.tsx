@@ -332,9 +332,16 @@ export default function Game2048() {
     <div className="g2048">
       <div className="g2048-head">
         <div className="g2048-title">
-          <strong>2048</strong>
-          <span className="muted-game">방향키로 조작해줘!</span>
+          <strong>💥호댐 두근두근 2048 게임🐰💥</strong>
+          <br />
+          <span className="muted-game">
+            가사실에서 정대만이 양호열을 위해 <br />
+            초콜릿을 만들고 있다는 소문이 들리는데🍳⁉️ <br /> <br />
+            따라가 보자!
+          </span>
         </div>
+
+        <br />
 
         <div className="g2048-mascot">
           <div className="g2048-mascot-bubble">
