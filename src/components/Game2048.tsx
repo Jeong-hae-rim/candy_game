@@ -239,8 +239,7 @@ export default function Game2048() {
   const [winShown, setWinShown] = useState(false);
 
   const gameOver = useMemo(() => !canMove(grid), [grid]);
-  const maxTile = 256;
-  // const maxTile = useMemo(() => getMaxTile(grid), [grid]);
+  const maxTile = useMemo(() => getMaxTile(grid), [grid]);
 
   useEffect(() => {
     // 2048을 "최초로" 만들었을 때만 팝업
