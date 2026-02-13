@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import "./game2048.css";
 
-import FIGHITNG from "../assets/images/ballantine/fighting.gif";
 import T2 from "../assets/images/ballantine/tile_2.png";
 import T4 from "../assets/images/ballantine/tile_4.png";
 import T8 from "../assets/images/ballantine/tile_8.png";
@@ -13,6 +12,18 @@ import T256 from "../assets/images/ballantine/tile_256.png";
 import T512 from "../assets/images/ballantine/tile_512.png";
 import T1024 from "../assets/images/ballantine/tile_1024.png";
 import T2048 from "../assets/images/ballantine/tile_2048.png";
+
+import GIF2 from "../assets/images/ballantine/gif2.gif";
+import GIF4 from "../assets/images/ballantine/gif4.gif";
+import GIF8 from "../assets/images/ballantine/gif8.gif";
+import GIF16 from "../assets/images/ballantine/gif16.gif";
+import GIF32 from "../assets/images/ballantine/gif32.gif";
+import GIF64 from "../assets/images/ballantine/gif64.gif";
+import GIF128 from "../assets/images/ballantine/gif128.gif";
+import GIF256 from "../assets/images/ballantine/gif256.gif";
+import GIF512 from "../assets/images/ballantine/gif512.gif";
+import GIF1024 from "../assets/images/ballantine/gif1024.gif";
+import GIF2048 from "../assets/images/ballantine/gif2048.gif";
 
 type Dir = "left" | "right" | "up" | "down";
 type Grid = number[][];
@@ -33,19 +44,63 @@ const tileImgMap: Record<number, string> = {
   2048: T2048,
 };
 
-const MAX_LINES: Record<number, string> = {
-  2: "시작해 볼까! 🔥",
-  4: "우유 그냥 넣는 거 맞나?",
-  8: "버터도 넣는 거겠지?",
-  16: "이제 섞어볼까?",
-  32: "좀 꾸리꾸리한데….",
-  64: "동그랗게는 좀 어려운 걸….",
-  128: "딸기 초코 괜찮지 않나?",
-  256: "여자애들이 도와줬어! 이 몸의 인기란.",
-  512: "왜 삐뚤빼뚤 그려지는 거지?",
-  1024: "솔직히 좀 귀엽지 않나?",
-  2048: "좋아해줬으면 좋겠는데.",
-};
+const MASCOT_STAGE = [
+  {
+    min: 2,
+    line: "시작해 볼까! 🔥",
+    gif: GIF2,
+  },
+  {
+    min: 4,
+    line: "우유 그냥 넣는 거 맞나?",
+    gif: GIF4,
+  },
+  {
+    min: 8,
+    line: "버터도 넣는 거겠지?",
+    gif: GIF8,
+  },
+  {
+    min: 16,
+    line: "이제 섞어볼까?",
+    gif: GIF16,
+  },
+  {
+    min: 32,
+    line: "좀 꾸리꾸리한데….",
+    gif: GIF32,
+  },
+  {
+    min: 64,
+    line: "동그랗게는 좀 어려운 걸….",
+    gif: GIF64,
+  },
+  {
+    min: 128,
+    line: "딸기 초코 괜찮지 않나?",
+    gif: GIF128,
+  },
+  {
+    min: 256,
+    line: "여자애들이 도와줬어! 날 알고있대. 이 몸의 인기란.",
+    gif: GIF256,
+  },
+  {
+    min: 512,
+    line: "왜 삐뚤빼뚤 그려지는 거지?",
+    gif: GIF512,
+  },
+  {
+    min: 1024,
+    line: "솔직히 좀 귀엽지 않나?",
+    gif: GIF1024,
+  },
+  {
+    min: 2048,
+    line: "좋아해줬으면 좋겠는데.",
+    gif: GIF2048,
+  },
+];
 
 function emptyGrid(): Grid {
   return Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
@@ -180,27 +235,40 @@ export default function Game2048() {
     addRandomTile(addRandomTile(emptyGrid()))
   );
   const [score, setScore] = useState(0);
+  const [winOpen, setWinOpen] = useState(false);
+  const [winShown, setWinShown] = useState(false);
 
   const gameOver = useMemo(() => !canMove(grid), [grid]);
   const maxTile = useMemo(() => getMaxTile(grid), [grid]);
 
+  useEffect(() => {
+    // 2048을 "최초로" 만들었을 때만 팝업
+    if (maxTile >= 2048 && !winShown) {
+      setWinShown(true);
+      setWinOpen(true);
+    }
+  }, [maxTile, winShown]);
+
   const reset = useCallback(() => {
     setScore(0);
     setGrid(addRandomTile(addRandomTile(emptyGrid())));
+    setWinOpen(false);
+    setWinShown(false);
   }, []);
 
   const doMove = useCallback(
     (dir: Dir) => {
       if (gameOver) return;
+      if (winOpen) return; // ✅ 승리 팝업 열려있으면 입력 막기
 
       const { grid: moved, gained } = move(grid, dir);
-      if (gridsEqual(grid, moved)) return; // no change, don't add tile
-      const withTile = addRandomTile(moved);
+      if (gridsEqual(grid, moved)) return;
 
+      const withTile = addRandomTile(moved);
       setGrid(withTile);
       if (gained) setScore((s) => s + gained);
     },
-    [grid, gameOver]
+    [grid, gameOver, winOpen]
   );
 
   useEffect(() => {
@@ -216,6 +284,8 @@ export default function Game2048() {
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
+      if (winOpen) return; // ✅ 팝업 열려있으면 키 입력 무시
+
       const key = e.key;
       if (["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(key))
         e.preventDefault();
@@ -228,7 +298,7 @@ export default function Game2048() {
 
     window.addEventListener("keydown", onKeyDown, { passive: false });
     return () => window.removeEventListener("keydown", onKeyDown as any);
-  }, [doMove]);
+  }, [doMove, winOpen]);
 
   const Cell = React.memo(function Cell({
     v,
@@ -248,17 +318,14 @@ export default function Game2048() {
     );
   });
 
-  const mascotLine = useMemo(() => {
-    // maxTile 이하 중 가장 큰 키 찾기
-    const keys = Object.keys(MAX_LINES)
-      .map(Number)
-      .sort((a, b) => a - b);
+  const currentStage = useMemo(() => {
+    let stage = MASCOT_STAGE[0];
 
-    let current = keys[0];
-    for (const k of keys) {
-      if (maxTile >= k) current = k;
+    for (const s of MASCOT_STAGE) {
+      if (maxTile >= s.min) stage = s;
     }
-    return MAX_LINES[current];
+
+    return stage;
   }, [maxTile]);
 
   return (
@@ -271,9 +338,17 @@ export default function Game2048() {
 
         <div className="g2048-mascot">
           <div className="g2048-mascot-bubble">
-            <strong className="g2048-mascot-line">{mascotLine}</strong>
+            <span key={currentStage.line} className="g2048-mascot-line">
+              {currentStage.line}
+            </span>
           </div>
-          <img className="g2048-mascot-gif" src={FIGHITNG} alt="" />
+          <img
+            key={currentStage.gif} // ⭐ 이게 중요 (GIF 강제 리마운트)
+            src={currentStage.gif}
+            alt=""
+            className="g2048-mascot-gif"
+            draggable={false}
+          />
         </div>
 
         <div className="g2048-stats">
@@ -302,11 +377,33 @@ export default function Game2048() {
           ))
         )}
 
+        {winOpen && (
+          <div className="g2048-overlay">
+            <div className="g2048-overcard">
+              <strong>양호열에게 줄 초콜릿 완성!</strong>
+              <p className="muted">
+                조금 더 만들어 볼까? <br /> 더 많이 있으면 더 좋아할 테니까!
+              </p>
+
+              <div className="g2048-over-actions">
+                <button className="g2048-btn" onClick={() => setWinOpen(false)}>
+                  계속하기
+                </button>
+                <button className="g2048-btn" onClick={reset}>
+                  다시하기
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {gameOver && (
           <div className="g2048-overlay">
             <div className="g2048-overcard">
               <strong>GAME OVER</strong>
-              <p className="muted">더 이상 움직일 수 없어!</p>
+              <p className="muted">
+                여기서 포기할 수는 없어…! <br /> 나는 불꽃남자니까! 🔥
+              </p>
               <button className="g2048-btn" onClick={reset}>
                 다시하기
               </button>

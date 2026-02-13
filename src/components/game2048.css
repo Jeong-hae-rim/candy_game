@@ -195,6 +195,13 @@
   touch-action: none;
 }
 
+.g2048-over-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 /* ===== GIF + 말풍선 ===== */
 .g2048-mascot {
   position: relative;
