@@ -1,0 +1,92 @@
+.puzzlehud {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3000;
+
+  width: 220px;
+  padding: 10px 10px 12px;
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 158, 158, 0.45);
+  backdrop-filter: blur(8px);
+
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.puzzlehud.is-collapsed {
+  width: auto;
+  padding: 8px;
+}
+
+.puzzlehud__toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 158, 158, 0.5);
+  background: rgba(255, 158, 158, 0.18);
+  color: #fff;
+  cursor: pointer;
+}
+
+.puzzlehud__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-right: 30px;
+}
+
+.puzzlehud__count {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.puzzlehud__code {
+  margin-top: 6px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 97, 244, 0.35);
+  background: rgba(255, 97, 244, 0.12);
+}
+
+.puzzlehud__actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.puzzlehud__btn {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 158, 158, 0.5);
+  background: rgba(255, 158, 158, 0.2);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.puzzlehud__hint {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* 모바일에서 너무 커 보이면 */
+@media (max-width: 480px) {
+  .puzzlehud {
+    right: 10px;
+    bottom: 10px;
+    width: 190px;
+  }
+  .puzzlehud__code {
+    font-size: 14px;
+  }
+}

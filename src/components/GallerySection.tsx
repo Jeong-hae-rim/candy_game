@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
 
 import cartoon1 from "../assets/images/gallery/cartoon_1.jpg";
 import cartoon2 from "../assets/images/gallery/cartoon_2.jpg";
 import EYE from "../assets/images/eye2.png";
+import { openVNModal } from "../func/vnEvents";
+import { LetterId } from "../func/puzzle";
 
 type AlbumComment = {
   id: number;
   author: string;
-  text: string;
+  text: string | ReactNode[];
 };
 
 type Album = {
@@ -17,6 +19,8 @@ type Album = {
   images: string[];
   comments: AlbumComment[]; // 댓글 스타일 텍스트
 };
+
+const letterId: LetterId = "U2";
 
 const albums: Album[] = [
   {
@@ -30,14 +34,38 @@ const albums: Album[] = [
     ],
     comments: [
       {
-        id: 1,
-        author: "비밀결사대",
-        text: "써방명도 안 쓴 쪽지 흘린 사람 손 들어봐…",
-      },
-      {
         id: 2,
         author: "조사부장",
         text: "이미 도망간 것 같습니다.",
+      },
+      {
+        id: 1,
+        author: "비밀결사대",
+        text: [
+          <span className="comment-text">
+            써방명도 안 쓴 쪽지 흘린 사람 손 들어
+            <button
+              type="button"
+              className="puzzle-letter"
+              onClick={() =>
+                openVNModal({
+                  key: letterId,
+                  title: "수상한 조각",
+                  imageSrc: "IMG_Y1",
+                  speaker: "??",
+                  lines: [
+                    "벽 틈 사이에 종이 조각이 끼어 있다.",
+                    "…손끝에 잉크가 묻는다.",
+                    "‘U’ 라고 적혀 있다.",
+                  ],
+                })
+              }
+            >
+              줘
+            </button>{" "}
+            볼래…
+          </span>,
+        ],
       },
     ],
   },
@@ -265,7 +293,7 @@ export default function GallerySection() {
                 {currentAlbum.comments.map((c) => (
                   <div key={c.id} className="comment-bubble">
                     <span className="comment-author">{c.author}</span>
-                    <span className="comment-text">{c.text}</span>
+                    {c.text}
                   </div>
                 ))}
               </div>

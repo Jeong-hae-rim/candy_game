@@ -1,0 +1,322 @@
+/* ====== WALL (배경) ====== */
+.stickywall {
+  /* 벽 느낌: 살짝 질감 + 어두운 바탕 */
+  padding: 18px 16px 28px;
+  border-radius: 16px;
+
+  background: radial-gradient(
+      1200px 600px at 20% 10%,
+      rgba(255, 97, 244, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 500px at 80% 0%,
+      rgba(255, 158, 158, 0.18),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 600px at 60% 100%,
+      rgba(255, 255, 255, 0.06),
+      transparent 55%
+    ),
+    rgba(0, 0, 0, 0.18);
+
+  border: 1px solid rgba(255, 158, 158, 0.35);
+}
+
+/* ====== GRID ====== */
+.stickygrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+
+  /* "벽에 붙어있는" 느낌을 위해 카드들이 너무 꽉 차지 않게 */
+  align-items: start;
+}
+
+/* ====== NOTE (포스트잇) ====== */
+
+/* 기본 종이 질감은 유지하고, 배경색만 바꾸는 방식 */
+.note--lemon {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 248, 194, 0.96),
+    rgba(255, 235, 160, 0.88)
+  );
+}
+.note--pink {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 226, 238, 0.96),
+    rgba(255, 200, 224, 0.88)
+  );
+}
+.note--mint {
+  background: linear-gradient(
+    180deg,
+    rgba(210, 255, 238, 0.95),
+    rgba(170, 240, 214, 0.86)
+  );
+}
+.note--lavender {
+  background: linear-gradient(
+    180deg,
+    rgba(235, 225, 255, 0.96),
+    rgba(210, 190, 255, 0.88)
+  );
+}
+.note--sky {
+  background: linear-gradient(
+    180deg,
+    rgba(220, 244, 255, 0.96),
+    rgba(170, 220, 255, 0.88)
+  );
+}
+
+.note {
+  position: relative;
+  border-radius: 14px;
+  padding: 14px 14px 16px;
+
+  /* 포스트잇 종이 느낌 */
+  color: #2b2b2b;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.35) inset;
+
+  /* 종이 아래쪽 살짝 접힌 느낌(은은) */
+  overflow: hidden;
+}
+
+.note::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 90px;
+  height: 90px;
+  background: rgba(0, 0, 0, 0.06);
+  transform: rotate(25deg);
+  filter: blur(0.5px);
+}
+
+/* ====== 테이프(붙인 느낌) ====== */
+.note__tape {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  width: 96px;
+  height: 24px;
+  transform: translateX(-50%) rotate(-2deg);
+
+  background: rgba(255, 218, 120, 0.55);
+  border: 1px solid rgba(200, 160, 80, 0.35);
+  border-radius: 8px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* ====== 살짝 랜덤 기울기(패턴) ====== */
+.stickygrid .note:nth-child(4n + 1) {
+  transform: rotate(-1.2deg);
+}
+.stickygrid .note:nth-child(4n + 2) {
+  transform: rotate(1.1deg);
+}
+.stickygrid .note:nth-child(4n + 3) {
+  transform: rotate(-0.6deg);
+}
+.stickygrid .note:nth-child(4n) {
+  transform: rotate(0.8deg);
+}
+
+/* hover 시 살짝 떠오르게 */
+.note:hover {
+  transform: translateY(-3px) rotate(0deg);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.32),
+    0 1px 0 rgba(255, 255, 255, 0.35) inset;
+}
+
+/* 모바일에서는 기울기 제거(어지러움 방지) */
+@media (max-width: 768px) {
+  .stickygrid .note,
+  .stickygrid .note:nth-child(4n + 1),
+  .stickygrid .note:nth-child(4n + 2),
+  .stickygrid .note:nth-child(4n + 3),
+  .stickygrid .note:nth-child(4n) {
+    transform: none;
+  }
+}
+
+/* ====== NOTE 내부 텍스트 ====== */
+.note__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.note__name {
+  font-weight: 800;
+}
+.note__time {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.note__body {
+  white-space: pre-line;
+  line-height: 1.45;
+  font-size: 14px;
+}
+
+/* ====== 입력 포스트잇(맨 앞) ====== */
+.note--composer {
+  z-index: 3;
+  /* 입력칸은 "새 포스트잇" 느낌으로 살짝 다른 컬러 */
+  background: linear-gradient(
+    180deg,
+    rgba(255, 243, 210, 0.95),
+    rgba(255, 230, 170, 0.88)
+  );
+  border: 1px solid rgba(255, 158, 158, 0.35);
+}
+
+.note--composer:hover {
+  transform: translateY(-4px) rotate(0deg);
+}
+
+.note--composer .note__tape {
+  background: rgba(255, 158, 158, 0.55);
+  border-color: rgba(255, 158, 158, 0.55);
+}
+
+.note__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.note__input,
+.note__textarea {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.65);
+  color: #2b2b2b;
+
+  padding: 10px 10px;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.note__textarea {
+  resize: vertical;
+  min-height: 110px;
+  margin-top: 8px;
+}
+
+.note__input:focus,
+.note__textarea:focus {
+  border-color: rgba(255, 97, 244, 0.6);
+  box-shadow: 0 0 0 3px rgba(255, 97, 244, 0.18);
+}
+
+.note__btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 97, 244, 0.25);
+  color: #2b2b2b;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.note__btn:hover {
+  background: rgba(255, 97, 244, 0.34);
+}
+
+.note__btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* 접힌 상태: 미리보기 4줄 */
+.note .note__body {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 펼친 카드: 위로 떠서(레이어) 아래를 덮기 */
+.note.is-expanded {
+  z-index: 50; /* ✅ 아래 카드 위로 */
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* 펼친 카드 본문: clamp 해제 + 길면 내부 스크롤 */
+.note.is-expanded .note__body {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: auto;
+  max-height: 46vh; /* ✅ 너무 길면 카드 안에서 스크롤 */
+  padding-right: 6px;
+}
+
+/* 펼친 카드에서 테이프도 살짝 강조 */
+.note.is-expanded .note__tape {
+  filter: brightness(1.05);
+}
+
+/* 힌트 텍스트 */
+.note__hint {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.65;
+  text-align: right;
+}
+
+/* 호버 시 효과는 펼친 상태와 충돌하니, 펼친 상태일 땐 호버 무시 */
+.note:hover {
+  transform: translateY(-3px) rotate(0deg);
+}
+
+/* 모바일: scale 너무 크면 잘릴 수 있어서 살짝 줄이기 */
+@media (max-width: 768px) {
+  .note.is-expanded .note__body {
+    max-height: 52vh;
+  }
+}
+
+/* 작성 카드 접힌 미리보기 */
+.composer-preview {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.composer-preview img {
+  width: 50px;
+}
+
+/* 작성 카드 펼친 본문 */
+.composer-body {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+/* 작성 카드는 펼쳤을 때 본문이 clamp 걸리면 안 되니 안전하게 */
+.note--composer .note__body {
+  display: block;
+}

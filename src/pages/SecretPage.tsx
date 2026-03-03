@@ -8,11 +8,20 @@ import { SESSION_KEY } from "../func/constants";
 import SectionRenderer from "../components/SectionRenderer";
 import Sidebar from "../components/Sidebar";
 import type { MenuItem, MenuKey } from "../types/type";
+import PuzzleHUD from "../components/PuzzleHUD";
+import VNModal from "../components/VNModal";
+import { loadCollected, markCollected } from "../func/puzzle"; // 너가 쓰는 저장 로직
+import type { VNOpenPayload } from "../func/vnEvents";
 
 import MobileNav from "../components/MobileNav";
+
 export default function SecretPage() {
   const navigate = useNavigate();
   const { tab } = useParams<{ tab?: string }>();
+
+  const [vn, setVn] = useState<VNOpenPayload | null>(null);
+  const [open, setOpen] = useState(false);
+  const [collected, setCollected] = useState(() => loadCollected());
 
   // 인증 가드
   useEffect(() => {
@@ -27,6 +36,24 @@ export default function SecretPage() {
       sessionStorage.setItem(SESSION_KEY, "1");
     }
   }, [navigate]);
+
+  useEffect(() => {
+    const onOpen = (e: Event) => {
+      const ev = e as CustomEvent<VNOpenPayload>;
+      setVn(ev.detail);
+      setOpen(true);
+    };
+    window.addEventListener("vn:open", onOpen);
+    return () => window.removeEventListener("vn:open", onOpen);
+  }, []);
+
+  const isCollected = !!(vn?.key && collected[vn.key]);
+
+  const handleCollect = () => {
+    if (!vn?.key) return;
+    const next = markCollected(collected, vn.key);
+    setCollected(next);
+  };
 
   const handleLogout = () => {
     sessionStorage.removeItem(SESSION_KEY);
@@ -81,6 +108,17 @@ export default function SecretPage() {
         onLogout={handleLogout}
       />
       <main className="pc-main" role="region" aria-live="polite">
+        <PuzzleHUD />
+        <VNModal
+          open={open}
+          onClose={() => setOpen(false)}
+          title={vn?.title}
+          imageSrc={vn?.imageSrc ?? ""}
+          speaker={vn?.speaker ?? "??"}
+          lines={vn?.lines ?? [""]}
+          onCollect={vn?.key ? handleCollect : undefined}
+          collected={isCollected}
+        />
         <SectionRenderer active={active} />
       </main>
     </div>

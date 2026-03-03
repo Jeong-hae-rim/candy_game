@@ -1,0 +1,131 @@
+.vn-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: grid;
+  place-items: center;
+  z-index: 4000;
+  padding: 16px;
+}
+
+/* ✅ 좌/우 2컬럼 */
+.vn-modal--side {
+  width: min(920px, 100%);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 12px;
+
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(10, 6, 18, 0.92);
+  border: 1px solid rgba(255, 158, 158, 0.55);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+/* 좌측 */
+.vn-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.vn-portrait {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  aspect-ratio: 1 / 1; /* 정사각 초상화 느낌 */
+  display: grid;
+  place-items: center;
+}
+
+.vn-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 픽셀아트면 contain으로 바꿔도 됨 */
+  image-rendering: pixelated; /* 도트 감성 */
+}
+
+.vn-title {
+  font-size: 13px;
+  color: #ffdede;
+  opacity: 0.9;
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 97, 244, 0.35);
+  background: rgba(255, 97, 244, 0.12);
+}
+
+/* 우측 */
+.vn-right {
+  min-width: 0;
+  display: flex;
+}
+
+.vn-dialog {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vn-name {
+  font-weight: 800;
+  color: #ffbebe;
+  letter-spacing: 0.5px;
+}
+
+.vn-text {
+  line-height: 1.6;
+  white-space: pre-wrap; /* ✅ 줄바꿈 유지 */
+  min-height: 120px;
+  max-height: 46vh;
+  overflow: auto;
+  padding-right: 6px;
+}
+
+.vn-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.vn-btn {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 158, 158, 0.55);
+  background: rgba(255, 158, 158, 0.18);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.vn-btn.ghost {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.vn-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ✅ 모바일: 세로로 쌓기 */
+@media (max-width: 640px) {
+  .vn-modal--side {
+    grid-template-columns: 1fr;
+  }
+  .vn-portrait {
+    aspect-ratio: 16 / 9; /* 모바일은 가로 컷씬 느낌 */
+  }
+  .vn-text {
+    max-height: 42vh;
+  }
+}

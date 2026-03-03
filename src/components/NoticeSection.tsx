@@ -1,4 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
+import { openVNModal } from "../func/vnEvents";
+import { LetterId } from "../func/puzzle";
 
 interface Notice {
   id: number;
@@ -9,6 +11,12 @@ interface Notice {
   body: ReactNode[]; // 기본(한국어) 본문
   bodyEn?: ReactNode[]; // 선택: 영어 본문
 }
+
+const letterId: LetterId = "U1";
+const letterId2: LetterId = "M1";
+const letterId3: LetterId = "H1";
+const letterId4: LetterId = "Y1";
+const letterId5: LetterId = "C1";
 
 const notices: Notice[] = [
   {
@@ -29,7 +37,28 @@ const notices: Notice[] = [
           제보는 삭제될 수 있다!
         </li>
         <li>
-          &nbsp;행사 관련 쪽지를 주고받을 땐 반드시 '스포 주의' 표시 후 접어서
+          &nbsp;우리 은밀하게 파는 거{" "}
+          <button
+            type="button"
+            className="puzzle-letter"
+            onClick={() =>
+              openVNModal({
+                key: letterId2,
+                title: "수상한 조각",
+                imageSrc: "IMG_M1",
+                speaker: ["??", "??", "??", "[양호열]"],
+                lines: [
+                  "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+                  "[…손끝에 잉크가 묻는다.]",
+                  "[‘M’ 라고 적혀 있다.]",
+                  "…여기저기 잘도 숨겨놨군.",
+                ],
+              })
+            }
+          >
+            잖
+          </button>
+          아? 행사 관련 쪽지를 주고받을 땐 반드시 '스포 주의' 표시 후 접어서
           공유하기.
         </li>
         <li>
@@ -89,8 +118,29 @@ const notices: Notice[] = [
         스키사 데이'라는 선물이 찾아오고야 만 것. 비밀리에 마음으로만 소중히
         간직(하지는 않고 각종 연성으로 비벼먹곤)했던 내 주식이 드디어 상장되고
         떡상했다는 기쁨을 억누를 수 없게 된 비밀결사대 부원들은 공식이 판을
-        깔아주는데 우리도 질 수 없다는 마음으로, 이런 좋은 날 행사를 열어 내
-        CP가 공식임을 다 함께 축하하는 자리를 만들기로 하는데⁉️
+        깔아주는데 우리도 질 수{" "}
+        <button
+          type="button"
+          className="puzzle-letter"
+          onClick={() =>
+            openVNModal({
+              key: letterId,
+              title: "수상한 조각",
+              imageSrc: "IMG_Y1",
+              speaker: ["??", "??", "??", "[양호열]"],
+              lines: [
+                "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+                "[…손끝에 잉크가 묻는다.]",
+                "[‘U’ 라고 적혀 있다.]",
+                "…여기저기 잘도 숨겨놨군.",
+              ],
+            })
+          }
+        >
+          없
+        </button>
+        다는 마음으로, 이런 좋은 날 행사를 열어 내 CP가 공식임을 다 함께
+        축하하는 자리를 만들기로 하는데⁉️
         <br />
         <br />
         &nbsp;&nbsp;그치만 쉿🤫 다들 알지? <br />
@@ -203,7 +253,28 @@ const notices: Notice[] = [
           </li>
           <li>
             &nbsp;모든 참관객은 참가비에 포함된 전프레를 필수 구매하셔야 하며,
-            대리수령은 불가합니다.
+            대리수령은 불
+            <button
+              type="button"
+              className="puzzle-letter"
+              onClick={() =>
+                openVNModal({
+                  key: letterId4,
+                  title: "수상한 조각",
+                  imageSrc: "IMG_Y1",
+                  speaker: ["??", "??", "??", "[양호열]"],
+                  lines: [
+                    "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+                    "[…손끝에 잉크가 묻는다.]",
+                    "[‘Y’ 라고 적혀 있다.]",
+                    "[양호열] …여기저기 잘도 숨겨놨군.",
+                  ],
+                })
+              }
+            >
+              가
+            </button>
+            합니다.
           </li>
         </ol>
         <h3>[ 장내 관련 ]</h3>
@@ -324,7 +395,7 @@ const notices: Notice[] = [
     title: "부스 입장 안내",
     titleEn: "Booth Participation Guidelines",
     date: "2025-11-15",
-    summary: "우리 동아리의 비밀 수칙을 꼭 읽어줘.",
+    summary: "우리 동아리의 입장 안내문이야.",
     body: [
       <>
         <h3>[ 부스 신청 ]</h3>
@@ -348,8 +419,29 @@ const notices: Notice[] = [
         <h3>[ 일반 부스 ]</h3>
         <ol>
           <li>
-            &nbsp;해당 온리전은 호열대만 CP 단일 온리전으로, 호열대만 CP 성향이
-            드러나는 굿즈 및 회지를 판매 지향합니다.
+            &nbsp;
+            <button
+              type="button"
+              className="puzzle-letter"
+              onClick={() =>
+                openVNModal({
+                  key: letterId3,
+                  title: "수상한 조각",
+                  imageSrc: "IMG_Y1",
+                  speaker: ["??", "??", "??", "[양호열]"],
+                  lines: [
+                    "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+                    "[…손끝에 잉크가 묻는다.]",
+                    "[‘H’ 라고 적혀 있다.]",
+                    "[양호열] …여기저기 잘도 숨겨놨군.",
+                  ],
+                })
+              }
+            >
+              해
+            </button>
+            당 온리전은 호열대만 CP 단일 온리전으로, 호열대만 CP 성향이 드러나는
+            굿즈 및 회지를 판매 지향합니다.
           </li>
           <li>
             &nbsp;부스 참가 시, 신간 회지 1종 혹은 신규 굿즈 2종을 필수 지참해야
@@ -528,7 +620,30 @@ const notices: Notice[] = [
     body: [
       <>
         <ol>
-          <li>&nbsp;입장권은 1인 1매 구매 가능합니다.</li>
+          <li>
+            &nbsp;입장권은 1인 1매 구매{" "}
+            <button
+              type="button"
+              className="puzzle-letter"
+              onClick={() =>
+                openVNModal({
+                  key: letterId5,
+                  title: "수상한 조각",
+                  imageSrc: "IMG_Y1",
+                  speaker: ["??", "??", "??", "[양호열]"],
+                  lines: [
+                    "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+                    "[…손끝에 잉크가 묻는다.]",
+                    "[‘C’ 라고 적혀 있다.]",
+                    "[양호열] …여기저기 잘도 숨겨놨군.",
+                  ],
+                })
+              }
+            >
+              가
+            </button>
+            능합니다.
+          </li>
           <li>
             &nbsp;구매 후 양도/취소/환불 모두 불가하므로 신중한 구매
             부탁드립니다.

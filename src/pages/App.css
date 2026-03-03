@@ -284,3 +284,15 @@ body {
     padding: 10px;
   }
 }
+
+.puzzle-letter {
+  background: aqua;
+  border: none;
+  cursor: pointer;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.puzzle-letter:hover {
+  opacity: 0.85;
+}
