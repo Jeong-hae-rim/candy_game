@@ -13,6 +13,7 @@ type AlbumComment = {
 };
 
 type Album = {
+  id: number;
   title: string;
   tags: string[]; // 태그들
   date: string;
@@ -24,6 +25,7 @@ const letterId: LetterId = "U2";
 
 const albums: Album[] = [
   {
+    id: 1,
     title: "비밀결사대 들키기 5초 전",
     date: "2025-11-20",
     images: [cartoon1, cartoon2],
@@ -70,6 +72,7 @@ const albums: Album[] = [
     ],
   },
   {
+    id: 2,
     title: "하굣길 디스패치",
     tags: [], // 태그들
     date: "",
@@ -83,6 +86,7 @@ const albums: Album[] = [
     ],
   },
   {
+    id: 3,
     title: "체육대회 비하인드",
     tags: [], // 태그들
     date: "",
@@ -209,7 +213,9 @@ export default function GallerySection() {
 
                   {/* 태그가 3개 이상이면 +N 표시 */}
                   {album.tags.length > 2 && (
-                    <span className="tag-more">+{album.tags.length - 2}</span>
+                    <span key={album.id} className="tag-more">
+                      +{album.tags.length - 2}
+                    </span>
                   )}
                 </div>
               </div>
@@ -292,7 +298,9 @@ export default function GallerySection() {
               <div className="gallery-modal__comments">
                 {currentAlbum.comments.map((c) => (
                   <div key={c.id} className="comment-bubble">
-                    <span className="comment-author">{c.author}</span>
+                    <span key={c.id} className="comment-author">
+                      {c.author}
+                    </span>
                     {c.text}
                   </div>
                 ))}

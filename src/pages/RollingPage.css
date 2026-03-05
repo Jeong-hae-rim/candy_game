@@ -1,4 +1,8 @@
 /* ====== WALL (배경) ====== */
+.rolling {
+  padding: 20px;
+}
+
 .stickywall {
   /* 벽 느낌: 살짝 질감 + 어두운 바탕 */
   padding: 18px 16px 28px;
@@ -32,6 +36,16 @@
 
   /* "벽에 붙어있는" 느낌을 위해 카드들이 너무 꽉 차지 않게 */
   align-items: start;
+}
+
+h2,
+h3 {
+  text-align: center;
+}
+
+h3 {
+  color: #ffc4c4;
+  margin-bottom: 50px;
 }
 
 /* ====== NOTE (포스트잇) ====== */
@@ -319,4 +333,25 @@
 /* 작성 카드는 펼쳤을 때 본문이 clamp 걸리면 안 되니 안전하게 */
 .note--composer .note__body {
   display: block;
+}
+
+.rolling-more-btn {
+  margin: 40px auto;
+  display: block;
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: rgba(207, 186, 248, 0.31);
+  border: 1px solid rgba(255, 158, 158, 0.752);
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.rolling-more-btn:hover {
+  transform: translateY(-2px);
+}
+
+.rolling-more-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
