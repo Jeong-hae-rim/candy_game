@@ -25,7 +25,7 @@ export default function NoticeSection() {
   const letterId: LetterId = "Y1";
   const letterId2: LetterId = "U1";
   const letterId3: LetterId = "M1";
-  const letterId4: LetterId = "M1";
+  const letterId4: LetterId = "M2";
   const letterId5: LetterId = "Y2";
 
   const notices: Notice[] = [
