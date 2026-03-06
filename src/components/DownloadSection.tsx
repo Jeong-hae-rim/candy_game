@@ -1,8 +1,8 @@
-import { openVNModal } from "../func/vnEvents";
 import { LetterId } from "../func/puzzle";
+import PuzzleLetter from "./PuzzleLetter";
 
 export default function DownloadSection() {
-  const letterId: LetterId = "Y2";
+  const letterId8: LetterId = "U2";
 
   return (
     <>
@@ -18,33 +18,28 @@ export default function DownloadSection() {
           <span className="muted">820 KB</span>
         </a>
         <a className="row" href="#" onClick={(e) => e.preventDefault()}>
-          <span>호열대만_사진.zip</span>
+          <span>
+            호열대만_사진{""}
+            <PuzzleLetter
+              letterId={letterId8}
+              correct_char="첩"
+              error_char="줘"
+              title="수상한 쪽지 8"
+              imageSrc="IMG_U2"
+              speaker={["??", "??", "??", "[양호열]"]}
+              lines={[
+                "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+                "[…손끝에 잉크가 묻는다.]",
+                "[‘U’ 라고 적혀 있다.]",
+                "…여기저기 잘도 숨겨놨군.",
+              ]}
+            />
+            .zip
+          </span>
           <span className="muted">5.6 MB</span>
         </a>
         <a className="row" href="#" onClick={(e) => e.preventDefault()}>
-          <span>
-            호열대만_동
-            <button
-              type="button"
-              className="puzzle-letter"
-              onClick={() =>
-                openVNModal({
-                  key: letterId,
-                  title: "수상한 조각",
-                  imageSrc: "IMG_Y1",
-                  speaker: "??",
-                  lines: [
-                    "벽 틈 사이에 종이 조각이 끼어 있다.",
-                    "…손끝에 잉크가 묻는다.",
-                    "‘Y’ 라고 적혀 있다.",
-                  ],
-                })
-              }
-            >
-              네
-            </button>
-            _선후배에서_연인까지.txt
-          </span>
+          <span>호열대만_동네_선후배에서_연인까지.txt</span>
           <span className="muted">43.2 MB</span>
         </a>
       </div>

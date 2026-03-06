@@ -3,8 +3,8 @@ import { useState, useEffect, ReactNode } from "react";
 import cartoon1 from "../assets/images/gallery/cartoon_1.jpg";
 import cartoon2 from "../assets/images/gallery/cartoon_2.jpg";
 import EYE from "../assets/images/eye2.png";
-import { openVNModal } from "../func/vnEvents";
 import { LetterId } from "../func/puzzle";
+import PuzzleLetter from "./PuzzleLetter";
 
 type AlbumComment = {
   id: number;
@@ -21,7 +21,7 @@ type Album = {
   comments: AlbumComment[]; // 댓글 스타일 텍스트
 };
 
-const letterId: LetterId = "U2";
+const letterId7: LetterId = "H1";
 
 const albums: Album[] = [
   {
@@ -45,27 +45,7 @@ const albums: Album[] = [
         author: "비밀결사대",
         text: [
           <span className="comment-text">
-            써방명도 안 쓴 쪽지 흘린 사람 손 들어
-            <button
-              type="button"
-              className="puzzle-letter"
-              onClick={() =>
-                openVNModal({
-                  key: letterId,
-                  title: "수상한 조각",
-                  imageSrc: "IMG_Y1",
-                  speaker: "??",
-                  lines: [
-                    "벽 틈 사이에 종이 조각이 끼어 있다.",
-                    "…손끝에 잉크가 묻는다.",
-                    "‘U’ 라고 적혀 있다.",
-                  ],
-                })
-              }
-            >
-              줘
-            </button>{" "}
-            볼래…
+            써방명도 안 쓴 쪽지 흘린 사람 손 들어…
           </span>,
         ],
       },
@@ -179,7 +159,24 @@ export default function GallerySection() {
 
   return (
     <>
-      <h1>호열대만 디스패치</h1>
+      <h1>
+        호열대만 디스{""}
+        <PuzzleLetter
+          letterId={letterId7}
+          correct_char="패"
+          error_char="해"
+          title="수상한 쪽지 7"
+          imageSrc="IMG_H2"
+          speaker={["??", "??", "??", "[양호열]"]}
+          lines={[
+            "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+            "[…손끝에 잉크가 묻는다.]",
+            "[‘H’ 라고 적혀 있다.]",
+            "…여기저기 잘도 숨겨놨군.",
+          ]}
+        />
+        치
+      </h1>
       <p>여기는 우리가 피땀눈물 흘려서 모은 호댐의 정수가 모여 있어! (۶•̀ᴗ•́)۶</p>
 
       <div className="grid gallery">

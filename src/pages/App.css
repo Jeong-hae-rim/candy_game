@@ -286,13 +286,26 @@ body {
 }
 
 .puzzle-letter {
-  background: aqua;
+  font-style: italic;
+  font-weight: 900;
+  text-decoration: red wavy underline;
+  padding: 1px;
+  background: none;
   border: none;
-  cursor: pointer;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  transition: 0.2s;
 }
 
-.puzzle-letter:hover {
-  opacity: 0.85;
+.puzzle-letter:hover .puzzle-letter:active {
+  color: #b3a8ad;
+  text-shadow: 0 0 8px rgba(255, 79, 163, 0.6);
+}
+
+.puzzle-letter.found {
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.puzzle-letter:not(.found):hover {
+  color: #ff9ac7;
 }

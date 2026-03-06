@@ -10,10 +10,11 @@ import Sidebar from "../components/Sidebar";
 import type { MenuItem, MenuKey } from "../types/type";
 import PuzzleHUD from "../components/PuzzleHUD";
 import VNModal from "../components/VNModal";
-import { loadCollected, markCollected } from "../func/puzzle"; // 너가 쓰는 저장 로직
+import { loadCollected, markCollected } from "../func/puzzle";
 import type { VNOpenPayload } from "../func/vnEvents";
 
 import MobileNav from "../components/MobileNav";
+import { PuzzleContext } from "../func/puzzleStore";
 
 export default function SecretPage() {
   const navigate = useNavigate();
@@ -108,18 +109,20 @@ export default function SecretPage() {
         onLogout={handleLogout}
       />
       <main className="pc-main" role="region" aria-live="polite">
-        <PuzzleHUD />
-        <VNModal
-          open={open}
-          onClose={() => setOpen(false)}
-          title={vn?.title}
-          imageSrc={vn?.imageSrc ?? ""}
-          speaker={vn?.speaker ?? "??"}
-          lines={vn?.lines ?? [""]}
-          onCollect={vn?.key ? handleCollect : undefined}
-          collected={isCollected}
-        />
-        <SectionRenderer active={active} />
+        <PuzzleContext.Provider value={collected}>
+          <PuzzleHUD />
+          <VNModal
+            open={open}
+            onClose={() => setOpen(false)}
+            title={vn?.title}
+            imageSrc={vn?.imageSrc ?? ""}
+            speaker={vn?.speaker ?? "??"}
+            lines={vn?.lines ?? [""]}
+            onCollect={vn?.key ? handleCollect : undefined}
+            collected={isCollected}
+          />
+          <SectionRenderer active={active} />
+        </PuzzleContext.Provider>
       </main>
     </div>
   );

@@ -1,8 +1,8 @@
-import { openVNModal } from "../func/vnEvents";
 import { LetterId } from "../func/puzzle";
+import PuzzleLetter from "./PuzzleLetter";
 
 export default function AboutSection() {
-  const letterId: LetterId = "M2";
+  const letterId6: LetterId = "C1";
 
   const cooperImages = import.meta.glob("../assets/images/cooper/*", {
     eager: true,
@@ -24,31 +24,25 @@ export default function AboutSection() {
   return (
     <>
       <h1>천사들 소개</h1>
-      <p>여기는 우리를 도와주는 천사들을 소개하는 곳이야 ଘ(੭ˊᵕˋ)੭* ੈ✩‧₊˚</p>
-      <p className="muted">
-        호열아 대만
-        <button
-          type="button"
-          className="puzzle-letter"
-          onClick={() =>
-            openVNModal({
-              key: letterId,
-              title: "수상한 조각",
-              imageSrc: "IMG_Y1",
-              speaker: "??",
-              lines: [
-                "[벽 틈 사이에 종이 조각이 끼어 있다.]",
-                "[…손끝에 잉크가 묻는다.]",
-                "[‘M’ 라고 적혀 있다.]",
-                "[양호열] …여기저기 잘도 숨겨놨군.",
-              ],
-            })
-          }
-        >
-          아
-        </button>{" "}
-        기쁘지?
+      <p>
+        여기는 우리{""}
+        <PuzzleLetter
+          letterId={letterId6}
+          correct_char="를"
+          error_char="가"
+          title="수상한 쪽지 6"
+          imageSrc="IMG_C2"
+          speaker={["??", "??", "??", "[양호열]"]}
+          lines={[
+            "[벽 틈 사이에 종이 조각이 끼어 있다.]",
+            "[…손끝에 잉크가 묻는다.]",
+            "[‘C’ 라고 적혀 있다.]",
+            "…여기저기 잘도 숨겨놨군.",
+          ]}
+        />{" "}
+        도와주는 천사들을 소개하는 곳이야 ଘ(੭ˊᵕˋ)੭* ੈ✩‧₊˚
       </p>
+      <p className="muted">호열아 대만아 기쁘지?</p>
 
       {/* 🔥 그리드 이미지 목록 */}
       <div className="cooper-grid">
