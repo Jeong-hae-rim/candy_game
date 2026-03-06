@@ -1,6 +1,9 @@
 import { LetterId } from "../func/puzzle";
 import PuzzleLetter from "./PuzzleLetter";
 
+import MEMO_FOLDED from "../assets/images/puzzle/memo_folded.png";
+import C_IMG from "../assets/images/puzzle/C.png";
+
 export default function AboutSection() {
   const letterId6: LetterId = "C1";
 
@@ -31,13 +34,13 @@ export default function AboutSection() {
           correct_char="를"
           error_char="가"
           title="수상한 쪽지 6"
-          imageSrc="IMG_C2"
+          imageSrc={[MEMO_FOLDED, MEMO_FOLDED, C_IMG, C_IMG]}
           speaker={["??", "??", "??", "[양호열]"]}
           lines={[
-            "[벽 틈 사이에 종이 조각이 끼어 있다.]",
-            "[…손끝에 잉크가 묻는다.]",
-            "[‘C’ 라고 적혀 있다.]",
-            "…여기저기 잘도 숨겨놨군.",
+            "[가사실 테이블 위에 종이 조각이 놓여 있다.]",
+            "[물에 안 젖어서 다행이다. 다행인가?]",
+            "[손에 잉크가 안 묻게 펼치니 ‘C’ 라고 적혀 있다.]",
+            "귀찮지도 않나? 가사실에까지.",
           ]}
         />{" "}
         도와주는 천사들을 소개하는 곳이야 ଘ(੭ˊᵕˋ)੭* ੈ✩‧₊˚

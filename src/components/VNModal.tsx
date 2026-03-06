@@ -5,7 +5,7 @@ type Props = {
   open: boolean;
   onClose: () => void;
   title?: string;
-  imageSrc: string;
+  imageSrc?: string | string[];
   speaker?: string | string[];
   lines: string[];
   onCollect?: () => void;
@@ -32,6 +32,14 @@ export default function VNModal({
     return speaker;
   }, [speaker, idx]);
 
+  const currentImg = useMemo(() => {
+    if (!imageSrc) return "??";
+    if (Array.isArray(imageSrc)) {
+      return imageSrc[idx] ?? imageSrc[imageSrc.length - 1];
+    }
+    return imageSrc;
+  }, [imageSrc, idx]);
+
   const text = useMemo(() => lines[idx] ?? "", [lines, idx]);
 
   useEffect(() => {
@@ -53,7 +61,7 @@ export default function VNModal({
         {/* 좌측 이미지 */}
         <div className="vn-left">
           <div className="vn-portrait">
-            <img src={imageSrc} alt="" draggable={false} />
+            <img src={currentImg} alt="" draggable={false} />
           </div>
           {title && <div className="vn-title">{title}</div>}
         </div>

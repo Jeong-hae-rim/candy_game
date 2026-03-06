@@ -123,9 +123,14 @@
     grid-template-columns: 1fr;
   }
   .vn-portrait {
-    aspect-ratio: 16 / 9; /* 모바일은 가로 컷씬 느낌 */
+    aspect-ratio: 18 / 9; /* 모바일은 가로 컷씬 느낌 */
   }
   .vn-text {
     max-height: 42vh;
+  }
+  .vn-portrait img {
+    width: 50%;
+    object-fit: cover; /* 픽셀아트면 contain으로 바꿔도 됨 */
+    image-rendering: pixelated; /* 도트 감성 */
   }
 }

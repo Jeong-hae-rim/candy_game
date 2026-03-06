@@ -2,6 +2,11 @@ import { ReactNode, useEffect, useState } from "react";
 import { LetterId } from "../func/puzzle";
 import PuzzleLetter from "./PuzzleLetter";
 
+import MEMO_FOLDED from "../assets/images/puzzle/memo_folded.png";
+import Y_IMG from "../assets/images/puzzle/Y.png";
+import U_IMG from "../assets/images/puzzle/U.png";
+import M_IMG from "../assets/images/puzzle/M.png";
+
 interface Notice {
   id: number;
   title: string;
@@ -48,13 +53,13 @@ export default function NoticeSection() {
               correct_char="거"
               error_char="가"
               title="수상한 쪽지 1"
-              imageSrc="IMG_Y1"
+              imageSrc={[MEMO_FOLDED, MEMO_FOLDED, Y_IMG, Y_IMG]}
               speaker={["??", "??", "??", "[양호열]"]}
               lines={[
                 "[벽 틈 사이에 종이 조각이 끼어 있다.]",
                 "[…손끝에 잉크가 묻는다.]",
                 "[‘Y’ 라고 적혀 있다.]",
-                "…여기저기 잘도 숨겨놨군.",
+                "이런 데에 숨겨놨네.",
               ]}
             />
             잖아? 행사 관련 쪽지를 주고받을 땐 반드시 '스포 주의' 표시 후 접어서
@@ -110,13 +115,13 @@ export default function NoticeSection() {
             correct_char="있"
             error_char="없"
             title="수상한 쪽지 2"
-            imageSrc="IMG_U1"
+            imageSrc={[MEMO_FOLDED, MEMO_FOLDED, U_IMG, U_IMG]}
             speaker={["??", "??", "??", "[양호열]"]}
             lines={[
-              "[벽 틈 사이에 종이 조각이 끼어 있다.]",
-              "[…손끝에 잉크가 묻는다.]",
+              "[농구부 문 틈 사이에 종이 조각이 끼어 있다.]",
+              "[…손수건으로 집어 뺀다.]",
               "[‘U’ 라고 적혀 있다.]",
-              "…여기저기 잘도 숨겨놨군.",
+              "…농구부? 농구부원 소행인가?",
             ]}
           />
           었으니···. 그들은 처음엔 흘러가는 이야기로 자신들의 추측과 소망을 서로
@@ -256,13 +261,13 @@ export default function NoticeSection() {
               correct_char="장"
               error_char="잖"
               title="수상한 쪽지 3"
-              imageSrc="IMG_M1"
+              imageSrc={[MEMO_FOLDED, MEMO_FOLDED, M_IMG, M_IMG]}
               speaker={["??", "??", "??", "[양호열]"]}
               lines={[
-                "[벽 틈 사이에 종이 조각이 끼어 있다.]",
-                "[…손끝에 잉크가 묻는다.]",
+                "[운동장 벤치 틈 사이에 종이 조각이 끼어 있다.]",
+                "[…부주의하게 꺼내서 손에 잉크가 묻는다.]",
                 "[‘M’ 라고 적혀 있다.]",
-                "…여기저기 잘도 숨겨놨군.",
+                "대체 무슨 펜으로 쓴 거야?",
               ]}
             />
             내 관련 ]
@@ -433,13 +438,13 @@ export default function NoticeSection() {
                 correct_char="안"
                 error_char="아"
                 title="수상한 쪽지 4"
-                imageSrc="IMG_M2"
+                imageSrc={[MEMO_FOLDED, MEMO_FOLDED, M_IMG, M_IMG]}
                 speaker={["??", "??", "??", "[양호열]"]}
                 lines={[
-                  "[벽 틈 사이에 종이 조각이 끼어 있다.]",
-                  "[…손끝에 잉크가 묻는다.]",
+                  "[남자 화장실 3번째 칸 휴지걸이 위에 종이 조각이 놓여 있다.]",
+                  "[…누가 열어보지 않은 거 같다. 다행인가?]",
                   "[‘M’ 라고 적혀 있다.]",
-                  "…여기저기 잘도 숨겨놨군.",
+                  "범인은 남자야. 확실해. 군단 녀석들 짓인가?",
                 ]}
               />
               전상의 문제로 식음료, 화장품(비누, 향수), 인화성 제품(라이터,
@@ -618,13 +623,14 @@ export default function NoticeSection() {
                 correct_char="개"
                 error_char="네"
                 title="수상한 쪽지 5"
-                imageSrc="IMG_Y2"
-                speaker={["??", "??", "??", "[양호열]"]}
+                imageSrc={[MEMO_FOLDED, MEMO_FOLDED, Y_IMG, Y_IMG, Y_IMG]}
+                speaker={["[정대만]", "??", "??", "[양호열]", "[정대만]"]}
                 lines={[
-                  "[벽 틈 사이에 종이 조각이 끼어 있다.]",
-                  "[…손끝에 잉크가 묻는다.]",
-                  "[‘Y’ 라고 적혀 있다.]",
-                  "…여기저기 잘도 숨겨놨군.",
+                  "야, 이거 네 거냐? 겉에 네 이름 적혀 있던데.",
+                  "[…건네주는 대만의 손끝에 잉크가 묻어있다. 뭔가 꼴좋다.]",
+                  "[받아 펼쳐보니 ‘Y’ 라고 적혀 있다.]",
+                  "누가 줬어요.",
+                  "글쎄, 난들 알겠냐.",
                 ]}
               />
               인 사정이나 단순 변심으로 인한 환불은 불가합니다.

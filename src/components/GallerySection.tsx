@@ -6,6 +6,9 @@ import EYE from "../assets/images/eye2.png";
 import { LetterId } from "../func/puzzle";
 import PuzzleLetter from "./PuzzleLetter";
 
+import MEMO_FOLDED from "../assets/images/puzzle/memo_folded.png";
+import H_IMG from "../assets/images/puzzle/H.png";
+
 type AlbumComment = {
   id: number;
   author: string;
@@ -166,7 +169,7 @@ export default function GallerySection() {
           correct_char="패"
           error_char="해"
           title="수상한 쪽지 7"
-          imageSrc="IMG_H2"
+          imageSrc={[MEMO_FOLDED, MEMO_FOLDED, H_IMG, H_IMG]}
           speaker={["??", "??", "??", "[양호열]"]}
           lines={[
             "[벽 틈 사이에 종이 조각이 끼어 있다.]",

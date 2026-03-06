@@ -8,7 +8,7 @@ type Props = {
   error_char: string;
   correct_char: string;
   title: string;
-  imageSrc: string;
+  imageSrc?: string | string[];
   speaker: string[];
   lines: string[];
 };
