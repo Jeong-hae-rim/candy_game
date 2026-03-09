@@ -1,11 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { createClient } from "@libsql/client";
 
-console.log("[rolling] env", {
-  url: !!process.env.TURSO_DATABASE_URL,
-  token: !!process.env.TURSO_AUTH_TOKEN,
-});
-
 const client = createClient({
   url: process.env.TURSO_DATABASE_URL!,
   authToken: process.env.TURSO_AUTH_TOKEN!,
@@ -46,12 +41,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       const sql = cursor
         ? `SELECT id, room, name, content, created_at
-           FROM rolling_notes_test
+           FROM rolling_notes
            WHERE room = ? AND created_at < ?
            ORDER BY created_at DESC
            LIMIT ?`
         : `SELECT id, room, name, content, created_at
-           FROM rolling_notes_test
+           FROM rolling_notes
            WHERE room = ?
            ORDER BY created_at DESC
            LIMIT ?`;
@@ -90,7 +85,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const created_at = Date.now();
 
       await client.execute({
-        sql: `INSERT INTO rolling_notes_test (id, room, name, content, created_at)
+        sql: `INSERT INTO rolling_notes (id, room, name, content, created_at)
               VALUES (?, ?, ?, ?, ?)`,
         args: [id, room, name, content, created_at],
       });

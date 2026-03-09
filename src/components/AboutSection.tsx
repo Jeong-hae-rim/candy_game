@@ -28,10 +28,10 @@ export default function AboutSection() {
     <>
       <h1>천사들 소개</h1>
       <p>
-        여기는 우리{""}
+        여
         <PuzzleLetter
           letterId={letterId6}
-          correct_char="를"
+          correct_char="기"
           error_char="가"
           title="수상한 쪽지 6"
           imageSrc={[MEMO_FOLDED, MEMO_FOLDED, C_IMG, C_IMG]}
@@ -42,8 +42,8 @@ export default function AboutSection() {
             "[손에 잉크가 안 묻게 펼치니 ‘C’ 라고 적혀 있다.]",
             "귀찮지도 않나? 가사실에까지.",
           ]}
-        />{" "}
-        도와주는 천사들을 소개하는 곳이야 ଘ(੭ˊᵕˋ)੭* ੈ✩‧₊˚
+        />
+        {""}는 우리를 도와주는 천사들을 소개하는 곳이야 ଘ(੭ˊᵕˋ)੭* ੈ✩‧₊˚
       </p>
       <p className="muted">호열아 대만아 기쁘지?</p>
 
