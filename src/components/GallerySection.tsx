@@ -3,11 +3,6 @@ import { useState, useEffect, ReactNode } from "react";
 import cartoon1 from "../assets/images/gallery/cartoon_1.jpg";
 import cartoon2 from "../assets/images/gallery/cartoon_2.jpg";
 import EYE from "../assets/images/eye2.png";
-import { LetterId } from "../func/puzzle";
-import PuzzleLetter from "./PuzzleLetter";
-
-import MEMO_FOLDED from "../assets/images/puzzle/memo_folded.png";
-import H_IMG from "../assets/images/puzzle/H.png";
 
 type AlbumComment = {
   id: number;
@@ -23,8 +18,6 @@ type Album = {
   images: string[];
   comments: AlbumComment[]; // 댓글 스타일 텍스트
 };
-
-const letterId7: LetterId = "H1";
 
 const albums: Album[] = [
   {
@@ -162,24 +155,7 @@ export default function GallerySection() {
 
   return (
     <>
-      <h1>
-        호열대만 디스{""}
-        <PuzzleLetter
-          letterId={letterId7}
-          correct_char="패"
-          error_char="해"
-          title="수상한 쪽지 7"
-          imageSrc={[MEMO_FOLDED, MEMO_FOLDED, H_IMG, H_IMG]}
-          speaker={["??", "??", "??", "[양호열]"]}
-          lines={[
-            "[옥상으로 가는 문 틈 사이에 종이 조각이 끼어 있다.]",
-            "[…유심히 보다가 잉크가 안 묻게 조심히 꺼낸다.]",
-            "[‘H’ 라고 적혀 있다.]",
-            "…내가 옥상 자주 오는 건 어떻게 알았지?",
-          ]}
-        />
-        치
-      </h1>
+      <h1>호열대만 디스패치</h1>
       <p>여기는 우리가 피땀눈물 흘려서 모은 호댐의 정수가 모여 있어! (۶•̀ᴗ•́)۶</p>
 
       <div className="grid gallery">

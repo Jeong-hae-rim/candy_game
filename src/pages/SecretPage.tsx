@@ -8,7 +8,7 @@ import { SESSION_KEY } from "../func/constants";
 import SectionRenderer from "../components/SectionRenderer";
 import Sidebar from "../components/Sidebar";
 import type { MenuItem, MenuKey } from "../types/type";
-import PuzzleHUD from "../components/PuzzleHUD";
+// import PuzzleHUD from "../components/PuzzleHUD";
 import VNModal from "../components/VNModal";
 import { loadCollected, markCollected } from "../func/puzzle";
 import type { VNOpenPayload } from "../func/vnEvents";
@@ -110,7 +110,7 @@ export default function SecretPage() {
       />
       <main className="pc-main" role="region" aria-live="polite">
         <PuzzleContext.Provider value={collected}>
-          <PuzzleHUD />
+          {/* <PuzzleHUD /> */}
           <VNModal
             open={open}
             onClose={() => setOpen(false)}

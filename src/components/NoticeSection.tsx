@@ -1,15 +1,8 @@
 import { ReactNode, useEffect, useState } from "react";
-import { LetterId } from "../func/puzzle";
-import PuzzleLetter from "./PuzzleLetter";
-
-import MEMO_FOLDED from "../assets/images/puzzle/memo_folded.png";
-import Y_IMG from "../assets/images/puzzle/Y.png";
-import U_IMG from "../assets/images/puzzle/U.png";
-import M_IMG from "../assets/images/puzzle/M.png";
 
 interface Notice {
   id: number;
-  title: string;
+  title: string | ReactNode[];
   titleEn?: string;
   date: string;
   summary: string;
@@ -21,12 +14,6 @@ export default function NoticeSection() {
   const [activeNotice, setActiveNotice] = useState<Notice | null>(null);
   const [useEnglish, setUseEnglish] = useState(false); // 🔥 번역 토글 상태
   const isOpen = !!activeNotice;
-
-  const letterId: LetterId = "Y1";
-  const letterId2: LetterId = "U1";
-  const letterId3: LetterId = "M1";
-  const letterId4: LetterId = "M2";
-  const letterId5: LetterId = "Y2";
 
   const notices: Notice[] = [
     {
@@ -47,23 +34,8 @@ export default function NoticeSection() {
             제보는 삭제될 수 있다!
           </li>
           <li>
-            &nbsp;우리 은밀하게 파는{" "}
-            <PuzzleLetter
-              letterId={letterId}
-              correct_char="거"
-              error_char="가"
-              title="수상한 쪽지 1"
-              imageSrc={[MEMO_FOLDED, MEMO_FOLDED, Y_IMG, Y_IMG]}
-              speaker={["??", "??", "??", "[양호열]"]}
-              lines={[
-                "[벽 틈 사이에 종이 조각이 끼어 있다.]",
-                "[…손끝에 잉크가 묻는다.]",
-                "[‘Y’ 라고 적혀 있다.]",
-                "이런 데에 숨겨놨네.",
-              ]}
-            />
-            잖아? 행사 관련 쪽지를 주고받을 땐 반드시 '스포 주의' 표시 후 접어서
-            공유하기.
+            &nbsp;우리 은밀하게 파는 거잖아? 행사 관련 쪽지를 주고받을 땐 반드시
+            '스포 주의' 표시 후 접어서 공유하기.
           </li>
           <li>
             &nbsp;우리 써방명은 [모열디만], [묘멸먜먄], [모딤], [호댐],
@@ -109,26 +81,12 @@ export default function NoticeSection() {
           양 모 군이 자신의 무리에서 벗어나려는 3학년 정 모 군에게 집착하여
           이른바 농구부 최후의 날을 일으켰다는 것. <br /> <br />
           &nbsp;&nbsp;이 소문은 농구부의 미래를 위해 겉으로는 쉬쉬대며 암암리에
-          떠돌았으나, 이 이야기에 눈을 빛내는 이들이{" "}
-          <PuzzleLetter
-            letterId={letterId2}
-            correct_char="있"
-            error_char="없"
-            title="수상한 쪽지 2"
-            imageSrc={[MEMO_FOLDED, MEMO_FOLDED, U_IMG, U_IMG]}
-            speaker={["??", "??", "??", "[양호열]"]}
-            lines={[
-              "[농구부 문 틈 사이에 종이 조각이 끼어 있다.]",
-              "[…손수건으로 집어 뺀다.]",
-              "[‘U’ 라고 적혀 있다.]",
-              "…농구부? 농구부원 소행인가?",
-            ]}
-          />
-          었으니···. 그들은 처음엔 흘러가는 이야기로 자신들의 추측과 소망을 서로
-          한마디씩 던져보는 게 전부였으나 이는 점점 같은 취향을 가진 학생들
-          사이에서 하나로 모이며 살이 붙여지고 실체를 가지기 시작했다. 그렇게 양
-          모 군과 정 모 군의 뜨거운 사랑의 소용돌이를 적극적으로 탐구하는
-          비밀조직이 창설되는데···. <br />
+          떠돌았으나, 이 이야기에 눈을 빛내는 이들이 있었으니···. 그들은 처음엔
+          흘러가는 이야기로 자신들의 추측과 소망을 서로 한마디씩 던져보는 게
+          전부였으나 이는 점점 같은 취향을 가진 학생들 사이에서 하나로 모이며
+          살이 붙여지고 실체를 가지기 시작했다. 그렇게 양 모 군과 정 모 군의
+          뜨거운 사랑의 소용돌이를 적극적으로 탐구하는 비밀조직이 창설되는데···.{" "}
+          <br />
           <br />
           &nbsp;&nbsp; 이윽고 시간은 흘러 어느덧 여름. <br />
           <br />
@@ -254,24 +212,7 @@ export default function NoticeSection() {
               대리수령은 불가합니다.
             </li>
           </ol>
-          <h3>
-            [{" "}
-            <PuzzleLetter
-              letterId={letterId3}
-              correct_char="장"
-              error_char="잖"
-              title="수상한 쪽지 3"
-              imageSrc={[MEMO_FOLDED, MEMO_FOLDED, M_IMG, M_IMG]}
-              speaker={["??", "??", "??", "[양호열]"]}
-              lines={[
-                "[운동장 벤치 틈 사이에 종이 조각이 끼어 있다.]",
-                "[…부주의하게 꺼내서 손에 잉크가 묻는다.]",
-                "[‘M’ 라고 적혀 있다.]",
-                "대체 무슨 펜으로 쓴 거야?",
-              ]}
-            />
-            내 관련 ]
-          </h3>
+          <h3>[ 장내 관련 ]</h3>
           <ol>
             <li>
               &nbsp;행사장 내부의 안전을 위하여 스태프의 지시를 반드시
@@ -432,23 +373,8 @@ export default function NoticeSection() {
               침해하는 창작물 판매는 불가합니다.
             </li>
             <li>
-              &nbsp;위생 및{" "}
-              <PuzzleLetter
-                letterId={letterId4}
-                correct_char="안"
-                error_char="아"
-                title="수상한 쪽지 4"
-                imageSrc={[MEMO_FOLDED, MEMO_FOLDED, M_IMG, M_IMG]}
-                speaker={["??", "??", "??", "[양호열]"]}
-                lines={[
-                  "[남자 화장실 3번째 칸 휴지걸이 위에 종이 조각이 놓여 있다.]",
-                  "[…누가 열어보지 않은 거 같다. 다행인가?]",
-                  "[‘M’ 라고 적혀 있다.]",
-                  "범인은 남자야. 확실해. 군단 녀석들 짓인가?",
-                ]}
-              />
-              전상의 문제로 식음료, 화장품(비누, 향수), 인화성 제품(라이터,
-              캔들), 도검류 등의 굿즈 판매 및 배포는 금지됩니다.
+              &nbsp;위생 및 안전상의 문제로 식음료, 화장품(비누, 향수), 인화성
+              제품(라이터, 캔들), 도검류 등의 굿즈 판매 및 배포는 금지됩니다.
             </li>
             <li>
               &nbsp;타인에게 불쾌감을 줄 수 있는 디스플레이 및 타 CP/타 캐릭터
@@ -604,53 +530,90 @@ export default function NoticeSection() {
     },
     {
       id: 5,
-      title: "일반 입장 안내",
+      title: [
+        <p className="notice_title">
+          <span className="notice_new">new</span>일반 입장 안내
+        </p>,
+      ],
       titleEn: "General Admission Guidelines",
-      date: "2025-11-16",
-      summary: "우리 온리전에 입장할 때 안내문이야!",
+      date: "2026-04-03",
+      summary: "일반 입장 안내문이야!",
       body: [
         <>
+          <br />
+          <h3>[ 전프레 구성 ]</h3>
           <ol>
-            <li>&nbsp;입장권은 1인 1매 구매 가 능합니다.</li>
             <li>
-              &nbsp;구매 후 양도/취소/환불 모두 불가하므로 신중한 구매
-              부탁드립니다.
+              &nbsp;쇼핑백 / 입장 팔찌 / 리플렛 / 응모권 / 볼펜 / 엽서 / A4 연력
+              포스터 / 트레이딩 카드 1SET (3매입) / 미니 게임북 / 포스트잇
+              (100매) / 포토프롭 (아크릴) / 필름마크
+            </li>
+          </ol>
+          <br />
+          <h3>[ 신청 시 유의 사항 ]</h3>
+          <ol>
+            <li>&nbsp;입장권은 1인 1매 구매 가능합니다.</li>
+            <li>
+              일반 참관 신청서 작성 및 제출은 04월 06일 (월) 21시 00분 00초(오후
+              9시 정각)부터 인정됩니다. 신청 시간에 착오 없이 제출 부탁드립니다.
             </li>
             <li>
-              {" "}
-              <PuzzleLetter
-                letterId={letterId5}
-                correct_char="개"
-                error_char="네"
-                title="수상한 쪽지 5"
-                imageSrc={[MEMO_FOLDED, MEMO_FOLDED, Y_IMG, Y_IMG, Y_IMG]}
-                speaker={["[정대만]", "??", "??", "[양호열]", "[정대만]"]}
-                lines={[
-                  "야, 이거 네 거냐? 겉에 네 이름 적혀 있던데.",
-                  "[…건네주는 대만의 손끝에 잉크가 묻어있다. 뭔가 꼴좋다.]",
-                  "[받아 펼쳐보니 ‘Y’ 라고 적혀 있다.]",
-                  "누가 줬어요.",
-                  "글쎄, 난들 알겠냐.",
-                ]}
-              />
-              인 사정이나 단순 변심으로 인한 환불은 불가합니다.
+              &nbsp;일반 참관 시작 당일(월)은 폼 제출 후 한 시간 이내로 신청
+              확인하여 입금 안내 메일이 발송됩니다. (단, 화요일 00시 이후 신청
+              건부터는 매 21시마다 취합하여 22시에 일괄 발송합니다.)
             </li>
             <li>
-              &nbsp;주문자 임의로 폼 거래 종료 시 혹은 제출된 폼의 정보를
-              변경하여 주문자 정보 불일치 등의 문제로 확인이 어려울 경우 입장 및
-              환불이 불가합니다.
+              &nbsp;제출 후 24시간 내에 입금이 확인되지 않는 신청 건은 무통보
+              삭제 처리됩니다.
             </li>
             <li>
-              &nbsp;입장 특전의 누락 및 파본 교환은 행사 당일 현장에서만
-              가능하며 행사 종료 후에는 교환이 불가합니다. 배송 및 포장 과정에서
-              발생할 수 있는 미세한 긁힘 혹은 찍힘은 파본으로 인정되지 않으니
-              양해 부탁드립니다.
+              &nbsp;입장권 입금 후 단순 변심 및 개인 사정으로 인한 양도 / 취소 /
+              환불 모두 제한됩니다.
             </li>
             <li>
-              &nbsp;행사 미참석 시 입장권 환불은 불가하며, 전프레의 경우
-              배송료를 별도 결제 후 배송받을 수 있습니다.
+              &nbsp;신청 시 수집한 개인정보는 행사 종료 이후 모두 파기 됩니다.
             </li>
-            <li>&nbsp;신청 시 받은 개인정보는 행사 종료 이후 파기됩니다.</li>
+          </ol>
+          <br />
+          <h3>[ 입장 시 유의 사항 ]</h3>
+          <ol>
+            <li>
+              &nbsp;행사 당일 입장 시 신분증을 검사합니다.
+              <ul>
+                <li>
+                  &nbsp;신분증 미지참 및 입장 조건 미충족 시 입장이 제한됩니다.
+                  (환불 X)
+                </li>
+                <li>&nbsp;신청 폼의 신청자 성함과 동일해야 합니다.</li>
+                <li>
+                  &nbsp;인정 신분증 종류 : 주민등록증, 여권, 운전면허증, 모바일
+                  신분증, 청소년증, 학생증(사진/이름/출생년도 기재) 이외
+                  국가에서 인증하는 신분증
+                </li>
+              </ul>
+            </li>
+            <li>
+              입장 특전의 누락 및 파본은 행사 당일 현장에서만 교환 가능합니다.
+              <ul>
+                <li>
+                  &nbsp;행사 종료 후에는 교환이 불가합니다. (수령 직후 확인을
+                  권장)
+                </li>
+                <li>
+                  &nbsp;배송 및 포장 과정에서 발생한 미세한 긁힘 및 찍힘은
+                  파본으로 인정되지 않습니다.
+                </li>
+              </ul>
+            </li>
+            <li>
+              &nbsp;행사 미참석 시 환불은 불가합니다.
+              <ul>
+                <li>
+                  &nbsp;미수령한 전프레는 행사 종료 이후 택배 수령 가능합니다.
+                  (배송비 별도 부담)
+                </li>
+              </ul>
+            </li>
           </ol>
           <br />
           <br />
@@ -658,38 +621,83 @@ export default function NoticeSection() {
       ],
       bodyEn: [
         <>
+          <br />
+          <h3>[ Admission Package ]</h3>
           <ol>
             <li>
-              &nbsp;Each individual may purchase only one admission ticket.
+              &nbsp;shopping bag / wristband / leaflet / raffle tickets / pen /
+              postcard / yearly calendar A4 poster / 1 trading card set (3
+              cards) / mini game book / memo pad (post-it, 100 sheets) / acrylic
+              photo prop / film mark
+            </li>
+          </ol>
+          <br />
+          <h3>[ Guidelines for Application ]</h3>
+          <ol>
+            <li>
+              &nbsp;Each attendee may purchase only one admission ticket per
+              person.
             </li>
             <li>
-              &nbsp;Please review your purchase carefully, as no transfers,
-              cancellations, or refunds will be provided under any
-              circumstances.
+              Applications will only be accepted starting from April 6 (Mon) at
+              exactly 21:00 (KST).
             </li>
             <li>
-              &nbsp;Refunds are not available for personal reasons or change of
-              mind.
+              &nbsp;On the first day of general admission (Mon), you will
+              receive a confirmation and payment email within one hour of
+              submitting the form. (From 00:00 on Tuesday onward, applications
+              will be reviewed daily at 21:00, and payment emails will be sent
+              out in bulk at 22:00.
             </li>
             <li>
-              &nbsp;If the purchaser alters or closes the form on their own, or
-              if the submitted information is changed in a way that prevents
-              proper verification, both admission and refunds will be denied.
+              &nbsp;After receiving the payment email, please complete your
+              payment within 24 hours. Unpaid applications will be automatically
+              canceled.
             </li>
             <li>
-              &nbsp;Missing or damaged admission benefits can only be exchanged
-              on the day of the event at the venue. No exchanges will be
-              processed after the event. Minor marks or dents that may occur
-              during shipping or packaging are not considered as defects.
+              &nbsp;Please note that tickets cannot be transferred, canceled, or
+              refunded once purchased.
             </li>
             <li>
-              &nbsp; &nbsp;If you do not attend the event, your admission ticket
-              cannot be refunded. Pre-registration benefits may still be shipped
-              upon additional payment of the delivery fee.
+              &nbsp;Personal information collected for the application will be
+              securely deleted after the event.
+            </li>
+          </ol>
+          <br />
+          <h3>[ Precautions for General Admission ]</h3>
+          <ol>
+            <li>
+              &nbsp;Please ensure that the name on your application form matches
+              your ID at entry. A passport will be checked for verification.
+              <ul>
+                <li>
+                  &nbsp;Entry may be restricted if you do not bring a valid ID
+                  or fail to meet the entry requirements, and refunds will not
+                  be available in such cases.
+                </li>
+              </ul>
             </li>
             <li>
-              &nbsp;All personal information collected during registration will
-              be securely deleted after the event concludes.
+              Any missing or damaged items from the admission package can be
+              exchanged at the venue on the event day only. Exchanges are not
+              available afterward.
+              <ul>
+                <li>
+                  &nbsp;Small scratches or marks caused during packaging or
+                  shipping are not considered defects.
+                </li>
+              </ul>
+            </li>
+            <li>
+              &nbsp;If you are unable to attend the event, your ticket will not
+              be refunded.
+              <ul>
+                <li>
+                  &nbsp;Unclaimed admission packages can be received via courier
+                  after the event ends. (In this case, you will be responsible
+                  for the shipping costs.)
+                </li>
+              </ul>
             </li>
           </ol>
           <br />

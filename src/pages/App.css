@@ -309,3 +309,15 @@ body {
 .puzzle-letter:not(.found):hover {
   color: #ff9ac7;
 }
+
+.notice_title {
+  margin-bottom: 0;
+}
+
+.notice_new {
+  margin-right: 10px;
+  padding: 5px;
+  background-color: #ec8eff;
+  border-radius: 10px;
+  color: #fff;
+}

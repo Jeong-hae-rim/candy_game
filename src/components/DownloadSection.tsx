@@ -1,11 +1,11 @@
-import { LetterId } from "../func/puzzle";
-import PuzzleLetter from "./PuzzleLetter";
+// import { LetterId } from "../func/puzzle";
+// import PuzzleLetter from "./PuzzleLetter";
 
-import MEMO_FOLDED from "../assets/images/puzzle/memo_folded.png";
-import U_IMG from "../assets/images/puzzle/U.png";
+// import MEMO_FOLDED from "../assets/images/puzzle/memo_folded.png";
+// import U_IMG from "../assets/images/puzzle/U.png";
 
 export default function DownloadSection() {
-  const letterId8: LetterId = "U2";
+  // const letterId8: LetterId = "U2";
 
   return (
     <>
@@ -22,8 +22,8 @@ export default function DownloadSection() {
         </a>
         <a className="row" href="#" onClick={(e) => e.preventDefault()}>
           <span>
-            호열대만_사진{""}
-            <PuzzleLetter
+            호열대만_사진집
+            {/* <PuzzleLetter
               letterId={letterId8}
               correct_char="첩"
               error_char="줘"
@@ -36,7 +36,7 @@ export default function DownloadSection() {
                 "[‘U’ 라고 적혀 있다.]",
                 "이 선배는 자기 얼굴이 더럽혀진 걸 영원히 모르겠네.",
               ]}
-            />
+            />*/}
             .zip
           </span>
           <span className="muted">5.6 MB</span>
