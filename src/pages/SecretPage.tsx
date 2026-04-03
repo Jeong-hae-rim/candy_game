@@ -29,14 +29,19 @@ export default function SecretPage() {
     const hasAccess =
       sessionStorage.getItem(SESSION_KEY) === "1" ||
       localStorage.getItem(SESSION_KEY) === "1";
-    if (!hasAccess) navigate("/", { replace: true });
-    else if (
+
+    const isPublicTab = tab === "notice";
+
+    if (!hasAccess && !isPublicTab) {
+      navigate("/", { replace: true });
+    } else if (
+      hasAccess &&
       localStorage.getItem(SESSION_KEY) === "1" &&
       sessionStorage.getItem(SESSION_KEY) !== "1"
     ) {
       sessionStorage.setItem(SESSION_KEY, "1");
     }
-  }, [navigate]);
+  }, [navigate, tab]);
 
   useEffect(() => {
     const onOpen = (e: Event) => {

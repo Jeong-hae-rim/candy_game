@@ -331,7 +331,7 @@ export default function NoticeSection() {
       title: "부스 입장 안내",
       titleEn: "Booth Participation Guidelines",
       date: "2025-11-15",
-      summary: "우리 동아리의 입장 안내문이야.",
+      summary: "우리 동아리의 부스 입장 안내문이야.",
       body: [
         <>
           <h3>[ 부스 신청 ]</h3>
@@ -552,6 +552,11 @@ export default function NoticeSection() {
           <br />
           <h3>[ 신청 시 유의 사항 ]</h3>
           <ol>
+            <li>
+              &nbsp;본 행사의 모든 참관은 2026년 행사 개최일 기준 연 나이
+              17세(10년생) 이상이어야 하며, 주민등록번호 뒷자리의 맨 앞자리가
+              짝수(2, 4)인 여성만 가능합니다.
+            </li>
             <li>&nbsp;입장권은 1인 1매 구매 가능합니다.</li>
             <li>
               일반 참관 신청서 작성 및 제출은 04월 06일 (월) 21시 00분 00초(오후
@@ -634,6 +639,11 @@ export default function NoticeSection() {
           <br />
           <h3>[ Guidelines for Application ]</h3>
           <ol>
+            <li>
+              &nbsp;Applicants must be at least first-year high school students
+              (born in 2010 or earlier) Participation is limited to female
+              attendees only.
+            </li>
             <li>
               &nbsp;Each attendee may purchase only one admission ticket per
               person.
