@@ -583,7 +583,7 @@ export default function NoticeSection() {
           <h3>[ 입장 시 유의 사항 ]</h3>
           <ol>
             <li>
-              &nbsp;행사 당일 입장 시 신분증을 검사합니다.
+              &nbsp;행사 당일 입장 시 신분증을 확인합니다.
               <ul>
                 <li>
                   &nbsp;신분증 미지참 및 입장 조건 미충족 시 입장이 제한됩니다.
