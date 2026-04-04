@@ -576,7 +576,7 @@ export default function NoticeSection() {
               환불 모두 제한됩니다.
             </li>
             <li>
-              &nbsp;신청 시 수집한 개인정보는 행사 종료 이후 모두 파기 됩니다.
+              &nbsp;신청 시 수집한 개인정보는 행사 종료 이후 모두 파기됩니다.
             </li>
           </ol>
           <br />
