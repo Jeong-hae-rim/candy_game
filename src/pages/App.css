@@ -335,9 +335,10 @@ body {
   border-radius: 12px;
 }
 
-.cooper-modal {
-  max-width: min(92vw, 900px);
+.modal.cooper-modal {
   width: fit-content;
+  max-width: 90vw;
+  max-height: 90vh;
 }
 
 .cooper-modal__body {
@@ -348,8 +349,9 @@ body {
 }
 
 .cooper-modal__img {
+  width: 80%;
+  max-width: 90vw; /* 모바일 대응 */
+  height: auto;
   display: block;
-  max-width: 100%;
-  max-height: 80vh;
   border-radius: 12px;
 }
