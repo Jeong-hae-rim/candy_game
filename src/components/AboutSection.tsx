@@ -3,7 +3,8 @@ import { useState } from "react";
 type CooperItem = {
   id: string;
   thumb: string;
-  artwork: string;
+  artwork: string | undefined;
+  hasArtwork: boolean;
 };
 
 export default function AboutSection() {
@@ -32,10 +33,13 @@ export default function AboutSection() {
         ([artPath]) => getBaseName(artPath) === baseName
       );
 
+      const hasArtwork = !!matchedArtworkEntry;
+
       return {
         id: baseName,
         thumb: thumbSrc,
-        artwork: matchedArtworkEntry?.[1] ?? thumbSrc,
+        artwork: matchedArtworkEntry?.[1],
+        hasArtwork,
       };
     })
     .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
@@ -52,6 +56,7 @@ export default function AboutSection() {
         {cooperList.map((item) => (
           <button
             key={item.id}
+            disabled={!item.hasArtwork}
             type="button"
             className="cooper-item"
             onClick={() => setSelectedItem(item)}
@@ -66,9 +71,6 @@ export default function AboutSection() {
           <div
             className="modal cooper-modal"
             onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-label="협력작 보기"
           >
             <div className="gallery-modal__header">
               <button
@@ -87,6 +89,10 @@ export default function AboutSection() {
                 alt={`${selectedItem.id} 협력작`}
                 className="cooper-modal__img"
               />
+
+              {!selectedItem.hasArtwork && (
+                <p className="muted">아직 공개되지 않은 협력작이에요 👀</p>
+              )}
             </div>
           </div>
         </div>
