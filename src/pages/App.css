@@ -321,3 +321,35 @@ body {
   border-radius: 10px;
   color: #fff;
 }
+
+.cooper-item {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cooper-item img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.cooper-modal {
+  max-width: min(92vw, 900px);
+  width: fit-content;
+}
+
+.cooper-modal__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px 20px;
+}
+
+.cooper-modal__img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+}

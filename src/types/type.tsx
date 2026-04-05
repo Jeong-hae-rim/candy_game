@@ -1,6 +1,11 @@
 import { ReactNode } from "react";
 
-export type MenuKey = "home" | "notice" | "gallery" | "download" | "about";
+export type MenuKey =
+  | "home"
+  | "notice"
+  | "gallery"
+  | "download"
+  | "secret_angels";
 
 export interface MenuItem {
   key: MenuKey;

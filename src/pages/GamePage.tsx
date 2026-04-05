@@ -46,7 +46,7 @@ export default function GamePage() {
         label: "공지",
         icon: <img src={EYE} alt="" className="eye-logo" />,
       },
-      { key: "about", label: "천사목록", icon: "👼🏻" },
+      { key: "secret_angels", label: "천사목록", icon: "👼🏻" },
       {
         key: "gallery",
         label: "디스패치",

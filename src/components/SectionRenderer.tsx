@@ -23,7 +23,7 @@ function SectionRenderer({ active }: SectionRendererProps) {
     case "download":
       return <DownloadSection />;
 
-    case "about":
+    case "secret_angels":
       return <AboutSection />;
 
     default:
