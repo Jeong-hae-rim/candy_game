@@ -30,7 +30,8 @@ export default function SecretPage() {
       sessionStorage.getItem(SESSION_KEY) === "1" ||
       localStorage.getItem(SESSION_KEY) === "1";
 
-    const isPublicTab = tab === "notice";
+    const publicTabs: MenuKey[] = ["notice", "secret_angels"];
+    const isPublicTab = publicTabs.includes((tab as MenuKey) ?? "home");
 
     if (!hasAccess && !isPublicTab) {
       navigate("/", { replace: true });
