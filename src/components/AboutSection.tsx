@@ -9,6 +9,7 @@ type CooperItem = {
 
 export default function AboutSection() {
   const [selectedItem, setSelectedItem] = useState<CooperItem | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const thumbImages = import.meta.glob("../assets/images/cooper/*", {
     eager: true,
@@ -44,7 +45,13 @@ export default function AboutSection() {
     })
     .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
 
-  const closeViewer = () => setSelectedItem(null);
+  const closeViewer = () => {
+    setSelectedItem(null);
+    setIsFullscreen(false);
+  };
+
+  const openFullscreen = () => setIsFullscreen(true);
+  const closeFullscreen = () => setIsFullscreen(false);
 
   return (
     <>
@@ -71,6 +78,9 @@ export default function AboutSection() {
           <div
             className="modal cooper-modal"
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label="협력작 보기"
           >
             <div className="gallery-modal__header">
               <button
@@ -88,6 +98,10 @@ export default function AboutSection() {
                 src={selectedItem.artwork}
                 alt={`${selectedItem.id} 협력작`}
                 className="cooper-modal__img"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openFullscreen();
+                }}
               />
 
               {!selectedItem.hasArtwork && (
@@ -95,6 +109,26 @@ export default function AboutSection() {
               )}
             </div>
           </div>
+        </div>
+      )}
+
+      {isFullscreen && selectedItem && (
+        <div className="fullscreen-backdrop" onClick={closeFullscreen}>
+          <img
+            src={selectedItem.artwork}
+            alt={`${selectedItem.id} 협력작 전체 보기`}
+            className="fullscreen-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+
+          <button
+            type="button"
+            className="fullscreen-close"
+            onClick={closeFullscreen}
+            aria-label="전체 화면 닫기"
+          >
+            ✕
+          </button>
         </div>
       )}
     </>
