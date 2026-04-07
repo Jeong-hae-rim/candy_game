@@ -351,6 +351,7 @@ body {
 .cooper-modal__img {
   width: 80%;
   max-width: 90vw; /* 모바일 대응 */
+  max-height: 100vh;
   height: auto;
   display: block;
   border-radius: 12px;
