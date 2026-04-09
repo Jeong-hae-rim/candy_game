@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type CooperItem = {
   id: string;
   thumb: string;
-  artwork: string | undefined;
+  artworks: string[];
   hasArtwork: boolean;
 };
 
 export default function AboutSection() {
   const [selectedItem, setSelectedItem] = useState<CooperItem | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [activeArtworkIndex, setActiveArtworkIndex] = useState(0);
 
   const thumbImages = import.meta.glob("../assets/images/cooper/*", {
     eager: true,
@@ -21,37 +22,89 @@ export default function AboutSection() {
     import: "default",
   }) as Record<string, string>;
 
-  const getBaseName = (path: string) => {
-    return path.split("/").pop()!.split(".")[0];
+  const getFileName = (path: string) => path.split("/").pop()!.split(".")[0];
+
+  // "1_2" -> "1"
+  const getGroupKey = (path: string) => {
+    const fileName = getFileName(path);
+    return fileName.split("_")[0];
   };
 
   const cooperList: CooperItem[] = Object.entries(thumbImages)
     .map(([path, thumbSrc]) => {
-      const baseName = getBaseName(path);
+      const key = getGroupKey(path);
 
-      // cooper_1 -> cooper_1 과 같은 이름의 협력작을 찾는 구조
-      const matchedArtworkEntry = Object.entries(artworkImages).find(
-        ([artPath]) => getBaseName(artPath) === baseName
-      );
+      const matchedArtworks = Object.entries(artworkImages)
+        .filter(([artPath]) => getGroupKey(artPath) === key)
+        .sort(([a], [b]) =>
+          getFileName(a).localeCompare(getFileName(b), undefined, {
+            numeric: true,
+          })
+        )
+        .map(([, src]) => src);
 
-      const hasArtwork = !!matchedArtworkEntry;
+      const hasArtwork = matchedArtworks.length > 0;
 
       return {
-        id: baseName,
+        id: key,
         thumb: thumbSrc,
-        artwork: matchedArtworkEntry?.[1],
+        artworks: hasArtwork ? matchedArtworks : [],
         hasArtwork,
       };
     })
-    .sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+    .sort((a, b) => Number(a.id) - Number(b.id));
+
+  const openViewer = (item: CooperItem) => {
+    setSelectedItem(item);
+    setActiveArtworkIndex(0);
+  };
 
   const closeViewer = () => {
     setSelectedItem(null);
     setIsFullscreen(false);
+    setActiveArtworkIndex(0);
   };
 
   const openFullscreen = () => setIsFullscreen(true);
   const closeFullscreen = () => setIsFullscreen(false);
+
+  const showPrev = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!selectedItem || selectedItem.artworks.length === 0) return;
+
+    setActiveArtworkIndex((prev) =>
+      prev === 0 ? selectedItem.artworks.length - 1 : prev - 1
+    );
+  };
+
+  const showNext = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!selectedItem || selectedItem.artworks.length === 0) return;
+
+    setActiveArtworkIndex((prev) =>
+      prev === selectedItem.artworks.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  useEffect(() => {
+    if (!selectedItem) return;
+
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (isFullscreen) {
+          closeFullscreen();
+        } else {
+          closeViewer();
+        }
+      }
+
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [selectedItem, isFullscreen]);
 
   return (
     <>
@@ -66,7 +119,7 @@ export default function AboutSection() {
             disabled={!item.hasArtwork}
             type="button"
             className="cooper-item"
-            onClick={() => setSelectedItem(item)}
+            onClick={() => openViewer(item)}
           >
             <img src={item.thumb} alt={item.id} />
           </button>
@@ -94,9 +147,20 @@ export default function AboutSection() {
             </div>
 
             <div className="cooper-modal__body">
+              {selectedItem.artworks.length > 1 && (
+                <button
+                  type="button"
+                  className="gallery-modal__nav prev"
+                  onClick={showPrev}
+                  aria-label="이전 이미지"
+                >
+                  《
+                </button>
+              )}
+
               <img
-                src={selectedItem.artwork}
-                alt={`${selectedItem.id} 협력작`}
+                src={selectedItem.artworks[activeArtworkIndex]}
+                alt={`${selectedItem.id} 협력작 ${activeArtworkIndex + 1}`}
                 className="cooper-modal__img"
                 onClick={(e) => {
                   e.stopPropagation();
@@ -104,8 +168,15 @@ export default function AboutSection() {
                 }}
               />
 
-              {!selectedItem.hasArtwork && (
-                <p className="muted">아직 공개되지 않은 협력작이에요 👀</p>
+              {selectedItem.artworks.length > 1 && (
+                <button
+                  type="button"
+                  className="gallery-modal__nav next"
+                  onClick={showNext}
+                  aria-label="다음 이미지"
+                >
+                  》
+                </button>
               )}
             </div>
           </div>
@@ -115,7 +186,7 @@ export default function AboutSection() {
       {isFullscreen && selectedItem && (
         <div className="fullscreen-backdrop" onClick={closeFullscreen}>
           <img
-            src={selectedItem.artwork}
+            src={selectedItem.artworks[activeArtworkIndex]}
             alt={`${selectedItem.id} 협력작 전체 보기`}
             className="fullscreen-img"
             onClick={(e) => e.stopPropagation()}
