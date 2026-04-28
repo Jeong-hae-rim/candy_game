@@ -12,10 +12,10 @@ const Router = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/:tab?" element={<Secretpage />} />
-          {/* <Route path="/game2048" element={<GamePage />} /> */}
           <Route path="/md-list" element={<MdPage />} />
           <Route path="/yummychu" element={<RollingPage />} />
+          <Route path="/:tab?" element={<Secretpage />} />
+          {/* <Route path="/game2048" element={<GamePage />} /> */}
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

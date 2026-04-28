@@ -7,6 +7,7 @@ export type MenuKey =
   | "gallery"
   | "download"
   | "md_list"
+  | "md-list"
   | "secret_angels";
 
 export interface MenuItem {

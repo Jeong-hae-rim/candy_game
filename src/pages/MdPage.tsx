@@ -3,7 +3,7 @@ import "./mdpage.css";
 import BASKET from "../assets/images/eye2.png";
 import EYE from "../assets/images/eye1.png";
 import EYE2 from "../assets/images/eye3.png";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SESSION_KEY } from "../func/constants";
 import Sidebar from "../components/Sidebar";
@@ -20,20 +20,6 @@ import MDLIST2 from "../assets/images/mdList/mdlist2.png";
 export default function MdPage() {
   const navigate = useNavigate();
   const { tab } = useParams<{ tab?: string }>();
-
-  // 인증 가드
-  useEffect(() => {
-    const hasAccess =
-      sessionStorage.getItem(SESSION_KEY) === "1" ||
-      localStorage.getItem(SESSION_KEY) === "1";
-    if (!hasAccess) navigate("/", { replace: true });
-    else if (
-      localStorage.getItem(SESSION_KEY) === "1" &&
-      sessionStorage.getItem(SESSION_KEY) !== "1"
-    ) {
-      sessionStorage.setItem(SESSION_KEY, "1");
-    }
-  }, [navigate]);
 
   const handleLogout = () => {
     sessionStorage.removeItem(SESSION_KEY);
@@ -98,6 +84,12 @@ export default function MdPage() {
       images: MDLIST1,
       author: "온리전 제작",
     },
+    // {
+    //   id: 5,
+    //   title: "아크릴 뱃지",
+    //   images: MDLIST2,
+    //   author: "온리전 제작",
+    // },
   ];
 
   return (
@@ -131,6 +123,7 @@ export default function MdPage() {
             <div className="goods-divider" />
           </section>
         ))}
+
         <section className="goods-section">
           <div className="goods-divider" />
 
