@@ -20,6 +20,10 @@
 }
 
 @media (max-width: 768px) {
+  .goods-image {
+    width: 90%;
+  }
+
   .goods-image2 {
     width: 200px;
   }
