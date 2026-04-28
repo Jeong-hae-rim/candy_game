@@ -1,0 +1,27 @@
+h1 {
+  text-align: center;
+}
+
+.info__wrapper {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  float: left;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.info__wrapper .info__wrap {
+  display: flex;
+  color: white;
+  margin: -3px 0 -3px 0;
+  align-items: center;
+  flex-direction: column;
+}
+
+.null-section {
+  width: 100%;
+}

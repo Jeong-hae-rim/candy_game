@@ -42,11 +42,7 @@ const albums: Album[] = [
       {
         id: 1,
         author: "비밀결사대",
-        text: [
-          <span className="comment-text">
-            써방명도 안 쓴 쪽지 흘린 사람 손 들어…
-          </span>,
-        ],
+        text: "써방명도 안 쓴 쪽지 흘린 사람 손 들어…",
       },
     ],
   },
@@ -75,11 +71,7 @@ const albums: Album[] = [
       {
         id: 1,
         author: "비밀결사대",
-        text: [
-          <span className="comment-text">
-            그때는 짜증 났지만 지금은 좋아해? 공개 고백 너무 좋아.
-          </span>,
-        ],
+        text: "그때는 짜증 났지만 지금은 좋아해? 공개 고백 너무 좋아.",
       },
     ],
   },

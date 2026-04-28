@@ -4,6 +4,7 @@ import Secretpage from "./pages/SecretPage";
 import NotFound from "./pages/404";
 // import GamePage from "./pages/GamePage";
 import RollingPage from "./pages/RollingPage";
+import MdPage from "./pages/MdPage";
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
           <Route path="/" element={<App />} />
           <Route path="/:tab?" element={<Secretpage />} />
           {/* <Route path="/game2048" element={<GamePage />} /> */}
+          <Route path="/md-list" element={<MdPage />} />
           <Route path="/yummychu" element={<RollingPage />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>

@@ -1,0 +1,74 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: grid;
+  place-items: center;
+  z-index: 4000;
+  padding: 16px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  z-index: 999;
+
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(10, 6, 18, 0.92);
+  border: 1px solid rgba(255, 158, 158, 0.55);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex: 1;
+  width: 100%;
+  float: left;
+}
+
+.modal-content img {
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+  border-radius: 20px;
+}
+
+.modal-inner {
+  padding: 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.modal-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-img-wrap label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(70, 184, 255, 0.8); /* 반투명 배경 */
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  pointer-events: none; /* label이 클릭 막지 않게 */
+}

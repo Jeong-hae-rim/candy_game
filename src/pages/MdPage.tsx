@@ -1,66 +1,39 @@
 import "./SecretPage.css";
+import "./mdpage.css";
 import BASKET from "../assets/images/eye2.png";
 import EYE from "../assets/images/eye1.png";
 import EYE2 from "../assets/images/eye3.png";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { SESSION_KEY } from "../func/constants";
-import SectionRenderer from "../components/SectionRenderer";
 import Sidebar from "../components/Sidebar";
 import type { MenuItem, MenuKey } from "../types/type";
-// import PuzzleHUD from "../components/PuzzleHUD";
-import VNModal from "../components/VNModal";
-import { loadCollected, markCollected } from "../func/puzzle";
-import type { VNOpenPayload } from "../func/vnEvents";
 
 import MobileNav from "../components/MobileNav";
-import { PuzzleContext } from "../func/puzzleStore";
 
-export default function SecretPage() {
+import COOPER21 from "../assets/images/mdList/mdlist3.png";
+import COOPER24 from "../assets/images/cooperWorks/cooper24_2.png";
+import COOPER22 from "../assets/images/cooperWorks/cooper22_2.png";
+import MDLIST1 from "../assets/images/mdList/mdlist1.png";
+import MDLIST2 from "../assets/images/mdList/mdlist2.png";
+
+export default function MdPage() {
   const navigate = useNavigate();
   const { tab } = useParams<{ tab?: string }>();
-
-  const [vn, setVn] = useState<VNOpenPayload | null>(null);
-  const [open, setOpen] = useState(false);
-  const [collected, setCollected] = useState(() => loadCollected());
 
   // 인증 가드
   useEffect(() => {
     const hasAccess =
       sessionStorage.getItem(SESSION_KEY) === "1" ||
       localStorage.getItem(SESSION_KEY) === "1";
-
-    const publicTabs: MenuKey[] = ["notice", "secret_angels"];
-    const isPublicTab = publicTabs.includes((tab as MenuKey) ?? "home");
-
-    if (!hasAccess && !isPublicTab) {
-      navigate("/", { replace: true });
-    } else if (
-      hasAccess &&
+    if (!hasAccess) navigate("/", { replace: true });
+    else if (
       localStorage.getItem(SESSION_KEY) === "1" &&
       sessionStorage.getItem(SESSION_KEY) !== "1"
     ) {
       sessionStorage.setItem(SESSION_KEY, "1");
     }
-  }, [navigate, tab]);
-
-  useEffect(() => {
-    const onOpen = (e: Event) => {
-      const ev = e as CustomEvent<VNOpenPayload>;
-      setVn(ev.detail);
-      setOpen(true);
-    };
-    window.addEventListener("vn:open", onOpen);
-    return () => window.removeEventListener("vn:open", onOpen);
-  }, []);
-
-  const isCollected = !!(vn?.key && collected[vn.key]);
-
-  const handleCollect = () => {
-    if (!vn?.key) return;
-    const next = markCollected(collected, vn.key);
-    setCollected(next);
-  };
+  }, [navigate]);
 
   const handleLogout = () => {
     sessionStorage.removeItem(SESSION_KEY);
@@ -81,11 +54,6 @@ export default function SecretPage() {
         icon: <img src={EYE} alt="" className="eye-logo" />,
       },
       { key: "secret_angels", label: "천사목록", icon: "👼🏻" },
-      // {
-      //   key: "booth_info",
-      //   label: "결사대원목록",
-      //   icon: <img src={EYE2} alt="" className="eye-logo" />,
-      // },
       {
         key: "gallery",
         label: "디스패치",
@@ -105,6 +73,33 @@ export default function SecretPage() {
     navigate(`/${key}`, { replace: true });
   };
 
+  const items = [
+    {
+      id: 1,
+      title: "족자봉",
+      images: COOPER21,
+      author: "돌 DD님 협력",
+    },
+    {
+      id: 2,
+      title: "회전 아크릴 스탠드",
+      images: COOPER24,
+      author: "른짝님 협력",
+    },
+    {
+      id: 3,
+      title: "아크릴 스탠드(일반)",
+      images: COOPER22,
+      author: "잡곡밥님 협력",
+    },
+    {
+      id: 4,
+      title: "아크릴 마그넷 세트",
+      images: MDLIST1,
+      author: "온리전 제작",
+    },
+  ];
+
   return (
     <div className="pc-layout">
       <Sidebar
@@ -120,20 +115,32 @@ export default function SecretPage() {
         onLogout={handleLogout}
       />
       <main className="pc-main" role="region" aria-live="polite">
-        <PuzzleContext.Provider value={collected}>
-          {/* <PuzzleHUD /> */}
-          <VNModal
-            open={open}
-            onClose={() => setOpen(false)}
-            title={vn?.title}
-            imageSrc={vn?.imageSrc ?? ""}
-            speaker={vn?.speaker ?? "??"}
-            lines={vn?.lines ?? [""]}
-            onCollect={vn?.key ? handleCollect : undefined}
-            collected={isCollected}
-          />
-          <SectionRenderer active={active} />
-        </PuzzleContext.Provider>
+        {items.map((item) => (
+          <section className="goods-section" key={item.id}>
+            <div className="goods-divider" />
+
+            <h3>{item.title}</h3>
+
+            {item.images ? (
+              <img src={item.images} alt={item.title} className="goods-image" />
+            ) : (
+              "준비 중입니다."
+            )}
+
+            <h5>{item.author}</h5>
+            <div className="goods-divider" />
+          </section>
+        ))}
+        <section className="goods-section">
+          <div className="goods-divider" />
+
+          <h3>아크릴 뱃지</h3>
+
+          <img src={MDLIST2} className="goods-image2" />
+
+          <h5>온리전 제작</h5>
+          <div className="goods-divider" />
+        </section>
       </main>
     </div>
   );

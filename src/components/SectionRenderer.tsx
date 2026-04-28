@@ -3,6 +3,7 @@ import NoticeSection from "./NoticeSection";
 import GallerySection from "./GallerySection";
 import DownloadSection from "./DownloadSection";
 import AboutSection from "./AboutSection";
+import InfoSection from "./InfoSection";
 import { MenuKey } from "../types/type";
 
 interface SectionRendererProps {
@@ -16,6 +17,9 @@ function SectionRenderer({ active }: SectionRendererProps) {
 
     case "notice":
       return <NoticeSection />;
+
+    case "booth_info":
+      return <InfoSection />;
 
     case "gallery":
       return <GallerySection />;
