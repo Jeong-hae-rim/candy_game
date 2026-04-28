@@ -2,6 +2,9 @@ import { useState, useEffect, ReactNode } from "react";
 
 import cartoon1 from "../assets/images/gallery/cartoon_1.jpg";
 import cartoon2 from "../assets/images/gallery/cartoon_2.jpg";
+import cartoon3 from "../assets/images/gallery/cartoon2_1.jpg";
+import cartoon4 from "../assets/images/gallery/cartoon2_2.jpg";
+import cartoon5 from "../assets/images/gallery/cartoon2_3.jpg";
 import EYE from "../assets/images/eye2.png";
 
 type AlbumComment = {
@@ -49,15 +52,34 @@ const albums: Album[] = [
   },
   {
     id: 2,
-    title: "하굣길 디스패치",
-    tags: [], // 태그들
-    date: "",
-    images: [],
+    title: "학교괴담 ~북산고의 전설~",
+    date: "2026-04-28",
+    images: [cartoon3, cartoon4, cartoon5],
+    tags: ["학교_괴담?", "특급_사건!_중요_체크!", "공공_장소에서_괜찮은_걸까"],
     comments: [
       {
+        id: 4,
+        author: "결사대원2",
+        text: "아 나 왜 그 자리에 없었지? ㅠㅠ",
+      },
+      {
+        id: 3,
+        author: "결사대원1",
+        text: "내가 직접 옆에서 들었는데, 감동 진짜 미치더라",
+      },
+      {
+        id: 2,
+        author: "조사부장",
+        text: "너무 화끈한 것 같습니다.",
+      },
+      {
         id: 1,
-        author: "캡쳐요정",
-        text: "사진은 정리 중이에요! (곧 업로드 예정)",
+        author: "비밀결사대",
+        text: [
+          <span className="comment-text">
+            그때는 짜증 났지만 지금은 좋아해? 공개 고백 너무 좋아.
+          </span>,
+        ],
       },
     ],
   },
