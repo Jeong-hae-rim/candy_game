@@ -30,12 +30,7 @@ export default function SecretPage() {
       sessionStorage.getItem(SESSION_KEY) === "1" ||
       localStorage.getItem(SESSION_KEY) === "1";
 
-    const publicTabs: MenuKey[] = [
-      "notice",
-      "secret_angels",
-      "md_list",
-      "md-list",
-    ];
+    const publicTabs: MenuKey[] = ["notice", "secret_angels"];
     const isPublicTab = publicTabs.includes((tab as MenuKey) ?? "home");
 
     if (!hasAccess && !isPublicTab) {
@@ -86,11 +81,11 @@ export default function SecretPage() {
         icon: <img src={EYE} alt="" className="eye-logo" />,
       },
       { key: "secret_angels", label: "천사목록", icon: "👼🏻" },
-      // {
-      //   key: "booth_info",
-      //   label: "결사대원목록",
-      //   icon: <img src={EYE2} alt="" className="eye-logo" />,
-      // },
+      {
+        key: "booth_info",
+        label: "결사대원목록",
+        icon: <img src={EYE2} alt="" className="eye-logo" />,
+      },
       {
         key: "gallery",
         label: "디스패치",

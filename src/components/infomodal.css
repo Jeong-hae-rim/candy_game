@@ -45,6 +45,10 @@
   padding: 20px;
 }
 
+.modal-content h2 {
+  margin-top: 1rem;
+}
+
 .modal-close {
   position: absolute;
   top: 10px;

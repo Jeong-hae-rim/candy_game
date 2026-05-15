@@ -2,7 +2,7 @@ import "./infomodal.css";
 
 const InfoModal = ({ card, onClose }: any) => {
   const getRandomColor = () => {
-    const colors = ["#3243a5", "#e63946", "#f4a261", "#2a9d8f", "#8a4ef5"];
+    const colors = ["#6175e5", "#ee6a75", "#f4a261", "#42c2b3", "#8b56e7"];
     return colors[Math.floor(Math.random() * colors.length)];
   };
 
