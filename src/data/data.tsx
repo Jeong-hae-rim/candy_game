@@ -179,8 +179,8 @@ export const data = [
   {
     id: 17,
     src: LOGO,
-    title: "",
-    description: "발치와 리젠트의 상관 관계",
+    title: "발치와 리젠트의 상관 관계",
+    description: "",
     label: "사2",
     author: ["피롯이", "장맨"],
     path: "",
