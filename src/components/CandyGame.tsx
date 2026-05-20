@@ -67,12 +67,6 @@ const BASKET_HEIGHT = 70;
 const BASKET_OFFSET_X = 0;
 const BASKET_OFFSET_Y = 10;
 
-const playSound = (src: string, volume = 0.4) => {
-  const audio = new Audio(src);
-  audio.volume = volume;
-  audio.play().catch(() => {});
-};
-
 const CandyGame = () => {
   const [playerX, setPlayerX] = useState(PLAYER_START_X);
   const [candies, setCandies] = useState<Candy[]>([]);
@@ -227,7 +221,7 @@ const CandyGame = () => {
   };
 
   const handleBombHit = () => {
-    playSound("bomb");
+    playPreparedSound("bomb");
 
     setIsHit(true);
     setTimeout(() => setIsHit(false), 200);
@@ -237,7 +231,7 @@ const CandyGame = () => {
 
       if (next >= 3) {
         setTimeout(() => {
-          playSound("gameover");
+          playPreparedSound("gameover");
           setIsGameOver(true);
         }, 300);
       }
@@ -253,7 +247,7 @@ const CandyGame = () => {
     }
 
     setScore((s) => s + candyScores[candy.type as keyof typeof candyScores]);
-    playSound("candy");
+    playPreparedSound("candy");
   };
 
   const fetchRankings = async () => {
