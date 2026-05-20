@@ -109,10 +109,7 @@
 .player {
   position: absolute;
   bottom: 8px;
-  width: 90px;
-  height: 178px;
-  object-fit: contain;
-  object-position: bottom center;
+  width: 110px;
   z-index: 5;
 }
 
