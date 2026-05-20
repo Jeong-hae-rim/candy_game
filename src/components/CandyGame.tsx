@@ -92,12 +92,27 @@ const CandyGame = () => {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const bgmRef = useRef<HTMLAudioElement | null>(null);
+  const soundRefs = useRef<Record<string, HTMLAudioElement>>({});
 
   const playerImage = isGameOver
     ? PLAYER_GAMEOVER
     : direction === "idle"
     ? PLAYER
     : PLAYER_HOLDING;
+
+  useEffect(() => {
+    soundRefs.current = {
+      candy: new Audio(CANDY_SOUND),
+      bomb: new Audio(BOMB_SOUND),
+      gameover: new Audio(GAMEOVER_SOUND),
+    };
+
+    Object.values(soundRefs.current).forEach((audio) => {
+      audio.preload = "auto";
+      audio.volume = 0.4;
+      audio.load();
+    });
+  }, []);
 
   const moveLeft = () => {
     setPlayerX((x) => Math.max(0, x - MOVE_STEP));
@@ -107,6 +122,14 @@ const CandyGame = () => {
   const moveRight = () => {
     setPlayerX((x) => Math.min(GAME_WIDTH - PLAYER_IDLE_WIDTH, x + MOVE_STEP));
     setDirection("right");
+  };
+
+  const playPreparedSound = (key: "candy" | "bomb" | "gameover") => {
+    const audio = soundRefs.current[key];
+    if (!audio) return;
+
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
   };
 
   const startBgm = () => {
@@ -119,6 +142,22 @@ const CandyGame = () => {
     bgmRef.current.pause();
     bgmRef.current.currentTime = 0;
     bgmRef.current.play().catch(() => {});
+  };
+
+  const unlockSounds = () => {
+    Object.values(soundRefs.current).forEach((audio) => {
+      audio.muted = true;
+      audio
+        .play()
+        .then(() => {
+          audio.pause();
+          audio.currentTime = 0;
+          audio.muted = false;
+        })
+        .catch(() => {
+          audio.muted = false;
+        });
+    });
   };
 
   const resetGame = () => {
@@ -188,7 +227,7 @@ const CandyGame = () => {
   };
 
   const handleBombHit = () => {
-    playSound(BOMB_SOUND);
+    playSound("bomb");
 
     setIsHit(true);
     setTimeout(() => setIsHit(false), 200);
@@ -198,7 +237,7 @@ const CandyGame = () => {
 
       if (next >= 3) {
         setTimeout(() => {
-          playSound(GAMEOVER_SOUND);
+          playSound("gameover");
           setIsGameOver(true);
         }, 300);
       }
@@ -214,7 +253,7 @@ const CandyGame = () => {
     }
 
     setScore((s) => s + candyScores[candy.type as keyof typeof candyScores]);
-    playSound(CANDY_SOUND);
+    playSound("candy");
   };
 
   const fetchRankings = async () => {
@@ -391,6 +430,7 @@ const CandyGame = () => {
                   onClick={() => {
                     setIsStarted(true);
                     startBgm();
+                    unlockSounds();
                   }}
                 >
                   START
