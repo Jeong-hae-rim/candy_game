@@ -62,10 +62,10 @@ const CANDY_FALL_SPEED = 6;
 const CANDY_CREATE_INTERVAL = 800;
 const GAME_TICK = 30;
 
-const BASKET_WIDTH = 110;
-const BASKET_HEIGHT = 70;
-const BASKET_OFFSET_X = 0;
-const BASKET_OFFSET_Y = -10;
+const BASKET_WIDTH = 94;
+const BASKET_HEIGHT = 44;
+const BASKET_OFFSET_X = 8;
+const BASKET_OFFSET_Y = -2;
 
 const CandyGame = () => {
   const [playerX, setPlayerX] = useState(PLAYER_START_X);
