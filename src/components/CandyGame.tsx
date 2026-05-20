@@ -459,7 +459,7 @@ const CandyGame = () => {
               />
             ))}
 
-            <div
+            {/* <div
               style={{
                 position: "absolute",
 
@@ -475,7 +475,7 @@ const CandyGame = () => {
                 zIndex: 999,
                 pointerEvents: "none",
               }}
-            />
+            /> */}
 
             <img
               src={playerImage}
