@@ -65,7 +65,7 @@ const GAME_TICK = 30;
 const BASKET_WIDTH = 110;
 const BASKET_HEIGHT = 70;
 const BASKET_OFFSET_X = 0;
-const BASKET_OFFSET_Y = 10;
+const BASKET_OFFSET_Y = -10;
 
 const CandyGame = () => {
   const [playerX, setPlayerX] = useState(PLAYER_START_X);
@@ -459,23 +459,23 @@ const CandyGame = () => {
               />
             ))}
 
-            {/* <div
-          style={{
-            position: "absolute",
+            <div
+              style={{
+                position: "absolute",
 
-            left: playerX + BASKET_OFFSET_X,
-            top: GAME_HEIGHT - PLAYER_HEIGHT + BASKET_OFFSET_Y,
+                left: playerX + BASKET_OFFSET_X,
+                top: GAME_HEIGHT - PLAYER_HEIGHT + BASKET_OFFSET_Y,
 
-            width: BASKET_WIDTH,
-            height: BASKET_HEIGHT,
+                width: BASKET_WIDTH,
+                height: BASKET_HEIGHT,
 
-            background: "rgba(255, 0, 0, 0.35)",
-            border: "2px solid red",
+                background: "rgba(255, 0, 0, 0.35)",
+                border: "2px solid red",
 
-            zIndex: 999,
-            pointerEvents: "none",
-          }}
-        /> */}
+                zIndex: 999,
+                pointerEvents: "none",
+              }}
+            />
 
             <img
               src={playerImage}

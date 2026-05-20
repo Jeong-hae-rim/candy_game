@@ -260,6 +260,13 @@
   overflow: hidden;
 }
 
+@media (max-width: 420px) {
+  .ranking-box {
+    width: calc(360px * 0.9);
+    height: calc(560px * 0.9);
+  }
+}
+
 .ranking-list {
   max-height: 160px;
   overflow-y: auto;
