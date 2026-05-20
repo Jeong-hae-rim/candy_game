@@ -1,0 +1,380 @@
+.candy-game-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-wrapper {
+  width: 360px;
+  height: 560px;
+  position: relative;
+}
+
+.game-area {
+  position: relative;
+  width: 360px;
+  height: 560px;
+  overflow: hidden;
+  border-radius: 20px;
+  image-rendering: crisp-edges;
+  transform: none;
+}
+
+@media (max-width: 420px) {
+  .game-wrapper {
+    width: calc(360px * 0.9);
+    height: calc(560px * 0.9);
+  }
+
+  .game-area {
+    transform: scale(0.9);
+    transform-origin: top left;
+  }
+}
+
+/* 배경 뿌연 레이어 */
+.game-area::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(0.5px);
+  pointer-events: none;
+}
+
+/* 움직이는 구름 */
+.sky-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("src/assets/images/candy/cloud.png");
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  animation: cloudMove 18s linear infinite;
+}
+
+@keyframes cloudMove {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -240px;
+  }
+}
+
+/* 앞 건물 */
+.building-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: url("src/assets/images/candy/bg_front.png");
+  background-size: cover;
+  background-position: bottom;
+  pointer-events: none;
+}
+
+/* UI */
+.score {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 20;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #222;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.heart-box {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.heart {
+  font-size: 18px;
+  color: red;
+  line-height: 1;
+}
+
+.heart.empty {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+
+/* 오브젝트 */
+.player {
+  position: absolute;
+  bottom: 8px;
+  width: 90px;
+  z-index: 5;
+}
+
+.player.holding,
+.player.gameover {
+  width: 110px;
+}
+
+.candy {
+  position: absolute;
+  width: 50px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* 컨트롤 버튼 */
+.control-buttons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.control-button {
+  width: 64px;
+  height: 64px;
+  border: 4px solid #222;
+  border-radius: 16px;
+  background: white;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #222, inset 0 -4px 0 rgba(0, 0, 0, 0.15);
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+
+.control-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #222, inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* 시작 화면 */
+.start-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  background: rgba(255, 190, 217, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-title {
+  margin-bottom: 24px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.start-button {
+  min-width: 160px;
+  padding: 14px 20px;
+  border: 4px solid #222;
+  border-radius: 16px;
+  background: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #222, inset 0 -4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.start-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #222, inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* 게임오버 */
+.game-over-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-over-text {
+  margin-bottom: 12px;
+  color: white;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.final-score {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+.rank-input {
+  width: 180px;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 4px solid #222;
+  border-radius: 12px;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+.restart-button {
+  min-width: 180px;
+  margin-top: 8px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #222, inset 0 -4px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 0.05s, box-shadow 0.05s;
+}
+
+.restart-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #222, inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.rank-error {
+  margin-top: 8px;
+  color: #ff6b81;
+  font-size: 14px;
+}
+
+/* 랭킹 */
+.ranking-box {
+  position: relative;
+  width: 360px;
+  margin-top: 20px;
+  padding: 16px;
+  border: 4px solid #222;
+  border-radius: 20px;
+  background: #fff3f8;
+  max-height: 220px;
+  overflow: hidden;
+}
+
+.ranking-list {
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.ranking-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ranking-list::-webkit-scrollbar-thumb {
+  background: #ff9fc5;
+  border-radius: 999px;
+}
+
+.ranking-list::-webkit-scrollbar-track {
+  background: #ffe3ef;
+  border-radius: 999px;
+}
+
+.ranking-box h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.ranking-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 2px dashed #ddd;
+  color: #222;
+  font-size: 14px;
+}
+
+/* 효과 */
+.shake {
+  animation: shake 0.3s;
+}
+
+.hit-shake {
+  animation: hitShake 0.2s;
+  filter: brightness(0.9);
+}
+
+/* 모바일 scale 대응 */
+@media (max-width: 420px) {
+  .game-area.shake {
+    animation: shakeMobile 0.3s;
+  }
+
+  .game-area.hit-shake {
+    animation: hitShakeMobile 0.2s;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes hitShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes shakeMobile {
+  0%,
+  100% {
+    transform: scale(0.9) translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: scale(0.9) translateX(-8px);
+  }
+
+  40%,
+  80% {
+    transform: scale(0.9) translateX(8px);
+  }
+}
+
+@keyframes hitShakeMobile {
+  0%,
+  100% {
+    transform: scale(0.9) translateX(0);
+  }
+
+  25%,
+  75% {
+    transform: scale(0.9) translateX(-4px);
+  }
+
+  50% {
+    transform: scale(0.9) translateX(4px);
+  }
+}
