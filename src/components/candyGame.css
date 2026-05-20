@@ -49,7 +49,6 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("src/assets/images/candy/cloud.png");
   background-size: cover;
   background-position: center;
   pointer-events: none;
@@ -70,7 +69,6 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  background-image: url("src/assets/images/candy/bg_front.png");
   background-size: cover;
   background-position: bottom;
   pointer-events: none;

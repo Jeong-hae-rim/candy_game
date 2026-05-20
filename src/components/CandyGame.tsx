@@ -8,6 +8,8 @@ import CANDY_RED from "../assets/images/candy/candy_red.png";
 import CANDY_BLUE from "../assets/images/candy/candy_blue.png";
 import CANDY_PURPLE from "../assets/images/candy/candy_purple.png";
 import BOMB from "../assets/images/candy/bomb.png";
+import SKY from "../assets/images/candy/cloud.png";
+import BUILDING from "../assets/images/candy/bg_front.png";
 
 import CANDY_SOUND from "../assets/sounds/sound1.wav";
 import BOMB_SOUND from "../assets/sounds/bomb.wav";
@@ -367,8 +369,18 @@ const CandyGame = () => {
               isHit ? "hit-shake" : ""
             }`}
           >
-            <div className="sky-layer" />
-            <div className="building-layer" />
+            <div
+              className="sky-layer"
+              style={{
+                backgroundImage: `url(${SKY})`,
+              }}
+            />
+            <div
+              className="building-layer"
+              style={{
+                backgroundImage: `url(${BUILDING})`,
+              }}
+            />
 
             {!isStarted && !isGameOver && (
               <div className="start-ui">
