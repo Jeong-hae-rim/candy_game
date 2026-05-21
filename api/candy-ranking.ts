@@ -24,7 +24,7 @@ export default async function handler(req: any, res: any) {
       const result = await client.execute({
         sql: `
           SELECT name, score, created_at
-          FROM candy_rankings_test
+          FROM candy_rankings
           ORDER BY score DESC, created_at ASC
           LIMIT 10
         `,
@@ -51,7 +51,7 @@ export default async function handler(req: any, res: any) {
 
       await client.execute({
         sql: `
-          INSERT INTO candy_rankings_test (name, score)
+          INSERT INTO candy_rankings (name, score)
           VALUES (?, ?)
         `,
         args: [name.trim(), score],
